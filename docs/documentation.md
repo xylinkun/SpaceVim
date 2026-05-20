@@ -1514,7 +1514,7 @@ Files manipulation commands (start with `f`):
 | ------------ | ----------------------------------------------------------------------- |
 | `SPC f /`    | Find files with `find` or [`fd`](https://github.com/sharkdp/fd) command |
 | `SPC f b`    | go to file bookmarks                                                    |
-| `SPC f c`    | copy current file to a different location(TODO)                         |
+| `SPC f c`    | copy current file to a different location                         |
 | `SPC f C d`  | convert file from unix to dos encoding                                  |
 | `SPC f C u`  | convert file from dos to unix encoding                                  |
 | `SPC f D`    | delete a file and the associated buffer with confirmation               |

@@ -484,6 +484,9 @@ function! SpaceVim#layers#core#config() abort
     call SpaceVim#mapping#space#def('nnoremap', ['b', 't'], 'Neotree dir=%:p:h', 'show file tree at buffer dir', 1)
   endif
   call SpaceVim#mapping#space#def('nnoremap', ['f', 'y'], 'call SpaceVim#util#CopyToClipboard()', 'show and copy buffer filename', 1)
+  call SpaceVim#mapping#space#def('nnoremap', ['f', 'c'], 'call call('
+        \ . string(s:_function('s:copy_file')) . ', [])',
+        \ 'copy current file to a new location', 1)
   nnoremap <silent> <Plug>YankGitRemoteURL :call SpaceVim#util#CopyToClipboard(2)<Cr>
   vnoremap <silent> <Plug>YankGitRemoteURL :<C-u>call SpaceVim#util#CopyToClipboard(3)<Cr>
   call SpaceVim#mapping#space#def('nmap', ['f', 'Y'], '<Plug>YankGitRemoteURL', 'yank remote url', 0, 1)
@@ -1294,6 +1297,27 @@ function! SpaceVim#layers#core#loadable() abort
 
   return 1
 
+endfunction
+
+function! s:copy_file() abort
+  let l:src = expand("%:p")
+  if empty(l:src)
+    echohl WarningMsg | echo "No file to copy" | echohl None
+    return
+  endif
+  let l:dst = input("Copy to: ", fnamemodify(l:src, ":h") . "/")
+  if empty(l:dst)
+    return
+  endif
+  let l:dst = expand(l:dst)
+  if filereadable(l:dst)
+    echohl WarningMsg | echo "File already exists: " . l:dst | echohl None
+    return
+  endif
+  let l:save = @"
+  silent execute "keepalt saveas " . fnameescape(l:dst)
+  let @" = l:save
+  echohl Question | echo "Copied to: " . l:dst | echohl None
 endfunction
 
 " vim:set et sw=2 cc=80:

@@ -1412,7 +1412,7 @@ SpaceVim 选项 `window_leader` 的值来设为其它按键：
 | -------------------- | ------------------------------------------------------ |
 | `SPC f /`            | 使用 `find` 或者 `fd` 命令查找文件，支持参数提示       |
 | `SPC f b`            | 跳至文件书签                                           |
-| `SPC f c`            | copy current file to a different location(TODO)        |
+| `SPC f c`            | 复制当前文件到指定位置                               |
 | `SPC f C d`          | 修改文件编码 unix -> dos                               |
 | `SPC f C u`          | 修改文件编码 dos -> unix                               |
 | `SPC f D`            | 删除文件以及 buffer，需要手动确认                      |
