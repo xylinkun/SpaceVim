@@ -1170,9 +1170,9 @@ Text related commands (start with `x`):
 | `SPC x i u`      | change symbol style to `under_score`                               |
 | `SPC x i U`      | change symbol style to `UP_CASE`                                   |
 | `SPC x j c`      | set the justification to center                                    |
-| `SPC x j f`      | set the justification to full (TODO)                               |
+| `SPC x j f`      | set the justification to full                                 |
 | `SPC x j l`      | set the justification to left                                      |
-| `SPC x j n`      | set the justification to none (TODO)                               |
+| `SPC x j n`      | set the justification to none                                 |
 | `SPC x j r`      | set the justification to right                                     |
 | `SPC x J`        | move down a line of text (enter transient state)                   |
 | `SPC x K`        | move up a line of text (enter transient state)                     |

@@ -1089,9 +1089,9 @@ call SpaceVim#custom#SPC('nnoremap', ['f', 't'], 'echom "hello world"', 'test cu
 | `SPC x i u`      | change symbol style to `under_score`                               |
 | `SPC x i U`      | change symbol style to `UP_CASE`                                   |
 | `SPC x j c`      | 居中对齐当前段落                                                   |
-| `SPC x j f`      | set the justification to full (TODO)                               |
+| `SPC x j f`      | 两端对齐当前段落                                                   |
 | `SPC x j l`      | 左对齐当前段落                                                     |
-| `SPC x j n`      | set the justification to none (TODO)                               |
+| `SPC x j n`      | 取消对齐当前段落                                                   |
 | `SPC x j r`      | 右对齐当前段落                                                     |
 | `SPC x J`        | 将当前行向下移动一行并进入临时快捷键状态                           |
 | `SPC x K`        | 将当前行向上移动一行并进入临时快捷键状态                           |

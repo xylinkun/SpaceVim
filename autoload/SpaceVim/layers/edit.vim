@@ -257,6 +257,12 @@ function! SpaceVim#layers#edit#config() abort
   call SpaceVim#mapping#space#def('nnoremap', ['x', 'j', 'r'], 'silent call call('
         \ . string(s:_function('s:set_justification_to')) . ', ["right"])',
         \ 'set the justification to right', 1)
+  call SpaceVim#mapping#space#def('nnoremap', ['x', 'j', 'f'], 'silent call call('
+        \ . string(s:_function('s:set_justification_to')) . ', ["full"])',
+        \ 'set the justification to full', 1)
+  call SpaceVim#mapping#space#def('nnoremap', ['x', 'j', 'n'], 'silent call call('
+        \ . string(s:_function('s:set_justification_to')) . ', ["none"])',
+        \ 'set the justification to none', 1)
 
   nnoremap <silent> <Plug>Lowercase  :call <SID>toggle_case(0, -1)<Cr>
   vnoremap <silent> <Plug>Lowercase  :call <SID>toggle_case(1, -1)<Cr>
@@ -501,10 +507,10 @@ function! s:better_easymotion_overwin_f(is_visual) abort
       let last_line = line('.')
       let [last_line, last_col] = getpos('.')[1:2]
       call cursor(current_line, current_col)
-      if last_line > current_line        
+      if last_line > current_line
         exe 'normal! v' . (last_line - current_line) . 'j0' . last_col . '|'
       else
-        exe 'normal! v' . (current_line - last_line) . 'k0' . last_col . '|' 
+        exe 'normal! v' . (current_line - last_line) . 'k0' . last_col . '|'
       endif
     endif
   catch /^Vim\%((\a\+)\)\=:E117/
@@ -512,7 +518,7 @@ function! s:better_easymotion_overwin_f(is_visual) abort
   endtry
 endfunction
 
-function! s:move_text_down_transient_state() abort   
+function! s:move_text_down_transient_state() abort
   if line('.') == line('$')
   else
     let l:save_register = @"
@@ -532,7 +538,7 @@ function! s:move_text_up_transient_state() abort
 endfunction
 
 function! s:text_transient_state() abort
-  let state = SpaceVim#api#import('transient_state') 
+  let state = SpaceVim#api#import('transient_state')
   call state.set_title('Move Text Transient State')
   call state.defind_keys(
         \ {
@@ -720,6 +726,10 @@ function! s:set_justification_to(align) abort
     execute l:startlinenr . ',' . l:endlinenr . ':center ' . l:maxlength . "\<cr>"
   elseif a:align ==# 'right'
     execute l:startlinenr . ',' . l:endlinenr . ':right  ' . l:maxlength . "\<cr>"
+  elseif a:align ==# 'full'
+    execute l:startlinenr . ',' . l:endlinenr . ':center ' . l:maxlength . "\<cr>"
+  elseif a:align ==# 'none'
+    execute l:startlinenr . ',' . l:endlinenr . ":left 0\<cr>"
   endif
 
   unlet l:startlinenr
