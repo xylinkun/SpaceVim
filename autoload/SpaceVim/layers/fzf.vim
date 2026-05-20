@@ -62,7 +62,7 @@ function! SpaceVim#layers#fzf#config() abort
     autocmd FileType fzf setlocal nonumber norelativenumber
   augroup END
   let lnum = expand('<slnum>') + s:lnum - 1
-  call SpaceVim#mapping#space#def('nnoremap', ['h', '[SPC]'], 'FzfHelpTags SpaceVim', 'find-SpaceVim-help', 1)
+  call SpaceVim#mapping#space#def('nnoremap', ['h', '[SPC]'], 'FzfHelpTags SpaceVim', 'find SpaceVim help', 1)
   call SpaceVim#mapping#space#def('nnoremap', ['h', 'i'], 'exe "FzfHelpTags " . expand("<cword>")', 'get help with the symbol at point', 1)
   call SpaceVim#mapping#space#def('nnoremap', ['b', 'b'], 'FzfBuffers', 'List all buffers', 1)
   call SpaceVim#mapping#space#def('nnoremap', ['p', 'f'],
@@ -78,7 +78,7 @@ function! SpaceVim#layers#fzf#config() abort
   call SpaceVim#mapping#space#def('nnoremap', ['j', 'i'], 'FzfOutline', 'jump to a definition in buffer', 1)
   nnoremap <silent> <C-p> :FzfFiles<cr>
   call SpaceVim#mapping#space#def('nnoremap', ['T', 's'], 'FzfColors', 'fuzzy find colorschemes', 1)
-  call SpaceVim#mapping#space#def('nnoremap', ['f', 'r'], 'FzfMru', 'open-recent-file', 1)
+  call SpaceVim#mapping#space#def('nnoremap', ['f', 'r'], 'FzfMru', 'open recent file', 1)
   let lnum = expand('<slnum>') + s:lnum - 1
   call SpaceVim#mapping#space#def('nnoremap', ['f', 'f'],
         \ "exe 'FZF ' . fnamemodify(bufname('%'), ':h')",

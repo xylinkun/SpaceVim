@@ -56,7 +56,7 @@ function! SpaceVim#layers#chat#config() abort
   let g:chatting_server_port = s:chat_port
   let g:chatting_server_lib = s:chat_client_jar
   let g:chat_gitter_token = s:gitter_token
-  call SpaceVim#mapping#space#def('nnoremap', ['a', 'h'], 'call chat#windows#open()', 'open-chat-window', 1)
+  call SpaceVim#mapping#space#def('nnoremap', ['a', 'h'], 'call chat#windows#open()', 'open chat window', 1)
 endfunction
 
 function! SpaceVim#layers#chat#health() abort

@@ -28,13 +28,13 @@ function! s:language_specified_mappings() abort
     call SpaceVim#mapping#space#langSPC('nnoremap', ['l', 'r'],
           \ 'call SpaceVim#lsp#rename()', 'rename', 1)
     call SpaceVim#mapping#space#langSPC('nnoremap', ['l', 's'],
-          \ 'call SpaceVim#lsp#show_line_diagnostics()', 'show-line-diagnostics', 1)
+          \ 'call SpaceVim#lsp#show_line_diagnostics()', 'show line diagnostics', 1)
     call SpaceVim#mapping#space#langSPC('nnoremap', ['l', 'd'],
-          \ 'call SpaceVim#lsp#go_to_def()', 'go-to-definition', 1)
+          \ 'call SpaceVim#lsp#go_to_def()', 'go to definition', 1)
     call SpaceVim#mapping#space#langSPC('nnoremap', ['l', 'n'],
-         \ 'call SpaceVim#lsp#diagnostic_goto_next()', 'next-diagnostic', 1)
+         \ 'call SpaceVim#lsp#diagnostic_goto_next()', 'next diagnostic', 1)
     call SpaceVim#mapping#space#langSPC('nnoremap', ['l', 'p'],
-         \ 'call SpaceVim#lsp#diagnostic_goto_prev()', 'previous-diagnostic', 1)
+         \ 'call SpaceVim#lsp#diagnostic_goto_prev()', 'previous diagnostic', 1)
  endif
 endfunction
 

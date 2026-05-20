@@ -52,13 +52,13 @@ function! SpaceVim#layers#tools#mpv#config() abort
   let g:_spacevim_mappings_space.m.m = {'name' : '+mpv'}
   call SpaceVim#mapping#space#def('nnoremap', ['m', 'm', 'l'], 'call call('
         \ . string(s:_function('s:list_music')) . ', [])',
-        \ 'fuzzy-find-musics', 1)
+        \ 'fuzzy find musics', 1)
   call SpaceVim#mapping#space#def('nnoremap', ['m', 'm', 'n'], 'call call('
         \ . string(s:_function('s:next')) . ', [])',
-        \ 'next-music', 1)
+        \ 'next music', 1)
   call SpaceVim#mapping#space#def('nnoremap', ['m', 'm', 's'], 'call call('
         \ . string(s:_function('s:stop')) . ', [])',
-        \ 'stop-mpv', 1)
+        \ 'stop mpv', 1)
 endfunction
 
 function! s:list_music() abort

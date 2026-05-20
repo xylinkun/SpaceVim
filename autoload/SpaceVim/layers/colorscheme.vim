@@ -138,7 +138,7 @@ function! SpaceVim#layers#colorscheme#config() abort
   endif
   call SpaceVim#mapping#space#def('nnoremap', ['T', 'n'],
         \ 'call call(' . string(s:_function('s:cycle_spacevim_theme'))
-        \ . ', [])', 'cycle-spacevim-theme', 1)
+        \ . ', [])', 'cycle spacevim theme', 1)
 endfunction
 
 function! s:update_conf() abort
@@ -152,7 +152,7 @@ endfunction
 
 
 function! SpaceVim#layers#colorscheme#set_variable(var) abort
-  let s:random_colorscheme = get(a:var, 'random_theme', get(a:var, 'random-theme', 0))
+  let s:random_colorscheme = get(a:var, 'random_theme', get(a:var, 'random theme', 0))
   let s:random_candidates = get(a:var, 'random_candidates', get(a:var, 'random-candidates', s:cs))
   let s:random_frequency = get(a:var, 'frequency', 'hourly')
   let s:bright_statusline = get(a:var, 'bright_statusline', 0)

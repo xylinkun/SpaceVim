@@ -32,7 +32,7 @@ if !exists('Pmd_Cmd')
 endif
 
 if !exists('Pmd_Rulesets')
-  let g:Pmd_Rulesets = ['-R', 'java-basic,java-design', '-property', 'xsltFilename=my-own.xs']
+  let g:Pmd_Rulesets = ['-R', 'java basic,java design', '-property', 'xsltFilename=my-own.xs']
 endif
 
 if !exists('Pmd_silent_stderr')

@@ -197,28 +197,28 @@ function! SpaceVim#layers#edit#config() abort
   nnoremap <silent> <Plug>CountSelectionRegion :call <SID>count_selection_region()<Cr>
   xnoremap <silent> <Plug>CountSelectionRegion :<C-u>call <SID>count_selection_region()<Cr>
   call SpaceVim#mapping#space#def('nmap', ['x', 'c'], '<Plug>CountSelectionRegion', 'count in the selection region', 0, 1)
-  call SpaceVim#mapping#space#def('nnoremap', ['x', 'a', '#'], 'Tabularize /#', 'align-region-at-#', 1, 1)
-  call SpaceVim#mapping#space#def('nnoremap', ['x', 'a', '%'], 'Tabularize /%', 'align-region-at-%', 1, 1)
-  call SpaceVim#mapping#space#def('nnoremap', ['x', 'a', '&'], 'Tabularize /&', 'align-region-at-&', 1, 1)
-  call SpaceVim#mapping#space#def('nnoremap', ['x', 'a', '('], 'Tabularize /(', 'align-region-at-(', 1, 1)
-  call SpaceVim#mapping#space#def('nnoremap', ['x', 'a', ')'], 'Tabularize /)', 'align-region-at-)', 1, 1)
-  call SpaceVim#mapping#space#def('nnoremap', ['x', 'a', '['], 'Tabularize /[', 'align-region-at-[', 1, 1)
-  call SpaceVim#mapping#space#def('nnoremap', ['x', 'a', ']'], 'Tabularize /]', 'align-region-at-]', 1, 1)
-  call SpaceVim#mapping#space#def('nnoremap', ['x', 'a', '{'], 'Tabularize /{', 'align-region-at-{', 1, 1)
-  call SpaceVim#mapping#space#def('nnoremap', ['x', 'a', '}'], 'Tabularize /}', 'align-region-at-}', 1, 1)
-  call SpaceVim#mapping#space#def('nnoremap', ['x', 'a', ','], 'Tabularize /,', 'align-region-at-,', 1, 1)
-  call SpaceVim#mapping#space#def('nnoremap', ['x', 'a', '.'], 'Tabularize /\.', 'align-region-at-dot', 1, 1)
-  call SpaceVim#mapping#space#def('nnoremap', ['x', 'a', ':'], 'Tabularize /:', 'align-region-at-:', 1, 1)
-  call SpaceVim#mapping#space#def('nnoremap', ['x', 'a', ';'], 'Tabularize /;', 'align-region-at-;', 1, 1)
-  call SpaceVim#mapping#space#def('nnoremap', ['x', 'a', '='], 'Tabularize /===\|<=>\|\(&&\|||\|<<\|>>\|\/\/\)=\|=\~[#?]\?\|=>\|[:+/*!%^=><&|.?-]\?=[#?]\?/l1r1', 'align-region-at-=', 1, 1)
+  call SpaceVim#mapping#space#def('nnoremap', ['x', 'a', '#'], 'Tabularize /#', 'align region at #', 1, 1)
+  call SpaceVim#mapping#space#def('nnoremap', ['x', 'a', '%'], 'Tabularize /%', 'align region at %', 1, 1)
+  call SpaceVim#mapping#space#def('nnoremap', ['x', 'a', '&'], 'Tabularize /&', 'align region at &', 1, 1)
+  call SpaceVim#mapping#space#def('nnoremap', ['x', 'a', '('], 'Tabularize /(', 'align region at (', 1, 1)
+  call SpaceVim#mapping#space#def('nnoremap', ['x', 'a', ')'], 'Tabularize /)', 'align region at )', 1, 1)
+  call SpaceVim#mapping#space#def('nnoremap', ['x', 'a', '['], 'Tabularize /[', 'align region at [', 1, 1)
+  call SpaceVim#mapping#space#def('nnoremap', ['x', 'a', ']'], 'Tabularize /]', 'align region at ]', 1, 1)
+  call SpaceVim#mapping#space#def('nnoremap', ['x', 'a', '{'], 'Tabularize /{', 'align region at {', 1, 1)
+  call SpaceVim#mapping#space#def('nnoremap', ['x', 'a', '}'], 'Tabularize /}', 'align region at }', 1, 1)
+  call SpaceVim#mapping#space#def('nnoremap', ['x', 'a', ','], 'Tabularize /,', 'align region at ,', 1, 1)
+  call SpaceVim#mapping#space#def('nnoremap', ['x', 'a', '.'], 'Tabularize /\.', 'align region at dot', 1, 1)
+  call SpaceVim#mapping#space#def('nnoremap', ['x', 'a', ':'], 'Tabularize /:', 'align region at :', 1, 1)
+  call SpaceVim#mapping#space#def('nnoremap', ['x', 'a', ';'], 'Tabularize /;', 'align region at ;', 1, 1)
+  call SpaceVim#mapping#space#def('nnoremap', ['x', 'a', '='], 'Tabularize /===\|<=>\|\(&&\|||\|<<\|>>\|\/\/\)=\|=\~[#?]\?\|=>\|[:+/*!%^=><&|.?-]\?=[#?]\?/l1r1', 'align region at =', 1, 1)
   call SpaceVim#mapping#space#def('nnoremap', ['x', 'a', 'o'], 'Tabularize /&&\|||\|\.\.\|\*\*\|<<\|>>\|\/\/\|[-+*/.%^><&|?]/l1r1', 'align-region-at-operator, such as +,-,*,/,%,^,etc', 1, 1)
-  call SpaceVim#mapping#space#def('nnoremap', ['x', 'a', '¦'], 'Tabularize /¦', 'align-region-at-¦', 1, 1)
-  call SpaceVim#mapping#space#def('nnoremap', ['x', 'a', '<Bar>'], 'Tabularize /[|｜]', 'align-region-at-|', 1, 1)
-  call SpaceVim#mapping#space#def('nmap', ['x', 'a', '[SPC]'], 'Tabularize /\s\ze\S/l0', 'align-region-at-space', 1, 1)
+  call SpaceVim#mapping#space#def('nnoremap', ['x', 'a', '¦'], 'Tabularize /¦', 'align region at ¦', 1, 1)
+  call SpaceVim#mapping#space#def('nnoremap', ['x', 'a', '<Bar>'], 'Tabularize /[|｜]', 'align region at |', 1, 1)
+  call SpaceVim#mapping#space#def('nmap', ['x', 'a', '[SPC]'], 'Tabularize /\s\ze\S/l0', 'align region at space', 1, 1)
   nmap <Space>xa<Space> [SPC]xa[SPC]
   call SpaceVim#mapping#space#def('nnoremap', ['x', 'a', 'r'], 'call call('
         \ . string(s:_function('s:align_at_regular_expression')) . ', [])',
-        \ 'align-region-at-user-specified-regexp', 1)
+        \ 'align region at user specified regexp', 1)
   call SpaceVim#mapping#space#def('nnoremap', ['x', 'd', 'w'], 'StripWhitespace', 'delete trailing whitespaces', 1)
   call SpaceVim#mapping#space#def('nnoremap', ['x', 'd', '[SPC]'], 'silent call call('
         \ . string(s:_function('s:delete_extra_space')) . ', [])',
@@ -241,22 +241,22 @@ function! SpaceVim#layers#edit#config() abort
         \ 'change symbol style to UP_CASE', 1)
   call SpaceVim#mapping#space#def('nnoremap', ['x', 'i', 'k'], 'silent call call('
         \ . string(s:_function('s:kebab_case')) . ', [])',
-        \ 'change symbol style to kebab-case', 1)
+        \ 'change symbol style to kebab case', 1)
   call SpaceVim#mapping#space#def('nnoremap', ['x', 'i', '-'], 'silent call call('
         \ . string(s:_function('s:kebab_case')) . ', [])',
-        \ 'change symbol style to kebab-case', 1)
+        \ 'change symbol style to kebab case', 1)
 
   " justification
   let g:_spacevim_mappings_space.x.j = {'name' : '+Justification'}
   call SpaceVim#mapping#space#def('nnoremap', ['x', 'j', 'l'], 'silent call call('
         \ . string(s:_function('s:set_justification_to')) . ', ["left"])',
-        \ 'set-the-justification-to-left', 1)
+        \ 'set the justification to left', 1)
   call SpaceVim#mapping#space#def('nnoremap', ['x', 'j', 'c'], 'silent call call('
         \ . string(s:_function('s:set_justification_to')) . ', ["center"])',
-        \ 'set-the-justification-to-center', 1)
+        \ 'set the justification to center', 1)
   call SpaceVim#mapping#space#def('nnoremap', ['x', 'j', 'r'], 'silent call call('
         \ . string(s:_function('s:set_justification_to')) . ', ["right"])',
-        \ 'set-the-justification-to-right', 1)
+        \ 'set the justification to right', 1)
 
   nnoremap <silent> <Plug>Lowercase  :call <SID>toggle_case(0, -1)<Cr>
   vnoremap <silent> <Plug>Lowercase  :call <SID>toggle_case(1, -1)<Cr>
@@ -264,9 +264,9 @@ function! SpaceVim#layers#edit#config() abort
   vnoremap <silent> <Plug>Uppercase  :call <SID>toggle_case(1, 1)<Cr>
   nnoremap <silent> <Plug>ToggleCase :call <SID>toggle_case(0, 0)<Cr>
   vnoremap <silent> <Plug>ToggleCase :call <SID>toggle_case(1, 0)<Cr>
-  call SpaceVim#mapping#space#def('nmap' , ['x' , 'u'] , '<Plug>Lowercase'  , 'lowercase-text'   , 0, 1)
-  call SpaceVim#mapping#space#def('nmap' , ['x' , 'U'] , '<Plug>Uppercase'  , 'uppercase-text'   , 0, 1)
-  call SpaceVim#mapping#space#def('nmap' , ['x' , '~'] , '<Plug>ToggleCase' , 'toggle-case-text' , 0, 1)
+  call SpaceVim#mapping#space#def('nmap' , ['x' , 'u'] , '<Plug>Lowercase'  , 'lowercase text'   , 0, 1)
+  call SpaceVim#mapping#space#def('nmap' , ['x' , 'U'] , '<Plug>Uppercase'  , 'uppercase text'   , 0, 1)
+  call SpaceVim#mapping#space#def('nmap' , ['x' , '~'] , '<Plug>ToggleCase' , 'toggle case text' , 0, 1)
 
   " 定义 SpaceVim 键映射
   call SpaceVim#mapping#space#def('nmap', ['x', 'H'], '<Plug>ConvertToFullWidth', 'convert to fullWidth', 0, 1)
@@ -279,27 +279,27 @@ function! SpaceVim#layers#edit#config() abort
   let g:_spacevim_mappings_space.x.s = {'name' : '+String/Snippet'}
   call SpaceVim#mapping#space#def('nnoremap', ['x', 's', 'j'], 'call call('
         \ . string(s:_function('s:join_string_with')) . ', [])',
-        \ 'join-string-with', 1)
+        \ 'join string with', 1)
 
   " line
   let g:_spacevim_mappings_space.x.l = {'name' : '+Line'}
   nnoremap <silent> <Plug>DuplicateLines :call <SID>duplicate_lines(0)<Cr>
   vnoremap <silent> <Plug>DuplicateLines :call <SID>duplicate_lines(1)<Cr>
   call SpaceVim#mapping#space#def('nmap', ['x', 'l', 'd'], '<Plug>DuplicateLines',
-        \ 'duplicate-line-or-region', 0, 1)
+        \ 'duplicate line or region', 0, 1)
   nnoremap <silent> <Plug>ReverseLines :ReverseLines<cr>
   vnoremap <silent> <Plug>ReverseLines :ReverseLines<cr>
-  call SpaceVim#mapping#space#def('nmap' , ['x' , 'l' , 'r'] , '<Plug>ReverseLines'  , 'reverse-lines'                  , 0, 1)
+  call SpaceVim#mapping#space#def('nmap' , ['x' , 'l' , 'r'] , '<Plug>ReverseLines'  , 'reverse lines'                  , 0, 1)
   call SpaceVim#mapping#space#def('nnoremap' , ['x' , 'l' , 's'] , 'sort i'  , 'sort lines (ignorecase)'                    , 1)
-  call SpaceVim#mapping#space#def('nnoremap' , ['x' , 'l' , 'S'] , 'sort'    , 'sort lines (case-sensitive)'                , 1)
+  call SpaceVim#mapping#space#def('nnoremap' , ['x' , 'l' , 'S'] , 'sort'    , 'sort lines (case sensitive)'                , 1)
   nnoremap <silent> <Plug>UniquifyIgnoreCaseLines :call <SID>uniquify_lines(0, 1)<Cr>
   vnoremap <silent> <Plug>UniquifyIgnoreCaseLines :call <SID>uniquify_lines(1, 1)<Cr>
   nnoremap <silent> <Plug>UniquifyCaseSenstiveLines :call <SID>uniquify_lines(0, 0)<Cr>
   vnoremap <silent> <Plug>UniquifyCaseSenstiveLines :call <SID>uniquify_lines(1, 0)<Cr>
   call SpaceVim#mapping#space#def('nmap', ['x', 'l', 'u'], '<Plug>UniquifyIgnoreCaseLines',
-        \ 'uniquify-lines (ignorecase)', 0, 1)
+        \ 'uniquify lines (ignorecase)', 0, 1)
   call SpaceVim#mapping#space#def('nmap', ['x', 'l', 'U'], '<Plug>UniquifyCaseSenstiveLines',
-        \ 'uniquify-lines (case-senstive)', 0, 1)
+        \ 'uniquify lines (case senstive)', 0, 1)
 
   let g:_spacevim_mappings_space.x.g = {'name' : '+Grammarous'}
   " | `<Plug>(grammarous-move-to-info-window)`    | Move the cursor to the info window                   |
@@ -312,43 +312,43 @@ function! SpaceVim#layers#edit#config() abort
   " | `<Plug>(grammarous-disable-rule)`           | Disable the grammar rule under the cursor            |
   " | `<Plug>(grammarous-move-to-next-error)`     | Move cursor to the next error                        |
   " | `<Plug>(grammarous-move-to-previous-error)` | Move cursor to the previous error                    |
-  call SpaceVim#mapping#space#def('nmap', ['x', 'g', 'n'], '<Plug>(grammarous-move-to-next-error)', 'move-cursor-to-next-error', 0, 1)
-  call SpaceVim#mapping#space#def('nmap', ['x', 'g', 'p'], '<Plug>(grammarous-move-to-previous-error)', 'move-cursor-to-previous-error', 0, 1)
+  call SpaceVim#mapping#space#def('nmap', ['x', 'g', 'n'], '<Plug>(grammarous-move-to-next-error)', 'move cursor to next error', 0, 1)
+  call SpaceVim#mapping#space#def('nmap', ['x', 'g', 'p'], '<Plug>(grammarous-move-to-previous-error)', 'move cursor to previous error', 0, 1)
 
   call SpaceVim#mapping#space#def('nnoremap', ['i', 'p', 1], 'call call('
         \ . string(s:_function('s:insert_simple_password')) . ', [])',
-        \ 'insert-simple-password', 1)
+        \ 'insert simple password', 1)
   call SpaceVim#mapping#space#def('nnoremap', ['i', 'p', 2], 'call call('
         \ . string(s:_function('s:insert_stronger_password')) . ', [])',
-        \ 'insert-stronger-password', 1)
+        \ 'insert stronger password', 1)
   call SpaceVim#mapping#space#def('nnoremap', ['i', 'p', 3], 'call call('
         \ . string(s:_function('s:insert_paranoid_password')) . ', [])',
-        \ 'insert-password-for-paranoids', 1)
+        \ 'insert password for paranoids', 1)
   call SpaceVim#mapping#space#def('nnoremap', ['i', 'p', 'p'], 'call call('
         \ . string(s:_function('s:insert_phonetically_password')) . ', [])',
-        \ 'insert-a-phonetically-easy-password', 1)
+        \ 'insert a phonetically easy password', 1)
   call SpaceVim#mapping#space#def('nnoremap', ['i', 'p', 'n'], 'call call('
         \ . string(s:_function('s:insert_numerical_password')) . ', [])',
-        \ 'insert-a-numerical-password', 1)
+        \ 'insert a numerical password', 1)
   call SpaceVim#mapping#space#def('nnoremap', ['i', 'U', 'U'], 'call call('
         \ . string(s:_function('s:uuidgen_U')) . ', [])',
         \ 'uuidgen-4', 1)
   call SpaceVim#mapping#space#def('nnoremap', ['i', 'l', 'l'], 'call call('
         \ . string(s:_function('s:insert_lorem_ipsum_list')) . ', [])',
-        \ 'insert-lorem-ipsum-list', 1)
+        \ 'insert lorem ipsum list', 1)
   call SpaceVim#mapping#space#def('nnoremap', ['i', 'l', 'p'], 'call call('
         \ . string(s:_function('s:insert_lorem_ipsum_paragraph')) . ', [])',
-        \ 'insert-lorem-ipsum-paragraph', 1)
+        \ 'insert lorem ipsum paragraph', 1)
   call SpaceVim#mapping#space#def('nnoremap', ['i', 'l', 's'], 'call call('
         \ . string(s:_function('s:insert_lorem_ipsum_sentence')) . ', [])',
-        \ 'insert-lorem-ipsum-sentence', 1)
+        \ 'insert lorem ipsum sentence', 1)
   " move line
   call SpaceVim#mapping#space#def('nnoremap', ['x', 'J'], 'call call('
         \ . string(s:_function('s:move_text_down_transient_state')) . ', [])',
-        \ 'move-text-down(enter-transient-state)', 1)
+        \ 'move text down(enter transient state)', 1)
   call SpaceVim#mapping#space#def('nnoremap', ['x', 'K'], 'call call('
         \ . string(s:_function('s:move_text_up_transient_state')) . ', [])',
-        \ 'move-text-up(enter-transient-state)', 1)
+        \ 'move text up(enter transient state)', 1)
 
   " transpose
   if has_key(g:_spacevim_mappings_space.x, 't')
@@ -358,52 +358,52 @@ function! SpaceVim#layers#edit#config() abort
   endif
   call SpaceVim#mapping#space#def('nnoremap', ['x', 't', 'c'], 'call call('
         \ . string(s:_function('s:transpose_with_previous')) . ', ["character"])',
-        \ 'swap-current-character-with-previous-one', 1)
+        \ 'swap current character with previous one', 1)
   call SpaceVim#mapping#space#def('nnoremap', ['x', 't', 'w'], 'call call('
         \ . string(s:_function('s:transpose_with_previous')) . ', ["word"])',
-        \ 'swap-current-word-with-previous-one', 1)
+        \ 'swap current word with previous one', 1)
   call SpaceVim#mapping#space#def('nnoremap', ['x', 't', 'l'], 'call call('
         \ . string(s:_function('s:transpose_with_previous')) . ', ["line"])',
-        \ 'swap-current-line-with-previous-one', 1)
+        \ 'swap current line with previous one', 1)
   call SpaceVim#mapping#space#def('nnoremap', ['x', 't', 'C'], 'call call('
         \ . string(s:_function('s:transpose_with_next')) . ', ["character"])',
-        \ 'swap-current-character-with-next-one', 1)
+        \ 'swap current character with next one', 1)
   call SpaceVim#mapping#space#def('nnoremap', ['x', 't', 'W'], 'call call('
         \ . string(s:_function('s:transpose_with_next')) . ', ["word"])',
-        \ 'swap-current-word-with-next-one', 1)
+        \ 'swap current word with next one', 1)
   call SpaceVim#mapping#space#def('nnoremap', ['x', 't', 'L'], 'call call('
         \ . string(s:_function('s:transpose_with_next')) . ', ["line"])',
-        \ 'swap-current-line-with-next-one', 1)
+        \ 'swap current line with next one', 1)
 
   " splitjoin
   call SpaceVim#mapping#space#def('nnoremap', ['j', 'o'],
-        \ 'SplitjoinJoin', 'join into a single-line statement', 1)
+        \ 'SplitjoinJoin', 'join into a single line statement', 1)
   call SpaceVim#mapping#space#def('nnoremap', ['j', 'm'],
-        \ 'SplitjoinSplit', 'split a one-liner into multiple lines', 1)
-  call SpaceVim#mapping#space#def('nnoremap', ['j', 'k'], 'j==', 'goto-next-line-and-indent', 0)
+        \ 'SplitjoinSplit', 'split a one liner into multiple lines', 1)
+  call SpaceVim#mapping#space#def('nnoremap', ['j', 'k'], 'j==', 'goto next line and indent', 0)
 
   if has('nvim-0.6.0') && s:enable_hop
-    call SpaceVim#mapping#space#def('nmap', ['j', 'j'], 'HopChar1', 'jump-or-select-to-a-character', 1, 1)
-    call SpaceVim#mapping#space#def('nmap', ['j', 'J'], 'HopChar2', 'jump-to-suite-of-two-characters', 1, 1)
-    call SpaceVim#mapping#space#def('nmap', ['j', 'l'], 'HopLine', 'jump-or-select-to-a-line', 1, 1)
-    call SpaceVim#mapping#space#def('nmap', ['j', 'w'], 'HopWord', 'jump-to-a-word', 1, 1)
+    call SpaceVim#mapping#space#def('nmap', ['j', 'j'], 'HopChar1', 'jump or select to a character', 1, 1)
+    call SpaceVim#mapping#space#def('nmap', ['j', 'J'], 'HopChar2', 'jump to suite of two characters', 1, 1)
+    call SpaceVim#mapping#space#def('nmap', ['j', 'l'], 'HopLine', 'jump or select to a line', 1, 1)
+    call SpaceVim#mapping#space#def('nmap', ['j', 'w'], 'HopWord', 'jump to a word', 1, 1)
   else
     " call SpaceVim#mapping#space#def('nmap', ['j', 'j'], '<Plug>(easymotion-overwin-f)', 'jump to a character', 0)
-    call SpaceVim#mapping#space#def('nmap', ['j', 'j'], '<Plug>(better-easymotion-overwin-f)', 'jump-or-select-to-a-character', 0, 1)
+    call SpaceVim#mapping#space#def('nmap', ['j', 'j'], '<Plug>(better-easymotion-overwin-f)', 'jump or select to a character', 0, 1)
     nnoremap <silent> <Plug>(better-easymotion-overwin-f) :call <SID>better_easymotion_overwin_f(0)<Cr>
     xnoremap <silent> <Plug>(better-easymotion-overwin-f) :<C-U>call <SID>better_easymotion_overwin_f(1)<Cr>
-    call SpaceVim#mapping#space#def('nmap', ['j', 'J'], '<Plug>(easymotion-overwin-f2)', 'jump-to-suite-of-two-characters', 0)
+    call SpaceVim#mapping#space#def('nmap', ['j', 'J'], '<Plug>(easymotion-overwin-f2)', 'jump to suite of two characters', 0)
     " call SpaceVim#mapping#space#def('nmap', ['j', 'l'], '<Plug>(easymotion-overwin-line)', 'jump to a line', 0)
-    call SpaceVim#mapping#space#def('nmap', ['j', 'l'], '<Plug>(better-easymotion-overwin-line)', 'jump-or-select-to-a-line', 0, 1)
+    call SpaceVim#mapping#space#def('nmap', ['j', 'l'], '<Plug>(better-easymotion-overwin-line)', 'jump or select to a line', 0, 1)
     nnoremap <silent> <Plug>(better-easymotion-overwin-line) :call <SID>better_easymotion_overwin_line(0)<Cr>
     xnoremap <silent> <Plug>(better-easymotion-overwin-line) :<C-U>call <SID>better_easymotion_overwin_line(1)<Cr>
-    call SpaceVim#mapping#space#def('nmap', ['j', 'v'], '<Plug>(easymotion-overwin-line)', 'jump-to-a-line', 0)
-    call SpaceVim#mapping#space#def('nmap', ['j', 'w'], '<Plug>(easymotion-overwin-w)', 'jump-to-a-word', 0)
-    call SpaceVim#mapping#space#def('nmap', ['j', 'q'], '<Plug>(easymotion-overwin-line)', 'jump-to-a-line', 0)
+    call SpaceVim#mapping#space#def('nmap', ['j', 'v'], '<Plug>(easymotion-overwin-line)', 'jump to a line', 0)
+    call SpaceVim#mapping#space#def('nmap', ['j', 'w'], '<Plug>(easymotion-overwin-w)', 'jump to a word', 0)
+    call SpaceVim#mapping#space#def('nmap', ['j', 'q'], '<Plug>(easymotion-overwin-line)', 'jump to a line', 0)
   endif
   call SpaceVim#mapping#space#def('nnoremap', ['j', 'u'], 'call call('
         \ . string(s:_function('s:jump_to_url')) . ', [])',
-        \ 'jump-to-url', 1)
+        \ 'jump to url', 1)
 endfunction
 
 if has('nvim-0.6.0')

@@ -72,7 +72,7 @@ function! SpaceVim#layers#foldsearch#config()
   let lnum = expand('<slnum>') + s:lnum - 1
   call SpaceVim#mapping#space#def('nnoremap', ['F', 'w'], 'call call('
         \ . string(s:_function('s:foldsearch_word')) . ', [])',
-        \ ['foldsearch-word',
+        \ ['foldsearch word',
         \ [
         \ 'SPC F w is to foldsearch input word',
         \ '',
@@ -83,7 +83,7 @@ function! SpaceVim#layers#foldsearch#config()
   let lnum = expand('<slnum>') + s:lnum - 1
   call SpaceVim#mapping#space#def('nnoremap', ['F', 'W'], 'call call('
         \ . string(s:_function('s:foldsearch_cursor')) . ', [])',
-        \ ['foldsearch-cword',
+        \ ['foldsearch cword',
         \ [
         \ 'SPC F W is to foldsearch cursor word',
         \ '',
@@ -94,7 +94,7 @@ function! SpaceVim#layers#foldsearch#config()
   let lnum = expand('<slnum>') + s:lnum - 1
   call SpaceVim#mapping#space#def('nnoremap', ['F', 'p'], 'call call('
         \ . string(s:_function('s:foldsearch_expr')) . ', [])',
-        \ ['foldsearch-regexp',
+        \ ['foldsearch regexp',
         \ [
         \ 'SPC F p is to foldsearch regexp',
         \ '',

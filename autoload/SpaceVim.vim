@@ -373,7 +373,7 @@ let g:spacevim_escape_key_binding = 'jk'
 " The first item in this list is the name of the tool, the second one is the
 " default command. for example:
 " >
-"   file_searching_tools = ['find', 'find -not -iwholename "*.git*" ']
+"   file_searching_tools = ['find', 'find  not  iwholename "*.git*" ']
 " <
 
 let g:spacevim_file_searching_tools = []
@@ -2274,7 +2274,7 @@ endfunction
 " It is `[]` by default.
 " >
 "   [options]
-"     file_searching_tools = ['find', 'find -not -iwholename "*.git*" ']
+"     file_searching_tools = ['find', 'find  not  iwholename "*.git*" ']
 " <
 "
 " The first item is the name of the tool, the second one is the default searching command.

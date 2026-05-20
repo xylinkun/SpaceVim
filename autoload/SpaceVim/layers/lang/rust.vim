@@ -14,11 +14,11 @@
 " This layers includes syntax highlighting, code runner, REPL for rust.
 "
 " Requirements:
-"   
+"
 "   1. Racer needs a copy of the rust source. The easiest way to do this is
 "       with rustup. Once rustup is installed, download the source with:
 " >
-"   rustup component add rust-src 
+"   rustup component add rust-src
 " <
 "   2. Install Rust nightly build
 " >
@@ -41,7 +41,7 @@
 " <
 "
 " @subsection Layer options
-" 
+"
 " The following layer options are supported when loading this layer:
 "
 " 1. `recommended_style`: `true`/`false` (Enable/Disable) recommended code
@@ -57,20 +57,20 @@
 " >
 "   Key         Function
 "   -----------------------------------------------
-"   g d         rust-definition
-"   SPC l d     rust-doc
+"   g d         rust definition
+"   SPC l d     rust doc
 "   SPC l r     run current file
-"   SPC l e     rls-rename-symbol
-"   SPC l u     rls-show-references
-"   SPC l c b   cargo-build
-"   SPC l c c   cargo-clean
-"   SPC l c f   cargo-fmt
-"   SPC l c t   cargo-test
-"   SPC l c u   cargo-update
-"   SPC l c B   cargo-bench
-"   SPC l c D   cargo-docs
-"   SPC l c r   cargo-run
-"   SPC l c l   cargo-clippy
+"   SPC l e     rls rename symbol
+"   SPC l u     rls show references
+"   SPC l c b   cargo build
+"   SPC l c c   cargo clean
+"   SPC l c f   cargo fmt
+"   SPC l c t   cargo test
+"   SPC l c u   cargo update
+"   SPC l c B   cargo bench
+"   SPC l c D   cargo docs
+"   SPC l c r   cargo run
+"   SPC l c l   cargo clippy
 " <
 "
 " This layer also provides REPL support for rust, the key bindings are:
@@ -161,10 +161,10 @@ function! SpaceVim#layers#lang#rust#set_variable(var) abort
         \ get(a:var, 'recommended-style',
         \ s:recommended_style))
   " support old option format-autosave and format_on_save
-  let s:format_on_save = get(a:var, 'format_on_save', 
+  let s:format_on_save = get(a:var, 'format_on_save',
         \ get(a:var, 'format-autosave', s:format_on_save))
   " support old option racer-cmd and racer_cmd
-  let s:racer_cmd = get(a:var, 'racer_cmd', 
+  let s:racer_cmd = get(a:var, 'racer_cmd',
         \ get(a:var, 'racer-cmd', s:racer_cmd))
   " support old option rustfmt-cmd and rustfmt_cmd
   let s:rustfmt_cmd = get(a:var, 'rustfmt_cmd',
@@ -209,20 +209,20 @@ function! s:language_specified_mappings() abort
     nnoremap <silent><buffer> gD :<C-u>call SpaceVim#lsp#go_to_typedef()<Cr>
 
     call SpaceVim#mapping#space#langSPC('nnoremap', ['l', 'd'],
-          \ 'call SpaceVim#lsp#show_doc()', 'show-document', 1)
+          \ 'call SpaceVim#lsp#show_doc()', 'show document', 1)
     call SpaceVim#mapping#space#langSPC('nnoremap', ['l', 'x'],
-          \ 'call SpaceVim#lsp#references()', 'show-references', 1)
+          \ 'call SpaceVim#lsp#references()', 'show references', 1)
     call SpaceVim#mapping#space#langSPC('nnoremap', ['l', 'e'],
-          \ 'call SpaceVim#lsp#rename()', 'rename-symbol', 1)
+          \ 'call SpaceVim#lsp#rename()', 'rename symbol', 1)
     call SpaceVim#mapping#space#langSPC('nnoremap', ['l', 'h'],
-          \ 'call SpaceVim#lsp#show_line_diagnostics()', 'show-line-diagnostics', 1)
+          \ 'call SpaceVim#lsp#show_line_diagnostics()', 'show line diagnostics', 1)
     let g:_spacevim_mappings_space.l.w = {'name' : '+Workspace'}
     call SpaceVim#mapping#space#langSPC('nnoremap', ['l', 'w', 'l'],
-          \ 'call SpaceVim#lsp#list_workspace_folder()', 'list-workspace-folder', 1)
+          \ 'call SpaceVim#lsp#list_workspace_folder()', 'list workspace folder', 1)
     call SpaceVim#mapping#space#langSPC('nnoremap', ['l', 'w', 'a'],
-          \ 'call SpaceVim#lsp#add_workspace_folder()', 'add-workspace-folder', 1)
+          \ 'call SpaceVim#lsp#add_workspace_folder()', 'add workspace folder', 1)
     call SpaceVim#mapping#space#langSPC('nnoremap', ['l', 'w', 'r'],
-          \ 'call SpaceVim#lsp#remove_workspace_folder()', 'remove-workspace-folder', 1)
+          \ 'call SpaceVim#lsp#remove_workspace_folder()', 'remove workspace folder', 1)
   else
     nmap <silent><buffer> K <Plug>(rust-doc)
     call SpaceVim#mapping#space#langSPC('nmap', ['l', 'd'],

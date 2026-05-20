@@ -50,7 +50,7 @@ let s:default = {
       \    'min_size' : 5,
       \    'width' : 1,
       \    'right_offset' : 1,
-      \    'excluded_filetypes' : ['startify', 'git-commit','leaderf', 'NvimTree', 'tagbar', 'defx', 'neo-tree', 'qf'],
+      \    'excluded_filetypes' : ['startify', 'git commit','leaderf', 'NvimTree', 'tagbar', 'defx', 'neo-tree', 'qf'],
       \    'shape' : {
       \        'head' : '▲',
       \        'body' : '█',

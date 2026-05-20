@@ -314,7 +314,7 @@ function! SpaceVim#layers#core#config() abort
   let lnum = expand('<slnum>') + s:lnum - 1
   call SpaceVim#mapping#space#def('nnoremap', ['f', 's'], 'call call('
         \ . string(s:_function('s:save_current_file')) . ', [])',
-        \ ['save-current-file',
+        \ ['save current file',
         \  ['[SPC f s] is to save current file',
         \   '',
         \   'Definition: ' . s:filename . ':' . lnum,
@@ -326,51 +326,51 @@ function! SpaceVim#layers#core#config() abort
         \ 'rename_current_file', 1)
   call SpaceVim#mapping#space#def('nnoremap', ['f', 'a'], 'call call('
         \ . string(s:_function('s:save_as_new_file')) . ', [])',
-        \ 'save-as-new-file', 1)
-  call SpaceVim#mapping#space#def('nnoremap', ['f', 'S'], 'wall', 'save-all-files', 1)
+        \ 'save as new file', 1)
+  call SpaceVim#mapping#space#def('nnoremap', ['f', 'S'], 'wall', 'save all files', 1)
   " help mappings
-  call SpaceVim#mapping#space#def('nnoremap', ['h', 'I'], 'call SpaceVim#issue#report()', 'report-issue-or-bug', 1)
-  call SpaceVim#mapping#space#def('nnoremap', ['h', 'l'], 'SPLayer -l', 'list-all-layers', 1)
-  call SpaceVim#mapping#space#def('nnoremap', ['h', 'L'], 'SPRuntimeLog', 'view-runtime-log', 1)
-  call SpaceVim#mapping#space#def('nnoremap', ['h', 'k'], 'LeaderGuide "[KEYs]"', 'show-top-level-bindings', 1)
-  call SpaceVim#mapping#space#def('nnoremap', ['j', '0'], 'm`^', 'jump-to-beginning-of-line', 0)
-  call SpaceVim#mapping#space#def('nnoremap', ['j', '$'], 'm`g_', 'jump-to-end-of-line', 0)
-  call SpaceVim#mapping#space#def('nnoremap', ['j', 'b'], '<C-o>', 'jump-backward', 0)
-  call SpaceVim#mapping#space#def('nnoremap', ['j', 'f'], '<C-i>', 'jump-forward', 0)
+  call SpaceVim#mapping#space#def('nnoremap', ['h', 'I'], 'call SpaceVim#issue#report()', 'report issue or bug', 1)
+  call SpaceVim#mapping#space#def('nnoremap', ['h', 'l'], 'SPLayer -l', 'list all layers', 1)
+  call SpaceVim#mapping#space#def('nnoremap', ['h', 'L'], 'SPRuntimeLog', 'view runtime log', 1)
+  call SpaceVim#mapping#space#def('nnoremap', ['h', 'k'], 'LeaderGuide "[KEYs]"', 'show top level bindings', 1)
+  call SpaceVim#mapping#space#def('nnoremap', ['j', '0'], 'm`^', 'jump to beginning of line', 0)
+  call SpaceVim#mapping#space#def('nnoremap', ['j', '$'], 'm`g_', 'jump to end of line', 0)
+  call SpaceVim#mapping#space#def('nnoremap', ['j', 'b'], '<C-o>', 'jump backward', 0)
+  call SpaceVim#mapping#space#def('nnoremap', ['j', 'f'], '<C-i>', 'jump forward', 0)
 
   " file tree key bindings
   call SpaceVim#mapping#space#def('nnoremap', ['j', 'd'], 'call call('
         \ . string(s:_function('s:explore_current_dir')) . ', [0])',
-        \ 'explore-current-directory', 1)
+        \ 'explore current directory', 1)
   call SpaceVim#mapping#space#def('nnoremap', ['j', 'D'], 'call call('
         \ . string(s:_function('s:explore_current_dir')) . ', [1])',
-        \ 'split-explore-current-directory', 1)
+        \ 'split explore current directory', 1)
 
-  call SpaceVim#mapping#space#def('nnoremap', ['j', 'n'], "i\<cr>\<esc>", 'sp-newline', 0)
+  call SpaceVim#mapping#space#def('nnoremap', ['j', 'n'], "i\<cr>\<esc>", 'sp newline', 0)
   call SpaceVim#mapping#space#def('nnoremap', ['j', 'c'], 'call call('
         \ . string(s:_function('s:jump_last_change')) . ', [])',
-        \ 'jump-to-last-change', 1)
+        \ 'jump to last change', 1)
   call SpaceVim#mapping#space#def('nnoremap', ['j', 's'], 'call call('
         \ . string(s:_function('s:split_string')) . ', [0])',
-        \ 'split-sexp', 1)
+        \ 'split sexp', 1)
   call SpaceVim#mapping#space#def('nnoremap', ['j', '.'], 'call call('
         \ . string(s:_function('s:jump_transient_state')) . ', [])',
-        \ 'jump-transient-state', 1)
+        \ 'jump transient state', 1)
   call SpaceVim#mapping#space#def('nnoremap', ['j', 'S'], 'call call('
         \ . string(s:_function('s:split_string')) . ', [1])',
-        \ 'split-and-add-newline', 1)
+        \ 'split and add newline', 1)
   call SpaceVim#mapping#space#def('nnoremap', ['w', 'r'], 'call call('
         \ . string(s:_function('s:next_window')) . ', [])',
-        \ 'rotate-windows-forward', 1)
+        \ 'rotate windows forward', 1)
   call SpaceVim#mapping#space#def('nnoremap', ['w', 'R'], 'call call('
         \ . string(s:_function('s:previous_window')) . ', [])',
-        \ 'rotate-windows-backward', 1)
+        \ 'rotate windows backward', 1)
   call SpaceVim#mapping#def('nnoremap <silent>', '<S-Tab>', ':wincmd p<CR>', 'Switch to previous window or tab','wincmd p')
-  call SpaceVim#mapping#space#def('nnoremap', ['<Tab>'], 'try | b# | catch | endtry', 'last-buffer', 1)
+  call SpaceVim#mapping#space#def('nnoremap', ['<Tab>'], 'try | b# | catch | endtry', 'last buffer', 1)
   let lnum = expand('<slnum>') + s:lnum - 1
   call SpaceVim#mapping#space#def('nnoremap', ['b', '.'], 'call call('
         \ . string(s:_function('s:buffer_transient_state')) . ', [])',
-        \ ['buffer-transient-state',
+        \ ['buffer transient state',
         \ [
         \ '[SPC b .] is to open the buffer transient state',
         \ '',
@@ -380,7 +380,7 @@ function! SpaceVim#layers#core#config() abort
         \ , 1)
   let lnum = expand('<slnum>') + s:lnum - 1
   call SpaceVim#mapping#space#def('nnoremap', ['h', 'g'], 'call SpaceVim#plugins#helpgrep#help()',
-        \ ['asynchronous-helpgrep',
+        \ ['asynchronous helpgrep',
         \ [
         \ '[SPC h g] is to run helpgrep asynchronously',
         \ '',
@@ -391,7 +391,7 @@ function! SpaceVim#layers#core#config() abort
   let lnum = expand('<slnum>') + s:lnum - 1
   call SpaceVim#mapping#space#def('nnoremap', ['h', 'G'],
         \ 'call SpaceVim#plugins#helpgrep#help(expand("<cword>"))',
-        \ ['asynchronous-helpgrep-with-cword',
+        \ ['asynchronous helpgrep with cword',
         \ [
         \ '[SPC h g] is to run helpgrep asynchronously with cword',
         \ '',
@@ -402,7 +402,7 @@ function! SpaceVim#layers#core#config() abort
   let lnum = expand('<slnum>') + s:lnum - 1
   call SpaceVim#mapping#space#def('nnoremap', ['b', 'd'],
         \ 'call SpaceVim#mapping#close_current_buffer()',
-        \ ['delete-this-buffer',
+        \ ['delete this buffer',
         \ [
         \ '[SPC b d] is to delete current buffer',
         \ '',
@@ -412,85 +412,85 @@ function! SpaceVim#layers#core#config() abort
         \ , 1)
   call SpaceVim#mapping#space#def('nnoremap', ['b', 'D'],
         \ 'call SpaceVim#mapping#kill_visible_buffer_choosewin()',
-        \ 'delete-the-selected-buffer', 1)
-  call SpaceVim#mapping#space#def('nnoremap', ['b', '<C-d>'], 'call SpaceVim#mapping#clear_buffers()', 'kill-other-buffers', 1)
-  call SpaceVim#mapping#space#def('nnoremap', ['b', '<C-S-d>'], 'call SpaceVim#mapping#kill_buffer_expr()', 'kill-buffers-by-regexp', 1)
-  call SpaceVim#mapping#space#def('nnoremap', ['b', 'c'], 'call SpaceVim#mapping#clear_saved_buffers()', 'clear-all-saved-buffers', 1)
+        \ 'delete the selected buffer', 1)
+  call SpaceVim#mapping#space#def('nnoremap', ['b', '<C-d>'], 'call SpaceVim#mapping#clear_buffers()', 'kill other buffers', 1)
+  call SpaceVim#mapping#space#def('nnoremap', ['b', '<C-S-d>'], 'call SpaceVim#mapping#kill_buffer_expr()', 'kill buffers by regexp', 1)
+  call SpaceVim#mapping#space#def('nnoremap', ['b', 'c'], 'call SpaceVim#mapping#clear_saved_buffers()', 'clear all saved buffers', 1)
   call SpaceVim#mapping#space#def('nnoremap', ['b', 'e'], 'call call('
         \ . string(s:_function('s:safe_erase_buffer')) . ', [])',
-        \ 'safe-erase-buffer', 1)
+        \ 'safe erase buffer', 1)
   call SpaceVim#mapping#space#def('nnoremap', ['b', 'm'], 'call call('
         \ . string(s:_function('s:open_message_buffer')) . ', [])',
-        \ 'open-message-buffer', 1)
+        \ 'open message buffer', 1)
   call SpaceVim#mapping#space#def('nnoremap', ['b', 'o'], 'call call('
         \ . string(s:_function('s:only_buf_win')) . ', [])',
-        \ 'kill-other-buffers-and-windows', 1)
-  call SpaceVim#mapping#space#def('nnoremap', ['b', 'P'], 'normal! ggdG"+P', 'copy-clipboard-to-whole-buffer', 1)
+        \ 'kill other buffers and windows', 1)
+  call SpaceVim#mapping#space#def('nnoremap', ['b', 'P'], 'normal! ggdG"+P', 'copy clipboard to whole buffer', 1)
   call SpaceVim#mapping#space#def('nnoremap', ['b', 'R'], 'call call('
         \ . string(s:_function('s:safe_revert_buffer')) . ', [])',
-        \ 'safe-revert-buffer', 1)
-  call SpaceVim#mapping#space#def('nnoremap', ['b', 'Y'], 'normal! ggVG"+y``', 'copy-whole-buffer-to-clipboard', 1)
-  call SpaceVim#mapping#space#def('nnoremap', ['b', 'w'], 'setl readonly!', 'read-only-mode', 1)
+        \ 'safe revert buffer', 1)
+  call SpaceVim#mapping#space#def('nnoremap', ['b', 'Y'], 'normal! ggVG"+y``', 'copy whole buffer to clipboard', 1)
+  call SpaceVim#mapping#space#def('nnoremap', ['b', 'w'], 'setl readonly!', 'read only mode', 1)
   let g:_spacevim_mappings_space.b.N = {'name' : '+New empty buffer'}
-  call SpaceVim#mapping#space#def('nnoremap', ['b', 'N', 'h'], 'topleft vertical new', 'new-empty-buffer-left', 1)
-  call SpaceVim#mapping#space#def('nnoremap', ['b', 'N', 'j'], 'rightbelow new', 'new-empty-buffer-below', 1)
-  call SpaceVim#mapping#space#def('nnoremap', ['b', 'N', 'k'], 'new', 'new-empty-buffer-above', 1)
-  call SpaceVim#mapping#space#def('nnoremap', ['b', 'N', 'l'], 'rightbelow vertical new', 'new-empty-buffer-right', 1)
-  call SpaceVim#mapping#space#def('nnoremap', ['b', 'N', 'n'], 'enew', 'new-empty-buffer', 1)
+  call SpaceVim#mapping#space#def('nnoremap', ['b', 'N', 'h'], 'topleft vertical new', 'new empty buffer left', 1)
+  call SpaceVim#mapping#space#def('nnoremap', ['b', 'N', 'j'], 'rightbelow new', 'new empty buffer below', 1)
+  call SpaceVim#mapping#space#def('nnoremap', ['b', 'N', 'k'], 'new', 'new empty buffer above', 1)
+  call SpaceVim#mapping#space#def('nnoremap', ['b', 'N', 'l'], 'rightbelow vertical new', 'new empty buffer right', 1)
+  call SpaceVim#mapping#space#def('nnoremap', ['b', 'N', 'n'], 'enew', 'new empty buffer', 1)
 
   " file mappings
-  call SpaceVim#mapping#space#def('nnoremap', ['f', 'b'], 'BookmarkShowAll', 'unite-filtered-bookmarks', 1)
+  call SpaceVim#mapping#space#def('nnoremap', ['f', 'b'], 'BookmarkShowAll', 'unite filtered bookmarks', 1)
   let g:_spacevim_mappings_space.f.C = {'name' : '+Files/convert'}
   call SpaceVim#mapping#space#def('nnoremap', ['f', 'C', 'd'], 'update | e ++ff=dos | w', 'unix2dos', 1)
   call SpaceVim#mapping#space#def('nnoremap', ['f', 'C', 'u'], 'update | e ++ff=dos | setlocal ff=unix | w', 'dos2unix', 1)
   call SpaceVim#mapping#space#def('nnoremap', ['f', 'D'], 'call call('
         \ . string(s:_function('s:delete_current_buffer_file')) . ', [])',
-        \ 'delete-current-buffer-file', 1)
-  call SpaceVim#mapping#space#def('nnoremap', ['f', '/'], 'call SpaceVim#plugins#find#open()', 'find-files', 1)
+        \ 'delete current buffer file', 1)
+  call SpaceVim#mapping#space#def('nnoremap', ['f', '/'], 'call SpaceVim#plugins#find#open()', 'find files', 1)
   if s:SYS.isWindows
     call SpaceVim#mapping#space#def('nnoremap', ['f', 'd'], 'call call('
           \ . string(s:_function('s:ToggleWinDiskManager')) . ', [])',
-          \ 'toggle-disk-manager', 1)
+          \ 'toggle disk manager', 1)
   endif
 
   " file tree key bindings
   if g:spacevim_filemanager ==# 'vimfiler'
-    call SpaceVim#mapping#space#def('nnoremap', ['f', 't'], 'VimFiler | doautocmd WinEnter', 'toggle-file-tree', 1)
-    call SpaceVim#mapping#space#def('nnoremap', ['f', 'T'], 'VimFiler -no-toggle | doautocmd WinEnter', 'open-file-tree', 1)
-    call SpaceVim#mapping#space#def('nnoremap', ['f', 'o'], 'VimFiler -find', 'find-file-in-file-tree', 1)
-    call SpaceVim#mapping#space#def('nnoremap', ['b', 't'], 'VimFilerBufferDir -no-toggle', 'open-filetree-in-buffer-dir', 1)
+    call SpaceVim#mapping#space#def('nnoremap', ['f', 't'], 'VimFiler | doautocmd WinEnter', 'toggle file tree', 1)
+    call SpaceVim#mapping#space#def('nnoremap', ['f', 'T'], 'VimFiler -no-toggle | doautocmd WinEnter', 'open file tree', 1)
+    call SpaceVim#mapping#space#def('nnoremap', ['f', 'o'], 'VimFiler -find', 'find file in file tree', 1)
+    call SpaceVim#mapping#space#def('nnoremap', ['b', 't'], 'VimFilerBufferDir -no-toggle', 'open filetree in buffer dir', 1)
   elseif g:spacevim_filemanager ==# 'nerdtree'
-    call SpaceVim#mapping#space#def('nnoremap', ['f', 't'], 'NERDTreeToggle', 'toggle-file-tree', 1)
-    call SpaceVim#mapping#space#def('nnoremap', ['f', 'T'], 'NERDTree', 'show-file-tree', 1)
-    call SpaceVim#mapping#space#def('nnoremap', ['f', 'o'], 'NERDTreeFind', 'open-file-tree', 1)
-    call SpaceVim#mapping#space#def('nnoremap', ['b', 't'], 'NERDTree %', 'show-file-tree-at-buffer-dir', 1)
+    call SpaceVim#mapping#space#def('nnoremap', ['f', 't'], 'NERDTreeToggle', 'toggle file tree', 1)
+    call SpaceVim#mapping#space#def('nnoremap', ['f', 'T'], 'NERDTree', 'show file tree', 1)
+    call SpaceVim#mapping#space#def('nnoremap', ['f', 'o'], 'NERDTreeFind', 'open file tree', 1)
+    call SpaceVim#mapping#space#def('nnoremap', ['b', 't'], 'NERDTree %', 'show file tree at buffer dir', 1)
   elseif g:spacevim_filemanager ==# 'defx'
     " TODO: fix all these command
-    call SpaceVim#mapping#space#def('nnoremap', ['f', 't'], 'Defx', 'toggle-file-tree', 1)
-    call SpaceVim#mapping#space#def('nnoremap', ['f', 'T'], 'Defx -no-toggle', 'show-file-tree', 1)
+    call SpaceVim#mapping#space#def('nnoremap', ['f', 't'], 'Defx', 'toggle file tree', 1)
+    call SpaceVim#mapping#space#def('nnoremap', ['f', 'T'], 'Defx -no-toggle', 'show file tree', 1)
     call SpaceVim#mapping#space#def('nnoremap', ['f', 'o'], 'call call('
           \ . string(s:_function('s:defx_find_current_file')) . ', [])',
-          \ 'open-file-tree', 1)
-    call SpaceVim#mapping#space#def('nnoremap', ['b', 't'], 'exe "Defx -no-toggle " . fnameescape(expand("%:p:h"))', 'show-file-tree-at-buffer-dir', 1)
+          \ 'open file tree', 1)
+    call SpaceVim#mapping#space#def('nnoremap', ['b', 't'], 'exe "Defx -no-toggle " . fnameescape(expand("%:p:h"))', 'show file tree at buffer dir', 1)
   elseif g:spacevim_filemanager ==# 'nvim-tree'
-    call SpaceVim#mapping#space#def('nnoremap', ['f', 't'], 'NvimTreeToggle', 'toggle-file-tree', 1)
-    call SpaceVim#mapping#space#def('nnoremap', ['f', 'T'], 'NvimTree', 'show-file-tree', 1)
-    call SpaceVim#mapping#space#def('nnoremap', ['f', 'o'], "NvimTreeFindFile", 'open-file-tree', 1)
-    call SpaceVim#mapping#space#def('nnoremap', ['b', 't'], 'exe "NvimTreeOpen " . fnameescape(expand("%:p:h"))', 'show-file-tree-at-buffer-dir', 1)
+    call SpaceVim#mapping#space#def('nnoremap', ['f', 't'], 'NvimTreeToggle', 'toggle file tree', 1)
+    call SpaceVim#mapping#space#def('nnoremap', ['f', 'T'], 'NvimTree', 'show file tree', 1)
+    call SpaceVim#mapping#space#def('nnoremap', ['f', 'o'], "NvimTreeFindFile", 'open file tree', 1)
+    call SpaceVim#mapping#space#def('nnoremap', ['b', 't'], 'exe "NvimTreeOpen " . fnameescape(expand("%:p:h"))', 'show file tree at buffer dir', 1)
   elseif g:spacevim_filemanager ==# 'neo-tree'
-    call SpaceVim#mapping#space#def('nnoremap', ['f', 't'], 'NeoTreeFocusToggle', 'toggle-file-tree', 1)
-    call SpaceVim#mapping#space#def('nnoremap', ['f', 'T'], 'NeoTreeShow', 'show-file-tree', 1)
-    call SpaceVim#mapping#space#def('nnoremap', ['f', 'o'], "Neotree reveal", 'open-file-tree', 1)
-    call SpaceVim#mapping#space#def('nnoremap', ['b', 't'], 'Neotree dir=%:p:h', 'show-file-tree-at-buffer-dir', 1)
+    call SpaceVim#mapping#space#def('nnoremap', ['f', 't'], 'NeoTreeFocusToggle', 'toggle file tree', 1)
+    call SpaceVim#mapping#space#def('nnoremap', ['f', 'T'], 'NeoTreeShow', 'show file tree', 1)
+    call SpaceVim#mapping#space#def('nnoremap', ['f', 'o'], "Neotree reveal", 'open file tree', 1)
+    call SpaceVim#mapping#space#def('nnoremap', ['b', 't'], 'Neotree dir=%:p:h', 'show file tree at buffer dir', 1)
   endif
-  call SpaceVim#mapping#space#def('nnoremap', ['f', 'y'], 'call SpaceVim#util#CopyToClipboard()', 'show-and-copy-buffer-filename', 1)
+  call SpaceVim#mapping#space#def('nnoremap', ['f', 'y'], 'call SpaceVim#util#CopyToClipboard()', 'show and copy buffer filename', 1)
   nnoremap <silent> <Plug>YankGitRemoteURL :call SpaceVim#util#CopyToClipboard(2)<Cr>
   vnoremap <silent> <Plug>YankGitRemoteURL :<C-u>call SpaceVim#util#CopyToClipboard(3)<Cr>
-  call SpaceVim#mapping#space#def('nmap', ['f', 'Y'], '<Plug>YankGitRemoteURL', 'yank-remote-url', 0, 1)
-  call SpaceVim#mapping#space#def('nnoremap', ['f', 'v', 'v'], 'let @+=g:spacevim_version | echo g:spacevim_version', 'display-and-copy-version', 1)
+  call SpaceVim#mapping#space#def('nmap', ['f', 'Y'], '<Plug>YankGitRemoteURL', 'yank remote url', 0, 1)
+  call SpaceVim#mapping#space#def('nnoremap', ['f', 'v', 'v'], 'let @+=g:spacevim_version | echo g:spacevim_version', 'display and copy version', 1)
   let lnum = expand('<slnum>') + s:lnum - 1
   call SpaceVim#mapping#space#def('nnoremap', ['f', 'v', 'd'], 'SPConfig',
-        \ ['open-custom-configuration',
+        \ ['open custom configuration',
         \ [
         \ '[SPC f v d] is to open the custom configuration file for SpaceVim',
         \ '',
@@ -501,7 +501,7 @@ function! SpaceVim#layers#core#config() abort
   if has('nvim-0.10.0')
     let lnum = expand('<slnum>') + s:lnum - 1
     call SpaceVim#mapping#space#def('nnoremap', ['f', 'v', 'l'], 'lua require("spacevim.plugin.logevents").toggle()',
-          \ ['toggle-log-events',
+          \ ['toggle log events',
           \ [
           \ '[SPC f v l] is to toggle log autocmd events. requires neovim 0.10.0+',
           \ '',
@@ -513,7 +513,7 @@ function! SpaceVim#layers#core#config() abort
   let lnum = expand('<slnum>') + s:lnum - 1
   call SpaceVim#mapping#space#def('nnoremap', ['n', '-'], 'call call('
         \ . string(s:_function('s:number_transient_state')) . ', ["-"])',
-        \ ['decrease-number-under-cursor',
+        \ ['decrease number under cursor',
         \ [
         \ '[SPC n -] is to decrease the number under the cursor, and open',
         \ 'the number translate state buffer',
@@ -525,7 +525,7 @@ function! SpaceVim#layers#core#config() abort
   let lnum = expand('<slnum>') + s:lnum - 1
   call SpaceVim#mapping#space#def('nnoremap', ['n', '+'], 'call call('
         \ . string(s:_function('s:number_transient_state')) . ', ["+"])',
-        \ ['increase-number-under-cursor',
+        \ ['increase number under cursor',
         \ [
         \ '[SPC n +] is to increase the number under the cursor, and open',
         \ 'the number translate state buffer',
@@ -535,40 +535,40 @@ function! SpaceVim#layers#core#config() abort
         \ ]
         \ , 1)
   let g:vimproc#download_windows_dll = 1
-  " call SpaceVim#mapping#space#def('nnoremap', ['p', 't'], 'call SpaceVim#plugins#projectmanager#current_root()', 'find-project-root', 1)
+  " call SpaceVim#mapping#space#def('nnoremap', ['p', 't'], 'call SpaceVim#plugins#projectmanager#current_root()', 'find project root', 1)
   let g:_spacevim_mappings_space.p.t = {'name' : '+Tasks'}
   let lnum = expand('<slnum>') + s:lnum - 1
   call SpaceVim#mapping#space#def('nnoremap', ['p', 't', 'e'],
         \ 'call SpaceVim#plugins#tasks#edit()',
-        \ ['edit-project-task',
+        \ ['edit project task',
         \ ['[SPC p t e] is to edit the task configuration file of current project,',
         \ 'the default task file is `.SpaceVim.d/tasks.toml`',
         \ '',
         \ 'Definition: ' . s:filename . ':' . lnum]
         \ ]
         \ , 1)
-  call SpaceVim#mapping#space#def('nnoremap', ['p', 't', 'l'], 'call SpaceVim#plugins#tasks#list()', 'list-tasks', 1)
-  call SpaceVim#mapping#space#def('nnoremap', ['p', 't', 'c'], 'call SpaceVim#plugins#runner#clear_tasks()', 'clear-tasks', 1)
+  call SpaceVim#mapping#space#def('nnoremap', ['p', 't', 'l'], 'call SpaceVim#plugins#tasks#list()', 'list tasks', 1)
+  call SpaceVim#mapping#space#def('nnoremap', ['p', 't', 'c'], 'call SpaceVim#plugins#runner#clear_tasks()', 'clear tasks', 1)
   call SpaceVim#mapping#space#def('nnoremap', ['p', 't', 'r'],
-        \ 'call SpaceVim#plugins#runner#run_task(SpaceVim#plugins#tasks#get())', 'pick-task-to-run', 1)
+        \ 'call SpaceVim#plugins#runner#run_task(SpaceVim#plugins#tasks#get())', 'pick task to run', 1)
   " SPC p t f is defined in fuzzy finder layer
-  call SpaceVim#mapping#space#def('nnoremap', ['p', 'k'], 'call SpaceVim#plugins#projectmanager#kill_project()', 'kill-all-project-buffers', 1)
-  call SpaceVim#mapping#space#def('nnoremap', ['p', 'p'], 'call SpaceVim#plugins#projectmanager#list()', 'list-all-projects', 1)
+  call SpaceVim#mapping#space#def('nnoremap', ['p', 'k'], 'call SpaceVim#plugins#projectmanager#kill_project()', 'kill all project buffers', 1)
+  call SpaceVim#mapping#space#def('nnoremap', ['p', 'p'], 'call SpaceVim#plugins#projectmanager#list()', 'list all projects', 1)
   call SpaceVim#mapping#space#def('nnoremap', ['p', '/'], 'Grepper', 'fuzzy search for text in current project', 1)
-  call SpaceVim#mapping#space#def('nnoremap', ['q', 'q'], 'qa', 'prompt-kill-vim', 1)
-  call SpaceVim#mapping#space#def('nnoremap', ['q', 'Q'], 'qa!', 'kill-vim', 1)
+  call SpaceVim#mapping#space#def('nnoremap', ['q', 'q'], 'qa', 'prompt kill vim', 1)
+  call SpaceVim#mapping#space#def('nnoremap', ['q', 'Q'], 'qa!', 'kill vim', 1)
   if has('nvim') && s:SYS.isWindows
     call SpaceVim#mapping#space#def('nnoremap', ['q', 'R'], 'call call('
           \ . string(s:_function('s:restart_neovim_qt')) . ', [])',
-          \ 'restrat-neovim-qt', 1)
+          \ 'restrat neovim qt', 1)
   else
-    call SpaceVim#mapping#space#def('nnoremap', ['q', 'R'], '', 'restart-vim(TODO)', 1)
+    call SpaceVim#mapping#space#def('nnoremap', ['q', 'R'], '', 'restart vim(TODO)', 1)
   endif
-  call SpaceVim#mapping#space#def('nnoremap', ['q', 'r'], '', 'restart-vim-resume-layouts(TODO)', 1)
+  call SpaceVim#mapping#space#def('nnoremap', ['q', 'r'], '', 'restart vim resume layouts(TODO)', 1)
   let lnum = expand('<slnum>') + s:lnum - 1
   call SpaceVim#mapping#space#def('nnoremap', ['q', 't'], 'call call('
         \ . string(s:_function('s:close_current_tab')) . ', [])',
-        \ ['close-current-tab',
+        \ ['close current tab',
         \ [
         \ '[SPC q t] is to close the current tab, if it is the last tab, do nothing.',
         \ '',
@@ -590,22 +590,22 @@ function! SpaceVim#layers#core#config() abort
   nnoremap <silent> <Plug>CommentToLineInvert :call <SID>comment_to_line(1)<Cr>
   nnoremap <silent> <Plug>CommentParagraphs :call <SID>comment_paragraphs(0)<Cr>
   nnoremap <silent> <Plug>CommentParagraphsInvert :call <SID>comment_paragraphs(1)<Cr>
-  call SpaceVim#mapping#space#def('nmap', ['c', 'a'], '<Plug>NERDCommenterAltDelims', 'switch-to-alternative-delims', 0, 1)
-  call SpaceVim#mapping#space#def('nmap', ['c', 'l'], '<Plug>NERDCommenterInvert', 'toggle-comment-lines', 0, 1)
-  call SpaceVim#mapping#space#def('nmap', ['c', 'L'], '<Plug>NERDCommenterComment', 'comment-lines', 0, 1)
-  call SpaceVim#mapping#space#def('nmap', ['c', 'u'], '<Plug>NERDCommenterUncomment', 'uncomment-lines', 0, 1)
-  call SpaceVim#mapping#space#def('nmap', ['c', 'v'], '<Plug>NERDCommenterInvertgv', 'toggle-visual-comment-lines', 0, 1)
-  call SpaceVim#mapping#space#def('nmap', ['c', 's'], '<Plug>NERDCommenterSexy', 'comment-with-sexy-layout', 0, 1)
-  call SpaceVim#mapping#space#def('nmap', ['c', 'y'], '<Plug>CommenterInvertYank', 'yank-and-toggle-comment', 0, 1)
-  call SpaceVim#mapping#space#def('nmap', ['c', 'Y'], '<Plug>NERDCommenterYank', 'yank-and-comment', 0, 1)
-  call SpaceVim#mapping#space#def('nmap', ['c', '$'], '<Plug>NERDCommenterToEOL', 'comment-from-cursor-to-end-of-line', 0, 1)
-  call SpaceVim#mapping#space#def('nmap', ['c', 't'], '<Plug>CommentToLineInvert', 'toggle-comment-until-line', 0, 1)
-  call SpaceVim#mapping#space#def('nmap', ['c', 'T'], '<Plug>CommentToLine', 'comment-until-the-line', 0, 1)
-  call SpaceVim#mapping#space#def('nmap', ['c', 'p'], '<Plug>CommentParagraphsInvert', 'toggle-comment-paragraphs', 0, 1)
-  call SpaceVim#mapping#space#def('nmap', ['c', 'P'], '<Plug>CommentParagraphs', 'comment-paragraphs', 0, 1)
+  call SpaceVim#mapping#space#def('nmap', ['c', 'a'], '<Plug>NERDCommenterAltDelims', 'switch to alternative delims', 0, 1)
+  call SpaceVim#mapping#space#def('nmap', ['c', 'l'], '<Plug>NERDCommenterInvert', 'toggle comment lines', 0, 1)
+  call SpaceVim#mapping#space#def('nmap', ['c', 'L'], '<Plug>NERDCommenterComment', 'comment lines', 0, 1)
+  call SpaceVim#mapping#space#def('nmap', ['c', 'u'], '<Plug>NERDCommenterUncomment', 'uncomment lines', 0, 1)
+  call SpaceVim#mapping#space#def('nmap', ['c', 'v'], '<Plug>NERDCommenterInvertgv', 'toggle visual comment lines', 0, 1)
+  call SpaceVim#mapping#space#def('nmap', ['c', 's'], '<Plug>NERDCommenterSexy', 'comment with sexy layout', 0, 1)
+  call SpaceVim#mapping#space#def('nmap', ['c', 'y'], '<Plug>CommenterInvertYank', 'yank and toggle comment', 0, 1)
+  call SpaceVim#mapping#space#def('nmap', ['c', 'Y'], '<Plug>NERDCommenterYank', 'yank and comment', 0, 1)
+  call SpaceVim#mapping#space#def('nmap', ['c', '$'], '<Plug>NERDCommenterToEOL', 'comment from cursor to end of line', 0, 1)
+  call SpaceVim#mapping#space#def('nmap', ['c', 't'], '<Plug>CommentToLineInvert', 'toggle comment until line', 0, 1)
+  call SpaceVim#mapping#space#def('nmap', ['c', 'T'], '<Plug>CommentToLine', 'comment until the line', 0, 1)
+  call SpaceVim#mapping#space#def('nmap', ['c', 'p'], '<Plug>CommentParagraphsInvert', 'toggle comment paragraphs', 0, 1)
+  call SpaceVim#mapping#space#def('nmap', ['c', 'P'], '<Plug>CommentParagraphs', 'comment paragraphs', 0, 1)
 
   nnoremap <silent> <Plug>CommentOperator :set opfunc=<SID>commentOperator<Cr>g@
-  let g:_spacevim_mappings_space[';'] = ['call feedkeys("\<Plug>CommentOperator")', 'comment-operator']
+  let g:_spacevim_mappings_space[';'] = ['call feedkeys("\<Plug>CommentOperator")', 'comment operator']
   nmap <silent> [SPC]; <Plug>CommentOperator
 endfunction
 

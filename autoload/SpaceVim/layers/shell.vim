@@ -42,7 +42,7 @@ let s:lnum = expand('<slnum>') + 2
 function! SpaceVim#layers#shell#config() abort
   call SpaceVim#mapping#space#def('nnoremap', ["'"], 'call call('
         \ . string(function('s:open_default_shell')) . ', [0])',
-        \ ['open-shell',
+        \ ['open shell',
         \ [
           \ "[SPC '] is to open or jump to default shell window",
           \ '',
@@ -51,7 +51,7 @@ function! SpaceVim#layers#shell#config() abort
           \ ], 1)
   call SpaceVim#mapping#space#def('nnoremap', ["\""], 'call call('
         \ . string(function('s:open_default_shell')) . ', [1])',
-        \ ['open-shell-in-buffer-dir',
+        \ ['open shell in buffer dir',
         \ [
           \ "[SPC \"] is to open or jump to default shell window with the current file's pwd",
           \ '',

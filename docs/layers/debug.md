@@ -67,19 +67,19 @@ key bindings are too long? use `SPC d .` to open the debug transient state:
 
 | Key Binding | Description                           |
 | ----------- | ------------------------------------- |
-| `SPC d c`   | launch-or-continue-debugger           |
-| `SPC d r`   | restart-debugger-with-the-same-config |
-| `SPC d x`   | run-to-cursor                         |
-| `SPC d p`   | pause-debugger                        |
-| `SPC d b`   | toggle-line-breakpoint                |
-| `SPC d B`   | clear-all-breakpoints                 |
-| `SPC d o`   | step-over                             |
-| `SPC d i`   | step-into-functions                   |
-| `SPC d O`   | step-out-of-current-function          |
-| `SPC d u`   | move-up-a-frame                       |
-| `SPC d d`   | move-down-a-frame                     |
-| `SPC d k`   | terminate-the-debugger                |
-| `SPC d e`   | evaluate-cursor-symbol-or-selection   |
+| `SPC d c`   | launch or continue debugger           |
+| `SPC d r`   | restart debugger with the same config |
+| `SPC d x`   | run to cursor                         |
+| `SPC d p`   | pause debugger                        |
+| `SPC d b`   | toggle line breakpoint                |
+| `SPC d B`   | clear all breakpoints                 |
+| `SPC d o`   | step over                             |
+| `SPC d i`   | step into functions                   |
+| `SPC d O`   | step out of current function          |
+| `SPC d u`   | move up a frame                       |
+| `SPC d d`   | move down a frame                     |
+| `SPC d k`   | terminate the debugger                |
+| `SPC d e`   | evaluate cursor symbol or selection   |
 
 **Debug Transient State**
 

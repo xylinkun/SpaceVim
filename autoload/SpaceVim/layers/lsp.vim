@@ -202,13 +202,13 @@ function! SpaceVim#layers#lsp#config() abort
           \ 'clear all errors', 1)
     call SpaceVim#mapping#space#def('nnoremap', ['e', 'n'], 'call call('
           \ . string(s:_function('s:jump_to_next_error')) . ', [])',
-          \ 'next-error', 1)
+          \ 'next error', 1)
     call SpaceVim#mapping#space#def('nnoremap', ['e', 'p'], 'call call('
           \ . string(s:_function('s:jump_to_previous_error')) . ', [])',
-          \ 'previous-error', 1)
+          \ 'previous error', 1)
     call SpaceVim#mapping#space#def('nnoremap', ['e', 'N'], 'call call('
           \ . string(s:_function('s:jump_to_previous_error')) . ', [])',
-          \ 'previous-error', 1)
+          \ 'previous error', 1)
     call SpaceVim#mapping#space#def('nnoremap', ['e', 'l'], 'call call('
           \ . string(s:_function('s:toggle_show_error')) . ', [0])',
           \ 'toggle showing the error list', 1)
@@ -241,7 +241,7 @@ let s:lsp_servers = {
       \ 'julia' : ['julia', '--startup-file=no', '--history-file=no', '-e', 'using LanguageServer; server = LanguageServer.LanguageServerInstance(STDIN, STDOUT, false); server.runlinter = true; run(server);'],
       \ 'objc' : ['clangd'],
       \ 'objcpp' : ['clangd'],
-      \ 'php' : ['php', g:spacevim_plugin_bundle_dir . 'repos/github.com/phpactor/phpactor/bin/phpactor', 'language-server'],
+      \ 'php' : ['php', g:spacevim_plugin_bundle_dir . 'repos/github.com/phpactor/phpactor/bin/phpactor', 'language server'],
       \ 'purescript' : ['purescript-language-server', '--stdio'],
       \ 'python' : ['pyls'],
       \ 'reason' : ['ocaml-language-server'],

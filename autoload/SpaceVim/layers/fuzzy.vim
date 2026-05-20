@@ -27,7 +27,7 @@ function! SpaceVim#layers#fuzzy#config() abort
   let lnum = expand('<slnum>') + s:lnum - 1
   call SpaceVim#mapping#space#def('nnoremap', ['?'], 'call call('
         \ . string(s:_function('s:get_menu')) . ', ["CustomKeyMaps", "[SPC]"])',
-        \ ['show-mappings',
+        \ ['show mappings',
         \ [
         \ 'SPC ? is to show mappings',
         \ '',
@@ -52,7 +52,7 @@ function! SpaceVim#layers#fuzzy#config() abort
 
   let lnum = expand('<slnum>') + s:lnum - 1
   call SpaceVim#mapping#space#def('nnoremap', ['b', 'b'], 'CtrlPBuffer',
-        \ ['list-buffer',
+        \ ['list buffer',
         \ [
         \ 'SPC b b is to open buffer list',
         \ '',
@@ -63,7 +63,7 @@ function! SpaceVim#layers#fuzzy#config() abort
 
   let lnum = expand('<slnum>') + s:lnum - 1
   call SpaceVim#mapping#space#def('nnoremap', ['f', 'r'], 'CtrlPMRU',
-        \ ['open-recent-file',
+        \ ['open recent file',
         \ [
         \ 'SPC f r is to open recent file list',
         \ '',
@@ -74,7 +74,7 @@ function! SpaceVim#layers#fuzzy#config() abort
 
   let lnum = expand('<slnum>') + s:lnum - 1
   call SpaceVim#mapping#space#def('nnoremap', ['j', 'i'], 'CtrlPBufTag',
-        \ ['jump-to-definition-in-buffer',
+        \ ['jump to definition in buffer',
         \ [
         \ 'SPC j i is to jump to a definition in buffer',
         \ '',
@@ -89,7 +89,7 @@ function! SpaceVim#layers#fuzzy#config() abort
   "@fixme ctrlp colorschemes support
   let lnum = expand('<slnum>') + s:lnum - 1
   call SpaceVim#mapping#space#def('nnoremap', ['T', 's'], 'CtrlPColorscheme',
-        \ ['fuzzy-find-colorschemes',
+        \ ['fuzzy find colorschemes',
         \ [
         \ 'SPC T s is to fuzzy find colorschemes',
         \ '',
@@ -101,7 +101,7 @@ function! SpaceVim#layers#fuzzy#config() abort
   let lnum = expand('<slnum>') + s:lnum - 1
   call SpaceVim#mapping#space#def('nnoremap', ['f', 'f'],
         \ "exe 'CtrlP ' . fnamemodify(bufname('%'), ':h')",
-        \ ['find-files-in-buffer-directory',
+        \ ['find files in buffer directory',
         \ [
         \ '[SPC f f] is to find files in the directory of the current buffer',
         \ '',
@@ -113,7 +113,7 @@ function! SpaceVim#layers#fuzzy#config() abort
   let lnum = expand('<slnum>') + s:lnum - 1
   call SpaceVim#mapping#space#def('nnoremap', ['p', 'f'],
         \ 'CtrlP',
-        \ ['find-files-in-project',
+        \ ['find files in project',
         \ [
         \ '[SPC p f] is to find files in the root of the current project',
         \ '',
@@ -128,7 +128,7 @@ function! SpaceVim#layers#fuzzy#config() abort
   let lnum = expand('<slnum>') + s:lnum - 1
   call SpaceVim#mapping#space#def('nnoremap', ['h', 'i'], 'call call('
         \ . string(s:_function('s:get_help_with_cursor_symbol')) . ', [])',
-        \ ['get-help-for-cursor-symbol',
+        \ ['get help for cursor symbol',
         \ [
         \ '[SPC h i] is to get help with the symbol at point',
         \ '',

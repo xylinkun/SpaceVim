@@ -46,11 +46,11 @@ function! SpaceVim#layers#chinese#config() abort
   else
     let g:_spacevim_mappings_space.x.t = {'name' : '+Translate'}
   endif
-  call SpaceVim#mapping#space#def('nnoremap', ['x', 't', 't'], 'Translate'         , 'translate-current-word'  , 1)
+  call SpaceVim#mapping#space#def('nnoremap', ['x', 't', 't'], 'Translate'         , 'translate current word'  , 1)
   if !has_key(g:_spacevim_mappings_space.x, 'g')
     let g:_spacevim_mappings_space.x.g = {'name' : '+Grammarous'}
   endif
-  call SpaceVim#mapping#space#def('nnoremap', ['x', 'g', 'c']     , 'CheckChinese', 'check-with-ChineseLinter', 1)
+  call SpaceVim#mapping#space#def('nnoremap', ['x', 'g', 'c']     , 'CheckChinese', 'check with ChineseLinter', 1)
   let g:_spacevim_mappings_space.n.c = {'name' : '+Convert'}
   call SpaceVim#mapping#space#def('nmap', ['n', 'c', 'd'], '<Plug>ConvertChineseNumberToDigit', 'convert Chinese number to digit', 0, 1)
   call SpaceVim#mapping#space#def('nmap', ['n', 'c', 'z'], '<Plug>ConvertDigitToChineseNumberLower', 'convert digit to Lower Chinese number', 0, 1)

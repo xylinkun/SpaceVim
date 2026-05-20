@@ -187,13 +187,13 @@ function! SpaceVim#layers#ui#config() abort
     call SpaceVim#mapping#def('nnoremap <silent>',
           \ g:spacevim_windows_smartclose,
           \ ':<C-u>call SpaceVim#mapping#SmartClose()<cr>',
-          \ 'smart-close-windows',
+          \ 'smart close windows',
           \ 'call SpaceVim#mapping#SmartClose()')
   endif
   " Ui toggles
   call SpaceVim#mapping#space#def('nnoremap', ['t', '8'],
         \ 'call SpaceVim#layers#core#statusline#toggle_mode("hi-characters-for-long-lines")',
-        \ 'highlight-long-lines', 1)
+        \ 'highlight long lines', 1)
   if g:spacevim_autocomplete_method ==# 'deoplete'
     call SpaceVim#mapping#space#def('nnoremap', ['t', 'a'], 'call SpaceVim#layers#autocomplete#toggle_deoplete()',
           \ 'toggle autocomplete', 1)
@@ -203,46 +203,46 @@ function! SpaceVim#layers#ui#config() abort
         \ 'toggle background', 1)
   call SpaceVim#mapping#space#def('nnoremap', ['w', '.'], 'call call('
         \ . string(s:_function('s:win_resize_transient_state')) . ', [])',
-        \ 'windows-transient-state', 1)
+        \ 'windows transient state', 1)
   call SpaceVim#mapping#space#def('nnoremap', ['t', 'c'], 'call call('
         \ . string(s:_function('s:toggle_conceallevel')) . ', [])',
         \ 'toggle conceallevel', 1)
   call SpaceVim#mapping#space#def('nnoremap', ['t', 't'], 'call SpaceVim#plugins#tabmanager#open()',
-        \ 'open-tabs-manager', 1)
+        \ 'open tabs manager', 1)
   call SpaceVim#mapping#space#def('nnoremap', ['t', 'f'], 'call SpaceVim#layers#core#statusline#toggle_mode("fill-column-indicator")',
-        \ 'fill-column-indicator', 1)
+        \ 'fill column indicator', 1)
   call SpaceVim#mapping#space#def('nnoremap', ['t', 'h', 'h'], 'call call('
         \ . string(s:_function('s:toggle_cursorline')) . ', [])',
-        \ ['toggle-highlight-current-line',
+        \ ['toggle highlight current line',
         \ [
           \ 'SPC t h h is to toggle the highlighting of cursorline'
           \ ]
           \ ], 1)
   call SpaceVim#mapping#space#def('nnoremap', ['t', 'h', 'i'], 'call call('
         \ . string(s:_function('s:toggle_indentline')) . ', [])',
-        \ ['toggle-highlight-indentation-levels',
+        \ ['toggle highlight indentation levels',
         \ [
           \ 'SPC t h i is to running :IndentLinesToggle which is definded in indentLine'
           \ ]
           \ ], 1)
   call SpaceVim#mapping#space#def('nnoremap', ['t', 'h', 'c'], 'set cursorcolumn!',
-        \ 'toggle-highlight-current-column', 1)
+        \ 'toggle highlight current column', 1)
   call SpaceVim#mapping#space#def('nnoremap', ['t', 'h', 's'], 'call call('
         \ . string(s:_function('s:toggle_syntax_hi')) . ', [])',
-        \ 'toggle-syntax-highlighting', 1)
+        \ 'toggle syntax highlighting', 1)
 
   call SpaceVim#mapping#space#def('nnoremap', ['T', 'F'], 'call call('
         \ . string(s:_function('s:toggle_full_screen')) . ', [])',
-        \ 'fullscreen-frame', 1)
+        \ 'fullscreen frame', 1)
   call SpaceVim#mapping#space#def('nnoremap', ['T', 'm'], 'call call('
         \ . string(s:_function('s:toggle_menu_bar')) . ', [])',
-        \ 'toggle-menu-bar', 1)
+        \ 'toggle menu bar', 1)
   call SpaceVim#mapping#space#def('nnoremap', ['T', 'f'], 'call call('
         \ . string(s:_function('s:toggle_win_fringe')) . ', [])',
-        \ 'toggle-win-fringe', 1)
+        \ 'toggle win fringe', 1)
   call SpaceVim#mapping#space#def('nnoremap', ['T', 't'], 'call call('
         \ . string(s:_function('s:toggle_tool_bar')) . ', [])',
-        \ 'toggle-tool-bar', 1)
+        \ 'toggle tool bar', 1)
   call SpaceVim#mapping#space#def('nnoremap', ['T', '~'], 'call call('
         \ . string(s:_function('s:toggle_end_of_buffer')) . ', [])',
         \ 'display ~ in the fringe on empty lines', 1)
@@ -273,7 +273,7 @@ function! SpaceVim#layers#ui#config() abort
   let s:lnum = expand('<slnum>') + s:funcbeginline
   call SpaceVim#mapping#space#def('nnoremap', ['t', 'w'],
         \ 'call SpaceVim#layers#core#statusline#toggle_mode("whitespace")',
-        \ ['toggle-highlight-tail-spaces',
+        \ ['toggle highlight tail spaces',
         \ [
           \ '[SPC t w] will toggle white space highlighting',
           \ '',
@@ -283,22 +283,22 @@ function! SpaceVim#layers#ui#config() abort
           \ , 1)
   call SpaceVim#mapping#space#def('nnoremap', ['t', 'S'],
         \ 'call SpaceVim#layers#core#statusline#toggle_mode("spell-checking")',
-        \ 'toggle-spell-checker', 1)
+        \ 'toggle spell checker', 1)
   call SpaceVim#layers#core#statusline#register_mode(
         \ {
-          \ 'key' : 'paste-mode',
+          \ 'key' : 'paste mode',
           \ 'func' : s:_function('s:toggle_paste'),
           \ }
           \ )
   call SpaceVim#mapping#space#def('nnoremap', ['t', 'p'],
         \ 'call SpaceVim#layers#core#statusline#toggle_mode("paste-mode")',
-        \ 'toggle-paste-mode', 1)
+        \ 'toggle paste mode', 1)
   call SpaceVim#mapping#space#def('nnoremap', ['t', 'P'],
         \ 'DelimitMateSwitch',
-        \ 'toggle-auto-parens-mode', 1)
+        \ 'toggle auto parens mode', 1)
 
   call SpaceVim#mapping#space#def('nnoremap', ['t', 'l'], 'setlocal list!',
-        \ 'toggle-hidden-listchars', 1)
+        \ 'toggle hidden listchars', 1)
   call SpaceVim#layers#core#statusline#register_mode(
         \ {
           \ 'key' : 'wrapline',
@@ -307,13 +307,13 @@ function! SpaceVim#layers#ui#config() abort
           \ )
   call SpaceVim#mapping#space#def('nnoremap', ['t', 'W'],
         \ 'call SpaceVim#layers#core#statusline#toggle_mode("wrapline")',
-        \ 'toggle-wrap-line', 1)
+        \ 'toggle wrap line', 1)
 
   nnoremap <silent> <F11> :call <SID>toggle_full_screen()<Cr>
   let g:_spacevim_mappings_space.z = get(g:_spacevim_mappings_space, 'z',  {'name' : '+Fonts'})
   call SpaceVim#mapping#space#def('nnoremap', ['z', '.'], 'call call('
         \ . string(s:_function('s:fonts_transient_state')) . ', [])',
-        \ 'font-transient-state', 1)
+        \ 'font transient state', 1)
 endfunction
 
 let s:fullscreen_flag = 0

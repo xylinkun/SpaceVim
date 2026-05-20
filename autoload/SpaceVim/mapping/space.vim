@@ -29,19 +29,19 @@ function! SpaceVim#mapping#space#init() abort
   for i in range(1, 9)
     exe "call SpaceVim#mapping#space#def('nnoremap', ["
           \ . i . "], 'call SpaceVim#layers#core#statusline#jump("
-          \ . i . ")', 'window-" . i . "', 1)"
+          \ . i . ")', 'window " . i . "', 1)"
   endfor
-  let g:_spacevim_mappings_space.w['<Tab>'] = ['wincmd w', 'alternate-window']
+  let g:_spacevim_mappings_space.w['<Tab>'] = ['wincmd w', 'alternate window']
   nnoremap <silent> [SPC]w<tab> :wincmd w<cr>
-  call SpaceVim#mapping#menu('alternate-window', '[SPC]w<Tab>', 'wincmd w')
+  call SpaceVim#mapping#menu('alternate window', '[SPC]w<Tab>', 'wincmd w')
   call SpaceVim#mapping#space#def('nnoremap', ['w', '+'],
         \ 'call call('
         \ . string(function('s:windows_layout_toggle'))
-        \ . ', [])', 'windows-layout-toggle', 1)
+        \ . ', [])', 'windows layout toggle', 1)
   let s:lnum = expand('<slnum>') + s:funcbeginline
   call SpaceVim#mapping#space#def('nnoremap', ['w', '.'], 'call call('
         \ . string(s:_function('s:windows_transient_state')) . ', [])',
-        \ ['buffer-transient-state',
+        \ ['buffer transient state',
         \ [
         \ '[SPC w .] is to open the buffer transient state',
         \ '',
@@ -51,7 +51,7 @@ function! SpaceVim#mapping#space#init() abort
         \ , 1)
   let s:lnum = expand('<slnum>') + s:funcbeginline
   call SpaceVim#mapping#space#def('nnoremap', ['w', 'd'], 'close',
-        \ ['close-current-windows',
+        \ ['close current windows',
         \ [
         \ '[SPC w d] is to close current windows',
         \ '',
@@ -61,7 +61,7 @@ function! SpaceVim#mapping#space#init() abort
         \ , 1)
   let s:lnum = expand('<slnum>') + s:funcbeginline
   call SpaceVim#mapping#space#def('nnoremap', ['w', 'f'], 'setlocal scrollbind!',
-        \ ['toggle-follow-mode',
+        \ ['toggle follow mode',
         \ [
         \ '[SPC w f] is to toggle follow mode',
         \ '',
@@ -71,7 +71,7 @@ function! SpaceVim#mapping#space#init() abort
         \ , 1)
   let s:lnum = expand('<slnum>') + s:funcbeginline
   call SpaceVim#mapping#space#def('nnoremap', ['w', 'D'], 'ChooseWin | close | wincmd w',
-        \ ['delete-window-(other-windows)',
+        \ ['delete window (other windows)',
         \ [
         \ '[SPC w D] is to select a windows to close',
         \ '',
@@ -81,7 +81,7 @@ function! SpaceVim#mapping#space#init() abort
         \ , 1)
   let s:lnum = expand('<slnum>') + s:funcbeginline
   call SpaceVim#mapping#space#def('nnoremap', ['w', 'F'], 'tabnew',
-        \ ['create-new-tab',
+        \ ['create new tab',
         \ [
         \ '[SPC w F] is to create new tab',
         \ '',
@@ -93,7 +93,7 @@ function! SpaceVim#mapping#space#init() abort
   "  call SpaceVim#mapping#space#def('nnoremap', ['w', 'F'], 'call call('
   "        \ . string(function('s:create_new_named_tab'))
   "        \ . ', [])',
-  "        \ ['create-new-named-tab',
+  "        \ ['create new named tab',
   "        \ [
   "        \ '[SPC w F] is to create new named tab',
   "        \ '',
@@ -103,7 +103,7 @@ function! SpaceVim#mapping#space#init() abort
   "        \ , 1)
   let s:lnum = expand('<slnum>') + s:funcbeginline
   call SpaceVim#mapping#space#def('nnoremap', ['w', 'h'], 'wincmd h',
-        \ ['window-left',
+        \ ['window left',
         \ [
         \ '[SPC w h] is to jump to the left window',
         \ '',
@@ -113,7 +113,7 @@ function! SpaceVim#mapping#space#init() abort
         \ , 1)
   let s:lnum = expand('<slnum>') + s:funcbeginline
   call SpaceVim#mapping#space#def('nnoremap', ['w', 'j'], 'wincmd j',
-        \ ['window-down',
+        \ ['window down',
         \ [
         \ '[SPC w j] is to jump to the window below current windows',
         \ '',
@@ -123,7 +123,7 @@ function! SpaceVim#mapping#space#init() abort
         \ , 1)
   let s:lnum = expand('<slnum>') + s:funcbeginline
   call SpaceVim#mapping#space#def('nnoremap', ['w', 'x'], 'wincmd x',
-        \ ['window-switch-placement',
+        \ ['window switch placement',
         \ [
         \ '[SPC w x] is to jump to exchange current window with next one.',
         \ '',
@@ -133,7 +133,7 @@ function! SpaceVim#mapping#space#init() abort
         \ , 1)
   let s:lnum = expand('<slnum>') + s:funcbeginline
   call SpaceVim#mapping#space#def('nnoremap', ['w', 'k'], 'wincmd k',
-        \ ['window-up',
+        \ ['window up',
         \ [
         \ '[SPC w k] is to jump to the window above current windows',
         \ '',
@@ -143,7 +143,7 @@ function! SpaceVim#mapping#space#init() abort
         \ , 1)
   let s:lnum = expand('<slnum>') + s:funcbeginline
   call SpaceVim#mapping#space#def('nnoremap', ['w', 'l'], 'wincmd l',
-        \ ['window-right',
+        \ ['window right',
         \ [
         \ '[SPC w l] is to jump to the right window',
         \ '',
@@ -153,7 +153,7 @@ function! SpaceVim#mapping#space#init() abort
         \ , 1)
   let s:lnum = expand('<slnum>') + s:funcbeginline
   call SpaceVim#mapping#space#def('nnoremap', ['w', 'H'], 'wincmd H',
-        \ ['window-far-left',
+        \ ['window far left',
         \ [
         \ '[SPC w H] is to jump to the far left window',
         \ '',
@@ -163,7 +163,7 @@ function! SpaceVim#mapping#space#init() abort
         \ , 1)
   let s:lnum = expand('<slnum>') + s:funcbeginline
   call SpaceVim#mapping#space#def('nnoremap', ['w', 'J'], 'wincmd J',
-        \ ['window-far-down',
+        \ ['window far down',
         \ [
         \ '[SPC w J] is to jump to the far down window',
         \ '',
@@ -173,7 +173,7 @@ function! SpaceVim#mapping#space#init() abort
         \ , 1)
   let s:lnum = expand('<slnum>') + s:funcbeginline
   call SpaceVim#mapping#space#def('nnoremap', ['w', 'K'], 'wincmd K',
-        \ ['window-far-up',
+        \ ['window far up',
         \ [
         \ '[SPC w K] is to jump to the far up window',
         \ '',
@@ -183,7 +183,7 @@ function! SpaceVim#mapping#space#init() abort
         \ , 1)
   let s:lnum = expand('<slnum>') + s:funcbeginline
   call SpaceVim#mapping#space#def('nnoremap', ['w', 'L'], 'wincmd L',
-        \ ['window-far-right',
+        \ ['window far right',
         \ [
         \ '[SPC w L] is to jump to the far right window',
         \ '',
@@ -216,7 +216,7 @@ function! SpaceVim#mapping#space#init() abort
         \ , 1)
   let s:lnum = expand('<slnum>') + s:funcbeginline
   call SpaceVim#mapping#space#def('nnoremap', ['w', 'o'], 'tabnext',
-        \ ['other-tabs',
+        \ ['other tabs',
         \ [
         \ '[SPC w o] is to switch to next tabs',
         \ '',
@@ -226,7 +226,7 @@ function! SpaceVim#mapping#space#init() abort
         \ , 1)
   let s:lnum = expand('<slnum>') + s:funcbeginline
   call SpaceVim#mapping#space#def('nnoremap', ['w', '/'], 'belowright vsplit | wincmd w',
-        \ ['split-windows-right',
+        \ ['split windows right',
         \ [
         \ '[SPC w /] is to split windows on the right',
         \ '',
@@ -236,7 +236,7 @@ function! SpaceVim#mapping#space#init() abort
         \ , 1)
   let s:lnum = expand('<slnum>') + s:funcbeginline
   call SpaceVim#mapping#space#def('nnoremap', ['w', 'v'], 'belowright vsplit | wincmd w',
-        \ ['split-windows-right',
+        \ ['split windows right',
         \ [
         \ '[SPC w v] is to split windows on the right',
         \ '',
@@ -246,7 +246,7 @@ function! SpaceVim#mapping#space#init() abort
         \ , 1)
   let s:lnum = expand('<slnum>') + s:funcbeginline
   call SpaceVim#mapping#space#def('nnoremap', ['w', '-'], 'bel split | wincmd w',
-        \ ['split-windows-below',
+        \ ['split windows below',
         \ [
         \ '[SPC w -] is to split windows below',
         \ '',
@@ -256,7 +256,7 @@ function! SpaceVim#mapping#space#init() abort
         \ , 1)
   let s:lnum = expand('<slnum>') + s:funcbeginline
   call SpaceVim#mapping#space#def('nnoremap', ['w', 's'], 'bel split | wincmd w',
-        \ ['split-windows-below',
+        \ ['split windows below',
         \ [
         \ '[SPC w s] is to split windows below',
         \ '',
@@ -266,7 +266,7 @@ function! SpaceVim#mapping#space#init() abort
         \ , 1)
   let s:lnum = expand('<slnum>') + s:funcbeginline
   call SpaceVim#mapping#space#def('nnoremap', ['w', 'S'], 'bel split',
-        \ ['split-focus-windows-below',
+        \ ['split focus windows below',
         \ [
         \ '[SPC w S] is to split windows below and focus on new windows',
         \ '',
@@ -276,7 +276,7 @@ function! SpaceVim#mapping#space#init() abort
         \ , 1)
   let s:lnum = expand('<slnum>') + s:funcbeginline
   call SpaceVim#mapping#space#def('nnoremap', ['w', '2'], 'silent only | vs | wincmd w',
-        \ ['layout-double-columns',
+        \ ['layout double columns',
         \ [
         \ '[SPC w 2] is to change current windows layout to double columns',
         \ '',
@@ -286,7 +286,7 @@ function! SpaceVim#mapping#space#init() abort
         \ , 1)
   let s:lnum = expand('<slnum>') + s:funcbeginline
   call SpaceVim#mapping#space#def('nnoremap', ['w', '3'], 'silent only | vs | vs | wincmd H',
-        \ ['layout-three-columns',
+        \ ['layout three columns',
         \ [
         \ '[SPC w 3] is to change current windows layout to three columns',
         \ '',
@@ -297,7 +297,7 @@ function! SpaceVim#mapping#space#init() abort
   let s:lnum = expand('<slnum>') + s:funcbeginline
   call SpaceVim#mapping#space#def('nnoremap', ['w', 'V'],
         \ 'bel vs',
-        \ ['split-window-right-focus',
+        \ ['split window right focus',
         \ [
         \ '[SPC w V] is to split window on the right',
         \ '',
@@ -308,7 +308,7 @@ function! SpaceVim#mapping#space#init() abort
   let s:lnum = expand('<slnum>') + s:funcbeginline
   call SpaceVim#mapping#space#def('nnoremap', ['w', '='],
         \ 'wincmd =',
-        \ ['balance-windows',
+        \ ['balance windows',
         \ [
         \ '[SPC w =] is to balance all the windows in current tab',
         \ '',
@@ -324,7 +324,7 @@ function! SpaceVim#mapping#space#init() abort
   let s:lnum = expand('<slnum>') + s:funcbeginline
   call SpaceVim#mapping#space#def('nnoremap', ['b', 'n'], 'call call('
         \ . string(function('s:next_buffer'))
-        \ . ', [])', ['next-buffer',
+        \ . ', [])', ['next buffer',
         \ [
         \ '[SPC b n] is running :bnext, jump to next buffer',
         \ 'which is a vim build in command',
@@ -334,14 +334,14 @@ function! SpaceVim#mapping#space#init() abort
         \ ]
         \ ]
         \ , 1)
-  call SpaceVim#mapping#space#def('nnoremap', ['b', 's'], 
+  call SpaceVim#mapping#space#def('nnoremap', ['b', 's'],
         \ 'call call('
         \ . string(function('s:switch_scratch_buffer'))
-        \ . ', [])', 'switch-to-scratch-buffer', 1)
+        \ . ', [])', 'switch to scratch buffer', 1)
   let s:lnum = expand('<slnum>') + 3
   call SpaceVim#mapping#space#def('nnoremap', ['b', 'p'], 'call call('
         \ . string(function('s:previous_buffer'))
-        \ . ', [])', ['previous-buffer',
+        \ . ', [])', ['previous buffer',
         \ [
         \ 'SPC b p is running :bp, jump to previous buffer',
         \ 'which is a vim build in command',
@@ -354,11 +354,11 @@ function! SpaceVim#mapping#space#init() abort
 
   if g:spacevim_relativenumber
     nnoremap <silent> [SPC]tn  :<C-u>setlocal nonumber! norelativenumber!<CR>
-    let g:_spacevim_mappings_space.t.n = ['setlocal nonumber! norelativenumber!', 'toggle-line-number']
+    let g:_spacevim_mappings_space.t.n = ['setlocal nonumber! norelativenumber!', 'toggle line number']
     call SpaceVim#mapping#menu('toggle line number', '[SPC]tn', 'set nu!')
   else
     nnoremap <silent> [SPC]tn  :<C-u>setlocal number!<CR>
-    let g:_spacevim_mappings_space.t.n = ['setlocal number!', 'toggle-line-number']
+    let g:_spacevim_mappings_space.t.n = ['setlocal number!', 'toggle line number']
     call SpaceVim#mapping#menu('toggle line number', '[SPC]tn', 'setlocal number!')
   endif
   call extend(g:_spacevim_mappings_prefixs['[SPC]'], get(g:, '_spacevim_mappings_space', {}))
@@ -369,7 +369,7 @@ function! SpaceVim#mapping#space#init() abort
         \ 'call SpaceVim#plugins#flygrep#open('
         \ . '{"input" : input("grep pattern:"), "files": bufname("%")}'
         \ . ')',
-        \ ['grep-in-current-buffer',
+        \ ['grep in current buffer',
         \ [
         \ 'SPC s s will search text in current buffer, an input promot will be opened.',
         \ 'The default searching tool is based on search_tools option',
@@ -384,7 +384,7 @@ function! SpaceVim#mapping#space#init() abort
         \ 'call SpaceVim#plugins#flygrep#open('
         \ . '{"input" : expand("<cword>"), "files": bufname("%")}'
         \ . ')',
-        \ ['grep-cword-in-current-buffer',
+        \ ['grep cword in current buffer',
         \ [
         \ 'SPC s S will search the word under cursor within current buffer, an input promot will be opened.',
         \ 'The default searching tool is based on search_tools option',
@@ -399,7 +399,7 @@ function! SpaceVim#mapping#space#init() abort
         \ 'call SpaceVim#plugins#flygrep#open('
         \ . '{"input" : input("grep pattern:"), "files": "@buffers"}'
         \ . ')',
-        \ ['grep-in-all-buffers',
+        \ ['grep in all buffers',
         \ [
         \ 'SPC s b will search text in all loaded buffers, an input promot will be opened.',
         \ 'The default searching tool is based on search_tools option',
@@ -414,7 +414,7 @@ function! SpaceVim#mapping#space#init() abort
         \ 'call SpaceVim#plugins#flygrep#open('
         \ . '{"input" : expand("<cword>"), "files": "@buffers"}'
         \ . ')',
-        \ ['grep-cword-in-all-buffers',
+        \ ['grep cword in all buffers',
         \ [
         \ 'SPC s B will search cursor word in all loaded buffers, an input promot will be opened.',
         \ 'The default searching tool is based on search_tools option',
@@ -429,7 +429,7 @@ function! SpaceVim#mapping#space#init() abort
         \ 'call SpaceVim#plugins#flygrep#open('
         \ . '{"input" : input("grep pattern:"), "dir": fnamemodify(expand("%"), ":p:h")}'
         \ . ')',
-        \ ['grep-in-buffer-directory',
+        \ ['grep in buffer directory',
         \ [
         \ 'SPC s d will search text in buffer directory, an input promot will be opened.',
         \ 'The default searching tool is based on search_tools option',
@@ -443,7 +443,7 @@ function! SpaceVim#mapping#space#init() abort
         \ 'call SpaceVim#plugins#flygrep#open('
         \ . '{"input" : expand("<cword>"), "dir": fnamemodify(expand("%"), ":p:h")}'
         \ . ')',
-        \ ['grep-cword-in-buffer-directory',
+        \ ['grep cword in buffer directory',
         \ [
         \ 'SPC s d will search cursor word in buffer directory, an input promot will be opened.',
         \ 'The default searching tool is based on search_tools option',
@@ -458,7 +458,7 @@ function! SpaceVim#mapping#space#init() abort
         \ 'call SpaceVim#plugins#flygrep#open('
         \ . '{"input" : input("grep pattern:"), "dir": input("arbitrary dir:", "", "dir")}'
         \ . ')',
-        \ ['grep-in-arbitrary-directory',
+        \ ['grep in arbitrary directory',
         \ [
         \ 'SPC s f will search text in arbitrary directory, an input promot will be opened.',
         \ 'The default searching tool is based on search_tools option',
@@ -472,7 +472,7 @@ function! SpaceVim#mapping#space#init() abort
         \ 'call SpaceVim#plugins#flygrep#open('
         \ . '{"input" : expand("<cword>"), "dir": input("arbitrary dir:", "", "dir")}'
         \ . ')',
-        \ ['grep-cword-in-arbitrary-directory',
+        \ ['grep cword in arbitrary directory',
         \ [
         \ 'SPC s F will search cursor world in arbitrary directory, an input promot will be opened.',
         \ 'The default searching tool is based on search_tools option',
@@ -485,28 +485,28 @@ function! SpaceVim#mapping#space#init() abort
   call SpaceVim#mapping#space#def('nnoremap', ['s', 'p'],
         \ 'call SpaceVim#plugins#flygrep#open(' .
         \ "{'input' : input(\"grep pattern:\"), 'dir' : get(b:, \"rootDir\", getcwd())})",
-        \ 'grep-in-project', 1)
+        \ 'grep in project', 1)
   if g:spacevim_flygrep_next_version && has('nvim-0.10.0')
     call SpaceVim#mapping#space#def('nnoremap', ['s', 'P'],
           \ "lua require('flygrep').open({input = vim.fn.expand('<cword>')})",
-          \ 'grep-cword-in-project', 1)
+          \ 'grep cword in project', 1)
   else
     call SpaceVim#mapping#space#def('nnoremap', ['s', 'P'],
           \ "call SpaceVim#plugins#flygrep#open({'input' : expand(\"<cword>\"), 'dir' : get(b:, \"rootDir\", getcwd())})",
-          \ 'grep-cword-in-project', 1)
+          \ 'grep cword in project', 1)
   endif
   " Searching background
   if has('nvim-0.7.0')
     call SpaceVim#mapping#space#def('nnoremap', ['s', 'j'],
-          \ "lua require('spacevim.plugin.searcher').find('', require('spacevim.plugin.search').default_tool())", 'background-search-in-project', 1)
+          \ "lua require('spacevim.plugin.searcher').find('', require('spacevim.plugin.search').default_tool())", 'background search in project', 1)
   else
     call SpaceVim#mapping#space#def('nnoremap', ['s', 'j'],
-          \ 'call SpaceVim#plugins#searcher#find("", SpaceVim#mapping#search#default_tool()[0])', 'background-search-in-project', 1)
+          \ 'call SpaceVim#plugins#searcher#find("", SpaceVim#mapping#search#default_tool()[0])', 'background search in project', 1)
   endif
   call SpaceVim#mapping#space#def('nnoremap', ['s', 'J'],
         \ 'call SpaceVim#plugins#searcher#find(expand("<cword>"),SpaceVim#mapping#search#default_tool()[0])',
-        \ 'background-search-cwords-in-project', 1)
-  call SpaceVim#mapping#space#def('nnoremap', ['s', 'l'], 'call SpaceVim#plugins#searcher#list()', 'list-all-searching-results', 1)
+        \ 'background search cwords in project', 1)
+  call SpaceVim#mapping#space#def('nnoremap', ['s', 'l'], 'call SpaceVim#plugins#searcher#list()', 'list all searching results', 1)
 
   " Searching tools
   " ag
@@ -551,19 +551,19 @@ function! SpaceVim#mapping#space#init() abort
   " git grep
   let g:_spacevim_mappings_space.s.G = {'name' : '+git grep'}
   call SpaceVim#mapping#space#def('nnoremap', ['s', 'G', 'b'], 'call SpaceVim#mapping#search#grep("G", "b")',
-        \ 'search in all buffers with git-grep', 1)
+        \ 'search in all buffers with git grep', 1)
   call SpaceVim#mapping#space#def('nnoremap', ['s', 'G', 'B'], 'call SpaceVim#mapping#search#grep("G", "B")',
-        \ 'search cursor word in all buffers with git-grep', 1)
+        \ 'search cursor word in all buffers with git grep', 1)
   call SpaceVim#mapping#space#def('nnoremap', ['s', 'G', 'd'], 'call SpaceVim#mapping#search#grep("G", "d")', 'search in buffer directory with grep', 1)
   call SpaceVim#mapping#space#def('nnoremap', ['s', 'G', 'D'], 'call SpaceVim#mapping#search#grep("G", "D")',
-        \ 'search cursor word in buffer directory with git-grep', 1)
-  call SpaceVim#mapping#space#def('nnoremap', ['s', 'G', 'p'], 'call SpaceVim#mapping#search#grep("G", "p")', 'search in project with git-grep', 1)
+        \ 'search cursor word in buffer directory with git grep', 1)
+  call SpaceVim#mapping#space#def('nnoremap', ['s', 'G', 'p'], 'call SpaceVim#mapping#search#grep("G", "p")', 'search in project with git grep', 1)
   call SpaceVim#mapping#space#def('nnoremap', ['s', 'G', 'P'], 'call SpaceVim#mapping#search#grep("G", "P")',
-        \ 'search cursor word in project with git-grep', 1)
+        \ 'search cursor word in project with git grep', 1)
   call SpaceVim#mapping#space#def('nnoremap', ['s', 'G', 'f'], 'call SpaceVim#mapping#search#grep("G", "f")',
-        \ 'search in arbitrary directory with git-grep', 1)
+        \ 'search in arbitrary directory with git grep', 1)
   call SpaceVim#mapping#space#def('nnoremap', ['s', 'G', 'F'], 'call SpaceVim#mapping#search#grep("G", "F")',
-        \ 'search cursor word in arbitrary directory with git-grep', 1)
+        \ 'search cursor word in arbitrary directory with git grep', 1)
 
   " ack
   let g:_spacevim_mappings_space.s.k = {'name' : '+ack'}
@@ -652,12 +652,12 @@ function! SpaceVim#mapping#space#init() abort
   endif
 
   call SpaceVim#mapping#space#def('nnoremap', ['s', 'c'], 'call SpaceVim#plugins#searcher#clear()',
-        \ 'clear-search-results', 1)
+        \ 'clear search results', 1)
 
   " Tab key bindings:
   let s:lnum = expand('<slnum>') + s:funcbeginline
   call SpaceVim#mapping#space#def('nnoremap', ['F', 'D'], 'tabonly',
-        \ ['close-other-tabs',
+        \ ['close other tabs',
         \ [
         \ 'SPC F D is to close all of other tabs',
         \ '',
@@ -667,7 +667,7 @@ function! SpaceVim#mapping#space#init() abort
         \ 1)
   let s:lnum = expand('<slnum>') + s:funcbeginline
   call SpaceVim#mapping#space#def('nnoremap', ['F', 'n'], 'tabnew',
-        \ ['create-new-tab',
+        \ ['create new tab',
         \ [
         \ 'SPC F D is to create a new tab',
         \ '',
@@ -677,7 +677,7 @@ function! SpaceVim#mapping#space#init() abort
         \ 1)
   let s:lnum = expand('<slnum>') + s:funcbeginline
   call SpaceVim#mapping#space#def('nnoremap', ['F', 'd'], 'tabclose',
-        \ ['close-current-tab',
+        \ ['close current tab',
         \ [
         \ 'SPC F D is to close current tab',
         \ '',
@@ -695,22 +695,22 @@ function! SpaceVim#mapping#space#init() abort
     xnoremap <silent> <plug>SpaceVim-plugin-iedit :call SpaceVim#plugins#iedit#start(1)<cr>
   endif
   call SpaceVim#mapping#space#def('nmap', ['s', 'e'], '<plug>SpaceVim-plugin-iedit',
-        \ 'start-iedit-with-all-matches', 0, 1)
+        \ 'start iedit with all matches', 0, 1)
   call SpaceVim#mapping#space#def('nnoremap', ['s', 'E'], 'call SpaceVim#plugins#iedit#start({"selectall" : 0})',
-        \ 'start-iedit-with-current-match', 1)
+        \ 'start iedit with current match', 1)
   call SpaceVim#mapping#space#def('nnoremap', ['s', 'H'], 'call SpaceVim#plugins#highlight#start(1)',
-        \ 'highlight-all-symbols', 1)
+        \ 'highlight all symbols', 1)
   call SpaceVim#mapping#space#def('nnoremap', ['s', 'h'], 'call SpaceVim#plugins#highlight#start(0)',
-        \ 'highlight-current-symbols', 1)
+        \ 'highlight current symbols', 1)
   " Getting help
   let g:_spacevim_mappings_space.h.d = {'name' : '+help describe'}
   call SpaceVim#mapping#space#def('nnoremap', ['h', 'd', 'k'],
         \ 'call SpaceVim#plugins#help#describe_key()',
-        \ 'describe-key-bindings', 1)
+        \ 'describe key bindings', 1)
   let s:lnum = expand('<slnum>') + 3
   call SpaceVim#mapping#space#def('nnoremap', ['h', 'd', 't'], 'call call('
         \ . string(function('s:describe_current_time'))
-        \ . ', [])', ['describe-current-time',
+        \ . ', [])', ['describe current time',
         \ [
         \ 'SPC h d t is to display current time.',
         \ '',
@@ -719,13 +719,13 @@ function! SpaceVim#mapping#space#init() abort
         \ ]
         \ , 1)
   if has('nvim-0.7.0')
-    call SpaceVim#mapping#space#def('nnoremap', ['a', 'o'], 'lua require("spacevim.plugin.todo").list()', 'open-todo-manager', 1)
+    call SpaceVim#mapping#space#def('nnoremap', ['a', 'o'], 'lua require("spacevim.plugin.todo").list()', 'open todo manager', 1)
   else
-    call SpaceVim#mapping#space#def('nnoremap', ['a', 'o'], 'call SpaceVim#plugins#todo#list()', 'open-todo-manager', 1)
+    call SpaceVim#mapping#space#def('nnoremap', ['a', 'o'], 'call SpaceVim#plugins#todo#list()', 'open todo manager', 1)
   endif
 
   if has('nvim-0.9.5')
-    call SpaceVim#mapping#space#def('nnoremap', ['a', 'r'], 'lua require("spacevim.plugin.record-key").toggle()', 'toggle-record-keyboard', 1)
+    call SpaceVim#mapping#space#def('nnoremap', ['a', 'r'], 'lua require("spacevim.plugin.record-key").toggle()', 'toggle record keyboard', 1)
   endif
 endfunction
 

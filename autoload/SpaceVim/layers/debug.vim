@@ -21,19 +21,19 @@ scriptencoding utf-8
 " @subsection key bindings
 " >
 "   Key binding     Description
-"   SPC d c	      	launch-or-continue-debugger
-"   SPC d r	      	restart-debugger-with-the-same-config
-"   SPC d x	      	run-to-cursor
-"   SPC d p	      	pause-debugger
-"   SPC d b	      	toggle-line-breakpoint
-"   SPC d B	      	clear-all-breakpoints
-"   SPC d o	      	step-over
-"   SPC d i	      	step-into-functions
-"   SPC d O	      	step-out-of-current-function
-"   SPC d u	      	move-up-a-frame
-"   SPC d d	      	move-down-a-frame
-"   SPC d k	        terminate-the-debugger
-"   SPC d e	        evaluate-cursor-symbol-or-selection
+"   SPC d c	      	launch or continue debugger
+"   SPC d r	      	restart debugger with the same config
+"   SPC d x	      	run to cursor
+"   SPC d p	      	pause debugger
+"   SPC d b	      	toggle line breakpoint
+"   SPC d B	      	clear all breakpoints
+"   SPC d o	      	step over
+"   SPC d i	      	step into functions
+"   SPC d O	      	step out of current function
+"   SPC d u	      	move up a frame
+"   SPC d d	      	move down a frame
+"   SPC d k	        terminate the debugger
+"   SPC d e	        evaluate cursor symbol or selection
 " <
 
 let s:debugger_plugin = 'vebugger'
@@ -68,40 +68,40 @@ endfunction
 function! SpaceVim#layers#debug#config() abort
 
   if s:debugger_plugin ==# 'vimspector'
-    call SpaceVim#mapping#space#def('nnoremap', ['d', 'c'], 'call vimspector#Continue()', 'launch-or-continue-debugger', 1)
-    call SpaceVim#mapping#space#def('nnoremap', ['d', 'r'], 'call vimspector#Restart()', 'restart-debugger-with-the-same-config', 1)
-    call SpaceVim#mapping#space#def('nnoremap', ['d', 'x'], 'call vimspector#RunToCursor()', 'run-to-cursor', 1)
-    call SpaceVim#mapping#space#def('nnoremap', ['d', 'p'], 'call vimspector#Pause()', 'pause-debugger', 1)
-    call SpaceVim#mapping#space#def('nnoremap', ['d', 'b'], 'call vimspector#ToggleBreakpoint()', 'toggle-line-breakpoint', 1)
-    call SpaceVim#mapping#space#def('nnoremap', ['d', 'B'], 'call vimspector#ClearBreakpoints()', 'clear-all-breakpoints', 1)
-    call SpaceVim#mapping#space#def('nnoremap', ['d', 'o'], 'call vimspector#StepOver()', 'step-over', 1)
-    call SpaceVim#mapping#space#def('nnoremap', ['d', 'i'], 'call vimspector#StepInto()', 'step-into-functions', 1)
-    call SpaceVim#mapping#space#def('nnoremap', ['d', 'O'], 'call vimspector#StepOut()', 'step-out-of-current-function', 1)
-    call SpaceVim#mapping#space#def('nnoremap', ['d', 'u'], 'call vimspector#UpFrame()', 'move-up-a-frame', 1)
-    call SpaceVim#mapping#space#def('nnoremap', ['d', 'd'], 'call vimspector#DownFrame()', 'move-down-a-frame', 1)
-    call SpaceVim#mapping#space#def('nnoremap', ['d', 'k'], 'call vimspector#Stop() | VimspectorReset', 'terminate-the-debugger', 1)
-    call SpaceVim#mapping#space#def('nmap', ['d', 'e'], '<Plug>VimspectorBalloonEval', 'evaluate-cursor-symbol-or-selection', 0)
-    call SpaceVim#mapping#space#def('xmap', ['d', 'e'], '<Plug>VimspectorBalloonEval', 'evaluate-cursor-symbol-or-selection', 0)
+    call SpaceVim#mapping#space#def('nnoremap', ['d', 'c'], 'call vimspector#Continue()', 'launch or continue debugger', 1)
+    call SpaceVim#mapping#space#def('nnoremap', ['d', 'r'], 'call vimspector#Restart()', 'restart debugger with the same config', 1)
+    call SpaceVim#mapping#space#def('nnoremap', ['d', 'x'], 'call vimspector#RunToCursor()', 'run to cursor', 1)
+    call SpaceVim#mapping#space#def('nnoremap', ['d', 'p'], 'call vimspector#Pause()', 'pause debugger', 1)
+    call SpaceVim#mapping#space#def('nnoremap', ['d', 'b'], 'call vimspector#ToggleBreakpoint()', 'toggle line breakpoint', 1)
+    call SpaceVim#mapping#space#def('nnoremap', ['d', 'B'], 'call vimspector#ClearBreakpoints()', 'clear all breakpoints', 1)
+    call SpaceVim#mapping#space#def('nnoremap', ['d', 'o'], 'call vimspector#StepOver()', 'step over', 1)
+    call SpaceVim#mapping#space#def('nnoremap', ['d', 'i'], 'call vimspector#StepInto()', 'step into functions', 1)
+    call SpaceVim#mapping#space#def('nnoremap', ['d', 'O'], 'call vimspector#StepOut()', 'step out of current function', 1)
+    call SpaceVim#mapping#space#def('nnoremap', ['d', 'u'], 'call vimspector#UpFrame()', 'move up a frame', 1)
+    call SpaceVim#mapping#space#def('nnoremap', ['d', 'd'], 'call vimspector#DownFrame()', 'move down a frame', 1)
+    call SpaceVim#mapping#space#def('nnoremap', ['d', 'k'], 'call vimspector#Stop() | VimspectorReset', 'terminate the debugger', 1)
+    call SpaceVim#mapping#space#def('nmap', ['d', 'e'], '<Plug>VimspectorBalloonEval', 'evaluate cursor symbol or selection', 0)
+    call SpaceVim#mapping#space#def('xmap', ['d', 'e'], '<Plug>VimspectorBalloonEval', 'evaluate cursor symbol or selection', 0)
   else
-    call SpaceVim#mapping#space#def('nnoremap', ['d', 'l'], 'call SpaceVim#layers#debug#launching(&ft)', 'launching-debugger', 1)
-    call SpaceVim#mapping#space#def('nnoremap', ['d', 'b'], 'VBGtoggleBreakpointThisLine', 'toggle-line-breakpoint', 1)
-    call SpaceVim#mapping#space#def('nnoremap', ['d', 'B'], 'VBGclearBreakpoints', 'clear-all-breakpoints', 1)
-    call SpaceVim#mapping#space#def('nnoremap', ['d', 'c'], 'VBGcontinue', 'continue-the-execution', 1)
-    call SpaceVim#mapping#space#def('nnoremap', ['d', 'o'], 'VBGstepOver', 'step-over', 1)
-    call SpaceVim#mapping#space#def('nnoremap', ['d', 'i'], 'VBGstepIn', 'step-into-functions', 1)
-    call SpaceVim#mapping#space#def('nnoremap', ['d', 'O'], 'VBGstepOut', 'step-out-of-current-function', 1)
-    call SpaceVim#mapping#space#def('nnoremap', ['d', 'k'], 'VBGkill', 'terminates-the-debugger', 1)
+    call SpaceVim#mapping#space#def('nnoremap', ['d', 'l'], 'call SpaceVim#layers#debug#launching(&ft)', 'launching debugger', 1)
+    call SpaceVim#mapping#space#def('nnoremap', ['d', 'b'], 'VBGtoggleBreakpointThisLine', 'toggle line breakpoint', 1)
+    call SpaceVim#mapping#space#def('nnoremap', ['d', 'B'], 'VBGclearBreakpoints', 'clear all breakpoints', 1)
+    call SpaceVim#mapping#space#def('nnoremap', ['d', 'c'], 'VBGcontinue', 'continue the execution', 1)
+    call SpaceVim#mapping#space#def('nnoremap', ['d', 'o'], 'VBGstepOver', 'step over', 1)
+    call SpaceVim#mapping#space#def('nnoremap', ['d', 'i'], 'VBGstepIn', 'step into functions', 1)
+    call SpaceVim#mapping#space#def('nnoremap', ['d', 'O'], 'VBGstepOut', 'step out of current function', 1)
+    call SpaceVim#mapping#space#def('nnoremap', ['d', 'k'], 'VBGkill', 'terminates the debugger', 1)
     let g:_spacevim_mappings_space.d.e = {'name' : '+Evaluate/Execute'}
-    call SpaceVim#mapping#space#def('vnoremap', ['d', 'e', 's'], 'VBGevalSelectedText', 'evaluate-selected-text', 1)
-    call SpaceVim#mapping#space#def('nnoremap', ['d', 'e', 'e'], 'VBGevalWordUnderCursor', 'evaluate-cursor-symbol', 1)
-    call SpaceVim#mapping#space#def('vnoremap', ['d', 'e', 'S'], 'VBGexecuteSelectedText', 'execute-selected-text', 1)
+    call SpaceVim#mapping#space#def('vnoremap', ['d', 'e', 's'], 'VBGevalSelectedText', 'evaluate selected text', 1)
+    call SpaceVim#mapping#space#def('nnoremap', ['d', 'e', 'e'], 'VBGevalWordUnderCursor', 'evaluate cursor symbol', 1)
+    call SpaceVim#mapping#space#def('vnoremap', ['d', 'e', 'S'], 'VBGexecuteSelectedText', 'execute selected text', 1)
     let g:vebugger_breakpoint_text = '->'
     let g:vebugger_currentline_text = '++'
   endif
 
   call SpaceVim#mapping#space#def('nnoremap', ['d', '.'], 'call call('
         \ . string(s:_function('s:debug_transient_state')) . ', [])',
-        \ 'debug-transient-state', 1)
+        \ 'debug transient state', 1)
 endfunction
 
 function! SpaceVim#layers#debug#launching(ft) abort
@@ -119,7 +119,7 @@ function! SpaceVim#layers#debug#launching(ft) abort
 endfunction
 
 function! s:debug_transient_state() abort
-    let state = SpaceVim#api#import('transient_state') 
+    let state = SpaceVim#api#import('transient_state')
     call state.set_title('Debug Transient State')
 
     if s:debugger_plugin ==# 'vimspector'

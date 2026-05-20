@@ -85,7 +85,7 @@ function! SpaceVim#layers#incsearch#config() abort
   endfunction
   noremap <silent><expr> <Plug>(incsearch-fuzzymotion) incsearch#go(<SID>config_easyfuzzymotion())
   let lnum = expand('<slnum>') + s:lnum - 1
-  call SpaceVim#mapping#space#def('nmap', ['b', '/'], '<Plug>(incsearch-fuzzyword-/)', ['fuzzy-find-word',
+  call SpaceVim#mapping#space#def('nmap', ['b', '/'], '<Plug>(incsearch-fuzzyword-/)', ['fuzzy find word',
         \ [
         \ '[SPC b /] is to fuzzy find word in current buffer',
         \ '',

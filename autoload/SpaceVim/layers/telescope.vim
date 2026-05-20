@@ -74,7 +74,7 @@ function! SpaceVim#layers#telescope#config() abort
 
   let lnum = expand('<slnum>') + s:lnum - 1
   call SpaceVim#mapping#space#def('nnoremap', ['?'], 'Telescope menu menu=CustomKeyMaps default_text=[SPC]',
-        \ ['show-mappings',
+        \ ['show mappings',
         \ [
         \ 'SPC ? is to show mappings',
         \ '',
@@ -99,7 +99,7 @@ function! SpaceVim#layers#telescope#config() abort
 
   let lnum = expand('<slnum>') + s:lnum - 1
   call SpaceVim#mapping#space#def('nnoremap', ['b', 'b'], 'Telescope buffers',
-        \ ['list-buffer',
+        \ ['list buffer',
         \ [
         \ 'SPC b b is to open buffer list',
         \ '',
@@ -110,7 +110,7 @@ function! SpaceVim#layers#telescope#config() abort
 
   let lnum = expand('<slnum>') + s:lnum - 1
   call SpaceVim#mapping#space#def('nnoremap', ['f', 'r'], 'Telescope neomru',
-        \ ['open-recent-file',
+        \ ['open recent file',
         \ [
         \ 'SPC f r is to open recent file list',
         \ '',
@@ -121,7 +121,7 @@ function! SpaceVim#layers#telescope#config() abort
 
   let lnum = expand('<slnum>') + s:lnum - 1
   call SpaceVim#mapping#space#def('nnoremap', ['j', 'i'], 'Telescope ctags_outline outline',
-        \ ['jump-to-definition-in-buffer',
+        \ ['jump to definition in buffer',
         \ [
         \ 'SPC j i is to jump to a definition in buffer',
         \ '',
@@ -132,7 +132,7 @@ function! SpaceVim#layers#telescope#config() abort
 
   let lnum = expand('<slnum>') + s:lnum - 1
   call SpaceVim#mapping#space#def('nnoremap', ['T', 's'], 'Telescope colorscheme',
-        \ ['fuzzy-find-colorschemes',
+        \ ['fuzzy find colorschemes',
         \ [
         \ 'SPC T s is to fuzzy find colorschemes',
         \ '',
@@ -144,7 +144,7 @@ function! SpaceVim#layers#telescope#config() abort
   let lnum = expand('<slnum>') + s:lnum - 1
   call SpaceVim#mapping#space#def('nnoremap', ['f', 'f'],
         \ "exe 'Telescope find_files cwd=' . fnamemodify(bufname('%'), ':p:h')",
-        \ ['find-files-in-buffer-directory',
+        \ ['find files in buffer directory',
         \ [
         \ '[SPC f f] is to find files in the directory of the current buffer',
         \ '',
@@ -156,7 +156,7 @@ function! SpaceVim#layers#telescope#config() abort
   let lnum = expand('<slnum>') + s:lnum - 1
   call SpaceVim#mapping#space#def('nnoremap', ['p', 'f'],
         \ join(['Telescope find_files ', s:telescope_hidden ? 'hidden=true' : 'hidden=false', s:telescope_no_ignore ? 'no_ignore=true' : 'no_ignore=false'], ' '),
-        \ ['find-files-in-project',
+        \ ['find files in project',
         \ [
         \ '[SPC p f] is to find files in the root of the current project',
         \ '',
@@ -170,7 +170,7 @@ function! SpaceVim#layers#telescope#config() abort
   let lnum = expand('<slnum>') + s:lnum - 1
   call SpaceVim#mapping#space#def('nnoremap', ['h', 'i'], 'call call('
         \ . string(s:_function('s:get_help_with_cursor_symbol')) . ', [])',
-        \ ['get-help-for-cursor-symbol',
+        \ ['get help for cursor symbol',
         \ [
         \ '[SPC h i] is to get help with the symbol at point',
         \ '',
@@ -180,7 +180,7 @@ function! SpaceVim#layers#telescope#config() abort
         \ 1)
 
   call SpaceVim#mapping#space#def('nnoremap', ['p', 't', 'f'],
-        \ 'Telescope task', 'fuzzy-find-tasks', 1)
+        \ 'Telescope task', 'fuzzy find tasks', 1)
   let g:_spacevim_mappings.f = {'name' : '+Fuzzy Finder'}
   call s:defind_fuzzy_finder()
 
@@ -359,7 +359,7 @@ function! s:defind_fuzzy_finder() abort
 
   let lnum = expand('<slnum>') + s:unite_lnum - 4
   call SpaceVim#mapping#space#def('nnoremap', ['f', 'v', 's'], 'Telescope scriptnames',
-        \ ['open-custom-configuration',
+        \ ['open custom configuration',
         \ [
         \ '[SPC f v d] is to open the custom configuration file for SpaceVim',
         \ '',

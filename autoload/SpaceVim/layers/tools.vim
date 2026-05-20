@@ -39,14 +39,14 @@ function! SpaceVim#layers#tools#plugins() abort
 endfunction
 
 function! SpaceVim#layers#tools#config() abort
-  call SpaceVim#mapping#space#def('nnoremap', ['a', 'l'], 'Calendar', 'vim-calendar', 1)
+  call SpaceVim#mapping#space#def('nnoremap', ['a', 'l'], 'Calendar', 'vim calendar', 1)
   call SpaceVim#mapping#space#def('nnoremap', ['e', 'a'], 'FencAutoDetect',
-        \ 'auto-detect-file-encoding', 1)
-  call SpaceVim#mapping#space#def('nnoremap', ['a', 'c'], 'Calc', 'vim-calculator', 1)
+        \ 'auto detect file encoding', 1)
+  call SpaceVim#mapping#space#def('nnoremap', ['a', 'c'], 'Calc', 'vim calculator', 1)
   call SpaceVim#mapping#space#def('nnoremap', ['w', 'c'],
-        \ 'Goyo', 'centered-buffer-mode', 1)
+        \ 'Goyo', 'centered buffer mode', 1)
   call SpaceVim#mapping#space#def('nnoremap', ['w', 'C'],
-        \ 'ChooseWin | Goyo', 'choose-window-centered-buffer-mode', 1)
+        \ 'ChooseWin | Goyo', 'choose window centered buffer mode', 1)
 
   " bootmark key binding
   nnoremap <silent> mm :<C-u>BookmarkToggle<Cr>

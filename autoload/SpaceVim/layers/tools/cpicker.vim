@@ -56,7 +56,7 @@ endfunction
 function! SpaceVim#layers#tools#cpicker#config() abort
 
   call SpaceVim#mapping#space#def('nnoremap', ['i', 'p', 'c'], 'Cpicker ' . join(s:default_spaces, ' '),
-        \ 'insert-color-with-picker', 1)
+        \ 'insert color with picker', 1)
 
 endfunction
 

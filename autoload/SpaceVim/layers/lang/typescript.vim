@@ -118,17 +118,17 @@ function! s:on_typescript_ft() abort
         \ || SpaceVim#layers#lsp#check_server('tsserver')
     nnoremap <silent><buffer> K :call SpaceVim#lsp#show_doc()<CR>
     call SpaceVim#mapping#space#langSPC('nnoremap', ['l', 'd'],
-          \ 'call SpaceVim#lsp#show_doc()', 'show-document', 1)
+          \ 'call SpaceVim#lsp#show_doc()', 'show document', 1)
     call SpaceVim#mapping#space#langSPC('nnoremap', ['l', 'e'],
-          \ 'call SpaceVim#lsp#rename()', 'rename-symbol', 1)
+          \ 'call SpaceVim#lsp#rename()', 'rename symbol', 1)
   else
     if has('nvim')
       nnoremap <silent><buffer> gD :<C-u>TSTypeDef<Cr>
       call SpaceVim#mapping#space#langSPC('nnoremap', ['l', 'd'], 'TSDoc',
-            \ 'show-document', 1)
+            \ 'show document', 1)
       nnoremap <silent><buffer> K :<C-u>TSDoc<Cr>
       call SpaceVim#mapping#space#langSPC('nnoremap', ['l', 'e'], 'TSRename',
-            \ 'rename-symbol', 1)
+            \ 'rename symbol', 1)
     else
       nnoremap <silent><buffer> gD :<C-u>TsuTypeDefinition<Cr>
       call SpaceVim#mapping#space#langSPC('nnoremap', ['l', 'd'], 'TsuquyomiSignatureHelp',
