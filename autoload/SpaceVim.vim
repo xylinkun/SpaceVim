@@ -136,8 +136,8 @@ scriptencoding utf-8
 "     on_func = 'colorizer#ColorToggle'
 "     # `merged` option is used for merging plugins directory.
 "     # When `merged` is `true`, all files in this custom plugin
-"     # will be merged into `~/.cache/vimfiles/.cache/init.vim/`
-"     # for neovim or `~/.cache/vimfiles/.cache/vimrc/` for vim.
+"     # will be merged into `~/.local/share/SpaceVim/vimfiles/.cache/init.vim/`
+"     # for neovim or `~/.local/share/SpaceVim/vimfiles/.cache/vimrc/` for vim.
 "     merged = false
 "     # For more options see `:h dein-options`.
 " <
@@ -414,38 +414,54 @@ let g:spacevim_windows_leader          = 's'
 ""
 " @section data_dir, options-data_dir
 " @parentsection options
-" Set the cache directory of SpaceVim. Default is `$XDG_CACHE_HOME`
-" or if not set `~/.cache¸.
+" Set the data directory of SpaceVim. Default is `$XDG_DATA_HOME/SpaceVim/`
+" or if not set `~/.local/share/SpaceVim/`.
 " >
-"   data_dir = "~/.cache"
+"   data_dir = "~/.local/share/SpaceVim/"
 " <
 
 ""
-" Set the cache directory of SpaceVim. Default is `$XDG_CACHE_HOME`
-" or if not set `~/.cache¸.
+" Set the data directory of SpaceVim. Default is `$XDG_DATA_HOME/SpaceVim/`
+" or if not set `~/.local/share/SpaceVim/`.
 " >
-"   let g:spacevim_data_dir = '~/.cache'
+"   let g:spacevim_data_dir = '~/.local/share/SpaceVim/'
 " <
-let g:spacevim_data_dir
-      \ = $XDG_CACHE_HOME != ''
-      \   ? $XDG_CACHE_HOME . SpaceVim#api#import('file').separator
-      \   : expand($HOME. join(['', '.cache', ''],
-      \     SpaceVim#api#import('file').separator))
+if $XDG_DATA_HOME !=# ''
+  let g:spacevim_data_dir
+        \ = $XDG_DATA_HOME . SpaceVim#api#import('file').separator
+        \ . 'SpaceVim' . SpaceVim#api#import('file').separator
+else
+  let g:spacevim_data_dir
+        \ = expand($HOME. join(['', '.local', 'share', 'SpaceVim', ''],
+        \     SpaceVim#api#import('file').separator))
+endif
 
 if !isdirectory(g:spacevim_data_dir)
   call mkdir(g:spacevim_data_dir, 'p')
 endif
 
+" Migrate from old default (~/.cache/) to new default (~/.local/share/SpaceVim/)
+let s:old_default_data_dir = expand($HOME. join(['', '.cache', ''],
+      \ SpaceVim#api#import('file').separator))
+if isdirectory(s:old_default_data_dir . 'vimfiles')
+      \ && g:spacevim_data_dir =~# join(['', '.local', 'share', 'SpaceVim'], SpaceVim#api#import('file').separator)
+  call SpaceVim#logger#warn('Old data directory detected: ' . s:old_default_data_dir
+        \ . '. The default has changed to ' . g:spacevim_data_dir
+        \ . '. Either set g:spacevim_data_dir back to "' . s:old_default_data_dir
+        \ . '" in init.toml, or move ' . s:old_default_data_dir . 'vimfiles/'
+        \ . ' to ' . g:spacevim_data_dir . 'vimfiles/', 0)
+endif
+
 ""
 " @section plugin_bundle_dir, options-plugin_bundle_dir
 " @parentsection options
-" Set the cache directory of plugins. Default is `$data_dir/vimfiles`.
+" Set the plugins directory of SpaceVim. Default is `$data_dir/vimfiles`.
 " >
-"   plugin_bundle_dir = "~/.cache/vimplugs"
+"   plugin_bundle_dir = "~/.local/share/SpaceVim/vimplugs"
 " <
 
 ""
-" Set the cache directory of plugins. Default is `$data_dir/vimfiles`.
+" Set the plugins directory of SpaceVim. Default is `$data_dir/vimfiles`.
 " >
 "   let g:spacevim_plugin_bundle_dir = g:spacevim_data_dir.'vimplugs'
 " <
@@ -2794,7 +2810,7 @@ endfunction
 "   `~/.SpaceVim.d/init.toml`.
 "
 "   Step 2: Get into the directory of YouCompleteMe's author. By default it
-"   should be `~/.cache/vimfiles/repos/github.com/Valloric/`. If you find the
+"   should be `~/.local/share/SpaceVim/vimfiles/repos/github.com/Valloric/`. If you find the
 "   directory `YouCompleteMe` in it, go into it. Otherwise clone
 "   YouCompleteMe repo by
 "   `git clone https://github.com/Valloric/YouCompleteMe.git`. After cloning,
