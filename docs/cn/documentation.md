@@ -535,7 +535,7 @@ endfunction
 | `SPC t h i`       | 高亮代码对齐线                            |
 | `SPC t h c`       | 高亮光标所在列                            |
 | `SPC t h s`       | 启用/禁用语法高亮                         |
-| `SPC t i`         | 切换显示当前对齐(TODO)                    |
+| `SPC t i`         | 切换显示缩进对齐线                        |
 | `SPC t n`         | 显示/隐藏行号                             |
 | `SPC t b`         | 切换背景色                                |
 | `SPC t c`         | 切换 conceal 模式                         |

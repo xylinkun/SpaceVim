@@ -225,6 +225,9 @@ function! SpaceVim#layers#ui#config() abort
           \ 'SPC t h i is to running :IndentLinesToggle which is definded in indentLine'
           \ ]
           \ ], 1)
+  call SpaceVim#mapping#space#def('nnoremap', ['t', 'i'], 'call call('
+        \ . string(s:_function('s:toggle_indentline')) . ', [])',
+        \ 'toggle indentation guide at point', 1)
   call SpaceVim#mapping#space#def('nnoremap', ['t', 'h', 'c'], 'set cursorcolumn!',
         \ 'toggle highlight current column', 1)
   call SpaceVim#mapping#space#def('nnoremap', ['t', 'h', 's'], 'call call('
@@ -659,7 +662,7 @@ function! s:fonts_transient_state() abort
   if !exists('s:guifont')
     let s:guifont = &guifont
   endif
-  let state = SpaceVim#api#import('transient_state') 
+  let state = SpaceVim#api#import('transient_state')
   call state.set_title('Fonts Transient State')
   call state.defind_keys({
         \ 'layout' : 'vertical split',
