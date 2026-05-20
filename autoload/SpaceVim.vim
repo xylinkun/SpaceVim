@@ -1,6 +1,6 @@
 "=============================================================================
 " SpaceVim.vim --- Initialization and core files for SpaceVim
-" Copyright (c) 2016-2023 Wang Shidong & Contributors
+" Copyright (c) 2016-2025 Wang Shidong & Contributors
 " Author: Shidong Wang < wsdjeg@outlook.com >
 " URL: https://spacevim.org
 " License: GPLv3
@@ -35,12 +35,12 @@ scriptencoding utf-8
 " @section Update and Rollback, update-and-rollback
 " @parentsection intro
 " @subsection Update SpaceVim itself
-" 
+"
 " There are several methods of updating the core files of SpaceVim.
 " It is recommended to update the packages first; see the next section.
 "
 " 1. Automatic Updates
-" 
+"
 " By default, this feature is disabled.
 " It would slow down the startup of Vim/Neovim.
 " If you like this feature,
@@ -49,42 +49,42 @@ scriptencoding utf-8
 "   [options]
 "     automatic_update = true
 " <
-" 
+"
 " SpaceVim will automatically check for a new version
 " every startup. You have to restart Vim after updating.
-" 
+"
 " 2. Updating from the SpaceVim Buffer
-" 
+"
 " Users can use command `:SPUpdate SpaceVim` to update SpaceVim.
 " This command will open a new buffer to show the process of updating.
-" 
+"
 " 3. Updating Manually with git
-" 
+"
 " For users who prefer to use the command line, they can use the following command
 " in a terminal to update SpaceVim manually:
 " >
 "   git -C ~/.SpaceVim pull
 " <
-" 
+"
 " @subsection Update plugins
-" 
+"
 " Use `:SPUpdate` command to update all the plugins and
 " SpaceVim itself. After `:SPUpdate`, you can assign
 " plugins need to be updated. Use `Tab` to complete
 " plugin names after `:SPUpdate`.
-" 
+"
 " @subsection Reinstall plugins
-" 
+"
 " When a plugin has failed to update or is broken, Use the `:SPReinstall`
 " command to reinstall the plugin. The plugin's name can be completed via the key binding `<Tab>`.
-" 
+"
 " For example:
 " >
 "   :SPReinstall echodoc.vim
 " <
-" 
+"
 " @subsection Get SpaceVim log
-" 
+"
 " The runtime log of SpaceVim can be obtained via the key binding `SPC h L`.
 " To get the debug information about the current SpaceVim environment,
 " Use the command `:SPDebugInfo!`. This command will open a new buffer where default information will be shown.
@@ -93,24 +93,24 @@ scriptencoding utf-8
 ""
 " @section Options, options
 " The very first time SpaceVim starts up, it will ask you to choose a mode,
-" `basic mode` or `dark powered mode`. Then it will create a 
+" `basic mode` or `dark powered mode`. Then it will create a
 " `.SpaceVim.d/init.toml` file in your $HOME directory.
 " All the user configuration files are stored in ~/.SpaceVim.d/ directory.
-" 
+"
 " `~/.SpaceVim.d/` will also be added to |'runtimepath'|.
-" 
+"
 " It is also possible to override the location of `~/.SpaceVim.d/` by
 " using the environment variable `$SPACEVIMDIR`.
 " Of course, symlinks can be used to change the location of this directory.
-" 
+"
 " SpaceVim also supports project specific configuration files.
 " The project configuration file is `.SpaceVim.d/init.toml` in the root of
 " the project. The directory `{project root}/.SpaceVim.d/` will also be
 " added to the |'runtimepath'|.
-" 
+"
 " NOTE:Please be aware that if there are errors in your init.toml,
 " all the setting in this toml file will not be applied.
-" 
+"
 " All SpaceVim options can be found in @section(options), the option name is
 " same as the old vim option, but with the `g:spacevim_` prefix removed. For example:
 " >
@@ -118,9 +118,9 @@ scriptencoding utf-8
 " <
 " If the fuzzy finder layer is loaded, users can use key binding `SPC h SPC`
 " to fuzzy find the documentation of SpaceVim options.
-" 
+"
 " @subsection Add custom plugins
-" 
+"
 " If you want to add plugins from GitHub, just add the repo name to the custom_plugins section:
 " >
 "   [[custom_plugins]]
@@ -152,7 +152,7 @@ scriptencoding utf-8
 "   [[custom_plugins]]
 "     repo = 'lilydjwg/colorizer'
 "     merged = false
-" 
+"
 "   [[custom_plugins]]
 "     repo = 'joshdick/onedark.vim'
 "     merged = false
@@ -414,14 +414,14 @@ let g:spacevim_windows_leader          = 's'
 ""
 " @section data_dir, options-data_dir
 " @parentsection options
-" Set the cache directory of SpaceVim. Default is `$XDG_CACHE_HOME` 
+" Set the cache directory of SpaceVim. Default is `$XDG_CACHE_HOME`
 " or if not set `~/.cache¸.
 " >
 "   data_dir = "~/.cache"
 " <
 
 ""
-" Set the cache directory of SpaceVim. Default is `$XDG_CACHE_HOME` 
+" Set the cache directory of SpaceVim. Default is `$XDG_CACHE_HOME`
 " or if not set `~/.cache¸.
 " >
 "   let g:spacevim_data_dir = '~/.cache'
@@ -514,7 +514,7 @@ let g:spacevim_leader_guide_theme = 'leaderguide'
 let g:spacevim_enable_key_frequency = 0
 if has('nvim-0.9.0')
   let g:spacevim_autocomplete_method = 'nvim-cmp'
-elseif (has('python3') 
+elseif (has('python3')
       \ && (SpaceVim#util#haspy3lib('neovim')
       \ || SpaceVim#util#haspy3lib('pynvim'))) &&
       \ (has('nvim') || (has('patch-8.0.0027')))
@@ -774,7 +774,7 @@ let g:spacevim_enable_statusline_tag = 1
 "     'version control info'
 "     ]
 " <
-" `statusline_left_sections` is deprecated, use `statusline_left` instead. 
+" `statusline_left_sections` is deprecated, use `statusline_left` instead.
 
 ""
 " Define the left section of statusline in active windows. By default:
@@ -789,7 +789,7 @@ let g:spacevim_enable_statusline_tag = 1
 "     \ ]
 " <
 " `g:spacevim_statusline_left_sections` is deprecated,
-" use `g:spacevim_statusline_left` instead. 
+" use `g:spacevim_statusline_left` instead.
 let g:spacevim_statusline_left = ['winnr', 'filename', 'major mode',
       \ 'search count',
       \ 'syntax checking', 'minor mode lighters',
@@ -812,7 +812,7 @@ let g:spacevim_statusline_left = ['winnr', 'filename', 'major mode',
 " - percentage: the percent of current page
 " - totallines: the total lines of current buffer
 "
-" `statusline_right_sections` is deprecated, use `statusline_right` instead. 
+" `statusline_right_sections` is deprecated, use `statusline_right` instead.
 
 ""
 " Define the right section of statusline in active windows. By default:
@@ -826,7 +826,7 @@ let g:spacevim_statusline_left = ['winnr', 'filename', 'major mode',
 " <
 "
 " `g:spacevim_statusline_right_sections` is deprecated,
-" use `g:spacevim_statusline_right` instead. 
+" use `g:spacevim_statusline_right` instead.
 let g:spacevim_statusline_right = ['fileformat', 'cursorpos', 'percentage']
 
 ""
@@ -1069,14 +1069,11 @@ let g:spacevim_filetree_direction             = 'right'
 
 let g:spacevim_sidebar_direction        = ''
 ""
-" The default plugin manager of SpaceVim.
-" if has patch 7.4.2071, the default value is dein. Otherwise it is neobundle.
-" Options are dein, neobundle, or vim-plug.
-if has('patch-7.4.2071')
-  let g:spacevim_plugin_manager          = 'dein'
-else
-  let g:spacevim_plugin_manager          = 'neobundle'
-endif
+" The default plugin manager of SpaceVim is `dein`.
+" Options are `dein`, `neobundle` (deprecated), or `vim-plug`.
+" NOTE: `neobundle` is deprecated by its author (Shougo) in favor of `dein`.
+" It is kept for backward compatibility but may be removed in a future version.
+let g:spacevim_plugin_manager          = 'dein'
 
 ""
 " @section plugin_manager_processes, options-plugin_manager_processes
@@ -1871,7 +1868,7 @@ function! s:parser_argv() abort
     " or only run vim/neovim without argvs
     if len(v:argv) == 1 || (len(v:argv) == 2 && index(v:argv, '--embed') == 1)
       return [0]
-    elseif index(v:argv, '--embed') !=# -1 
+    elseif index(v:argv, '--embed') !=# -1
       if  v:argv[-1] =~# '/$'
         let f = fnamemodify(expand(v:argv[-1]), ':p')
         if isdirectory(f)
@@ -2091,7 +2088,7 @@ endfunction
 " switch between different undo branches.The default key binding is `F7`.
 " If `+python` or `+python3` is enabled, `vim-mundo` will be used,
 " otherwise `undotree` will be used.
-" 
+"
 " Key bindings within undo tree windows:
 " >
 "    key bindings     description
@@ -2134,18 +2131,18 @@ endfunction
 " The search commands in SpaceVim are organized under the `SPC s` prefix
 " with the next key being the tool to use and the last key is the scope.
 " For instance, `SPC s a b` will search in all opened buffers using `ag`.
-" 
+"
 " If the `<scope>` is uppercase then the current word under the cursor
 " is used as default input for the search.
 " For instance, `SPC s a B` will search for the word under the cursor.
-" 
+"
 " If the tool key is omitted then a default tool will be automatically
 " selected for the search. This tool corresponds to the first tool found
 " on the system from the list `search_tools`, the default order is
 " `['rg', 'ag', 'pt', 'ack', 'grep', 'findstr', 'git']`.
 " For instance `SPC s b` will search in the opened buffers using
 " `pt` if `rg` and `ag` have not been found on the system.
-" 
+"
 " The tool keys are:
 " >
 "     Tool     | Key
@@ -2177,7 +2174,7 @@ endfunction
 " All buffer related key bindings are start with `SPC b`, and all files
 " related key bindings are start with `SPC f`.
 " @subsection Buffers manipulation key bindings
-" 
+"
 " Buffer manipulation commands (start with `b`):
 " >
 "   Key Bindings       | Descriptions
@@ -2200,7 +2197,7 @@ endfunction
 "   SPC b w            | toggle read-only (writable state)
 "   SPC b Y            | copy whole buffer to clipboard
 " <
-" 
+"
 " @subsection Create a new empty buffer
 "
 " The following key bindings can be used to create new buffer.
@@ -2214,13 +2211,13 @@ endfunction
 "   SPC b N n    | create new empty buffer in current window
 " <
 " @subsection Special Buffers
-" 
+"
 " Buffers created by plugins are not normal files, and they will not be listed
 " on tabline. And also will not be listed by `SPC b b` key binding in fuzzy finder
 " layer.
-" 
+"
 " @subsection File manipulation key bindings
-" 
+"
 " Files manipulation commands (start with `f`):
 " >
 "   Key Bindings | Descriptions
@@ -2251,11 +2248,11 @@ endfunction
 " If you are using scoop(https://github.com/lukesampson/scoop) to install
 " packages, commands in `C:\WINDOWS\system32` will override the User `PATH`,
 " so you need to put the scoop binary path before `C:\WINDOWS\system32` in `PATH`.
-" 
+"
 " After pressing `SPC f /`, the find window will be opened.
 " It is going to run `find` or `fd` command asynchronously.
 " By default, `find` is the default tool, you can use `ctrl-e` to switch tools.
-" 
+"
 " To change the default file searching tool, you can use
 " `file_searching_tools` in the `[options]` section.
 " It is `[]` by default.
@@ -2263,11 +2260,11 @@ endfunction
 "   [options]
 "     file_searching_tools = ['find', 'find -not -iwholename "*.git*" ']
 " <
-" 
+"
 " The first item is the name of the tool, the second one is the default searching command.
-" 
+"
 " @subsection Vim and SpaceVim files
-" 
+"
 " Convenient key bindings are located under the prefix `SPC f v` to quickly
 " navigate between Vim and SpaceVim specific files.
 " >
@@ -2322,7 +2319,7 @@ endfunction
 " A git commit message consists a three distinct parts separated by black line.
 " >
 "   Type (scope): Subject
-" 
+"
 "   body
 "
 "   footer
@@ -2366,13 +2363,13 @@ endfunction
 ""
 " @section merge requese, dev-merge-request
 " @parentsection dev
-" 
+"
 " @subsection Steps
 "
 " The following steps describe how to create a new merge request using mail.
-" 
+"
 " 1. create new empty repository on github，gitlab or any other platform.
-" 2. clone your repository 
+" 2. clone your repository
 " >
 "   git clone ${YOUR_OWN_REPOSITORY_URL}
 " <
@@ -2390,13 +2387,13 @@ endfunction
 "   git push -u origin
 " <
 " 6. send merge request to mail list.
-"   
+"
 "     email address: `spacevim@googlegroups.com`
-"     
+"
 "     email title:
-" 
+"
 "     The title of the email should contain one of the following prefixes::
-" 
+"
 "     `Add:` Adding new features.
 "
 "     `Change:` Change default behaviors or the existing features.
@@ -2408,39 +2405,39 @@ endfunction
 "     `Doc:` Update the help files.
 "
 "     `Website:` Update the content of website.
-" 
+"
 "     Here is an example:
-" 
+"
 "     `Website: Update the lang#c layer page.`
-" 
+"
 "     Email context:
-" 
+"
 "     The context should contain the url of repository and the branch name.
 "
 "     It is better to add some description about the changes. For example:
 "     >
 "     repo url: https://gitlab.com/wsdjeg/hello.git
 "     branch: fix_scrollbar
-" 
+"
 "     when switch windows, the highlight of scrollbar is wrong.
 "     here is the reproduce steps:
-" 
+"
 "     。。。。
 "     <
-" 
+"
 " @subsection Simple PRs
-" 
+"
 " 1. Branch from `master`
 " 2. One topic per PR
 " 3. One commit per PR
 " 4. If you have several commits on different topics, close the PR and create one PR per topic
 " 5. If you still have several commits, squash them into only one commit
-" 
+"
 " @subsection Complex PRs
-" 
+"
 " Squash only the commits with uninteresting changes like typos, syntax fixes, etc.
 " And keep the important and isolated steps in different commits.
-" 
+"
 " Those PRs are merged and explicitly not fast-forwarded.
 
 ""
@@ -2458,7 +2455,7 @@ endfunction
 "          },
 "    }
 " <
-" after adding this configuration, when edit the source file 
+" after adding this configuration, when edit the source file
 " `autoload/SpaceVim/layers/lang/java.vim`,
 " you can use `:A doc` switch to `docs/layers/lang/java.md`
 
@@ -2470,8 +2467,8 @@ endfunction
 "   Key Bindings      | Descriptions
 "   ----------------- | -----------------------------------------
 "    SPC t 8          | highlight characters past the 80th column
-"    SPC t a          | toggle autocomplete 
-"    SPC t f          | display the fill column 
+"    SPC t a          | toggle autocomplete
+"    SPC t f          | display the fill column
 "    SPC t h h        | toggle highlight of the current line
 "    SPC t h i        | toggle highlight indentation levels
 "    SPC t h c        | toggle highlight current column
@@ -2497,7 +2494,7 @@ endfunction
 " handling features. The checkers layer uses
 " neomake(https://github.com/neomake/neomake) by default.
 " The syntax checking is only performed at save time by default.
-" 
+"
 " Error management mappings (start with e):
 " >
 "   Mappings  | Descriptions
@@ -2508,7 +2505,7 @@ endfunction
 "    SPC e l  | toggle the display of the list of errors/warnings
 "    SPC e n  | go to the next error
 "    SPC e p  | go to the previous error
-"    SPC e v  | verify syntax checker setup 
+"    SPC e v  | verify syntax checker setup
 "    SPC e .  | error transient state
 " <
 " The next/previous error mappings and the error transient state can be used
@@ -2516,7 +2513,7 @@ endfunction
 " buffers, and indeed anything that supports Vim's location list. This
 " includes for example search results that have been saved to a location
 " list buffer.
-" 
+"
 " Custom sign symbol:
 " >
 "   Symbol | Descriptions | Custom options
@@ -2549,7 +2546,7 @@ endfunction
 "    Ctrl-Shift-Down  | move lines down
 " <
 " @subsection Code indentation
-" 
+"
 " The default indentation of code is 2, which is controlled by the option
 " @section(options-default_indent).
 " If you prefer to use 4 as code indentation. Just add the following snippet
@@ -2568,7 +2565,7 @@ endfunction
 "     expand_tab = true
 " <
 " @subsection Text manipulation commands
-" 
+"
 " Text related commands (start with `x`):
 " >
 "   Key Bindings     | Descriptions
@@ -2627,7 +2624,7 @@ endfunction
 "    SPC x w c       | count the words in the select region
 " <
 " @subsection Text insertion commands
-" 
+"
 " Text insertion commands (start with `i`):
 " >
 "   Key bindings | Descriptions
@@ -2647,9 +2644,9 @@ endfunction
 " >
 " NOTE: You can specify the number of password characters using a prefix
 " argument (i.e. `10 SPC i p 1` will generate a 10 character simple password).
-" 
+"
 " @subsection Expand regions of text
-" 
+"
 " Key bindings available in visual mode:
 " >
 "   Key bindings | Descriptions
@@ -2674,9 +2671,9 @@ endfunction
 " <
 " Tip: You can set the step (1 by default) by using a prefix argument
 " (i.e. `10 SPC n +` will add 10 to the number under the cursor).
-" 
+"
 " @subsection Copy and paste
-" 
+"
 " If `has('unnamedplus')`, the register used by `<Leader> y` is `+`,
 " otherwise it is `*`. Read `:h registers` for more info about other registers.
 " >
@@ -2694,14 +2691,14 @@ endfunction
 "     call clipboard#set('tmux load-buffer -', 'tmux save-buffer -')
 "   endfunction
 " <
-" 
+"
 " within the runtime log (`SPC h L`), the clipboard command will be displayed:
-" 
+"
 " >
 "   [ clipboard ] [11:00:35] [670.246] [ Info  ] yank_cmd is:'tmux load-buffer -'
 "   [ clipboard ] [11:00:35] [670.246] [ Info  ] paste_cmd is:'tmux save-buffer -'
 " >
-" 
+"
 " The `<Leader> Y` key binding will copy selected text to a pastebin server.
 " It requires `curl` in your `$PATH`. The default command is:
 " >
@@ -2711,9 +2708,9 @@ endfunction
 " >
 "   echo "selected text" | curl -s -F "content=<-" http://dpaste.com/api/v2/
 " <
-" 
+"
 " @subsection Commenting
-" 
+"
 " Comments are handled by nerdcommenter, it’s bound to the following keys.
 " >
 "   Key Bindings | Descriptions
@@ -2733,17 +2730,17 @@ endfunction
 "    SPC c Y     | yank and comment
 "    SPC c $     | comment current line from cursor to the end of the line
 " <
-" Tip: `SPC ;` will start operator mode, in this mode, you can use a motion 
+" Tip: `SPC ;` will start operator mode, in this mode, you can use a motion
 " command to comment lines. For example, `SPC ; 4 j` will comment the current
 " line and the following 4 lines.
-" 
+"
 " @subsection Undo tree
-" 
+"
 " Undo tree visualizes the undo history and makes it easier to browse
 " and switch between different undo branches. The default key binding is `F7`.
 " If `+python` or `+python3` is enabled, mundo will be loaded,
 " otherwise undotree will be loaded.
-" 
+"
 " Key bindings within undo tree windows:
 " >
 "   key bindings    | description
@@ -2771,14 +2768,14 @@ endfunction
 "    ?              | toggle help
 " <
 " @subsection Multi-Encodings
-" 
+"
 " SpaceVim uses utf-8 as the default encoding. There are four options for this:
-" 
+"
 " 1. fileencodings (fencs): ucs-bom,utf-8,default,latin1
 " 2. fileencoding (fenc): utf-8
 " 3. encoding (enc): utf-8
 " 4. termencoding (tenc): utf-8 (only supported in Vim)
-" 
+"
 " To fix a messy display: `SPC e a` is the mapping to auto detect the file
 " encoding. After detecting the file encoding, you can run the command below
 " to fix it:
@@ -2805,10 +2802,10 @@ endfunction
 "
 "   Step 3: Compile YouCompleteMe with the features you want. If you just want
 "   C family support, run `./install.py --clang-completer`.
-" 
+"
 "
 " 2. How to add custom snippet?
-" 
+"
 "  SpaceVim uses neosnippet as the default snippet engine. This can be changed
 " by @section(options-snippet_engine) option.
 "
@@ -2821,15 +2818,15 @@ endfunction
 "
 "
 " 3. Where is `<c-f>` in cmdline-mode?
-" 
+"
 "   `<c-f>` is the default value of |cedit| option, but in SpaceVim we use that
 " binding as `<Right>`, so maybe you can change the `cedit` option or use
 "   `<leader>+<c-f>`.
 "
 " 4. How to use `<Space>` as `<Leader>`?
-" 
+"
 "   Add `let g:mapleader = "\<Space>"` to bootstrap function.
-" 
+"
 " 5. Why does Vim freeze after pressing Ctrl-s?
 "
 "   This is a feature of terminal emulators. You can use `Ctrl-q` to unfreeze Vim. To disable
@@ -2844,7 +2841,7 @@ endfunction
 "   to config python prog. But in SpaceVim the custom configuration file is
 "   loaded after SpaceVim core code. So in SpaceVim itself, if we using `:py`
 "   command, it may cause errors.
-"   
+"
 "   So we introduce two new environment variables: `PYTHON_HOST_PROG` and
 "   `PYTHON3_HOST_PROG`.
 "
@@ -2858,39 +2855,39 @@ endfunction
 " @section Community, community
 "
 " @subsection News
-" 
+"
 " The news about spacevim will be post on twitter, feel free to follow them:
-" 
+"
 " https://x.com/SpaceVim
-" 
+"
 " @subsection Asking for help
-" 
+"
 " If you have any questions about using SpaceVim, check out the following context first, which may contain the answers:
-" 
+"
 " @section(faq): Some of the most frequently asked questions are answered there.
 " @section(usage): It is the general documentation of SpaceVim.
-" 
+"
 " @subsection Feedback
-" 
+"
 " If you run into a bug, or want a new feature, please use the mail list:
-" 
+"
 " send email to spacevim@googlegroups.com
-" 
+"
 " To subscribe the maillist, send anything to：spacevim+subscribe@googlegroups.com
 
 ""
 " @section Roadmap, roadmap
 " The roadmap defines the project direction and priorities. If you have any
 " suggestions , please checkout @section(community).
-" 
+"
 " @subsection To-Do List
-" 
+"
 " - [x] rewrite statusline plugin with lua
 " - [x] rewrite tabline plugin with lua
 " - [ ] merge website context into :h SpaceVim
-" 
+"
 " @subsection Completed
-" 
+"
 " All completed functions can be found in @section(changelog)
 
 

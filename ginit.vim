@@ -1,6 +1,6 @@
 "=============================================================================
 " ginit.vim --- Entry file for neovim-qt
-" Copyright (c) 2016-2023 Wang Shidong & Contributors
+" Copyright (c) 2016-2025 Wang Shidong & Contributors
 " Author: Wang Shidong < wsdjeg@outlook.com >
 " URL: https://spacevim.org
 " License: GPLv3
@@ -17,11 +17,10 @@ if exists('g:GuiLoaded')
     GuiPopupmenu 0
   endif
 
-  " Disbale gui tabline
+  " Disable gui tabline"
   if exists(':GuiTabline') == 2
     GuiTabline 0
   endif
 endif
 
 " vim:set et sw=2:
-

@@ -1,6 +1,6 @@
 "=============================================================================
 " manager.vim --- plugin manager for SpaceVim
-" Copyright (c) 2016-2023 Wang Shidong & Contributors
+" Copyright (c) 2016-2025 Wang Shidong & Contributors
 " Author: Shidong Wang < wsdjeg@outlook.com >
 " URL: https://spacevim.org
 " License: GPLv3 license
@@ -97,6 +97,9 @@ function! SpaceVim#plugins#manager#install(...) abort
         let repo = dein#get(s:LIST.shift(s:plugins))
       elseif g:spacevim_plugin_manager ==# 'neobundle'
         let repo = neobundle#get(s:LIST.shift(s:plugins))
+      elseif g:spacevim_plugin_manager ==# 'vim-plug'
+        let name = s:LIST.shift(s:plugins)
+        let repo = get(g:plugs, name, {})
       endif
       if !empty(repo)
         call s:install(repo)
@@ -134,6 +137,7 @@ function! SpaceVim#plugins#manager#update(...) abort
   elseif g:spacevim_plugin_manager ==# 'neobundle'
     let s:plugins = a:0 == 0 ? sort(map(neobundle#config#get_neobundles(), 'v:val.name')) : sort(copy(a:1))
   elseif g:spacevim_plugin_manager ==# 'vim-plug'
+    let s:plugins = a:0 == 0 ? sort(keys(get(g:, 'plugs', {}))) : sort(copy(a:1))
   endif
   " make dein-ui only update SpaceVim for SpaceVim users
   if a:0 == 0 && exists('g:spacevim_version')
@@ -162,6 +166,9 @@ function! SpaceVim#plugins#manager#update(...) abort
       elseif g:spacevim_plugin_manager ==# 'neobundle'
         let reponame = s:LIST.shift(s:plugins)
         let repo = neobundle#get(reponame)
+      elseif g:spacevim_plugin_manager ==# 'vim-plug'
+        let reponame = s:LIST.shift(s:plugins)
+        let repo = get(g:plugs, reponame, {})
       endif
       if !empty(repo) && !get(repo, 'local', 0) && isdirectory(repo.path . '/.git') && !filereadable(repo.path . '/.git/shallow.lock')
         call s:pull(repo)
@@ -394,20 +401,21 @@ endfunction
 
 function! s:get_uri(repo) abort
   if g:spacevim_plugin_manager ==# 'dein'
-    if a:repo.repo =~# '^[^/]\+/[^/]\+$'
+    if a:repo.repo =~# '^[^/]\+\/[^/]\+$'
       let url = 'https://github.com/' . (has_key(a:repo, 'repo') ? a:repo.repo : a:repo.orig_path)
       return url
     else
       return a:repo.repo
     endif
   elseif g:spacevim_plugin_manager ==# 'neobundle'
-    return a:repo.uri
     if has_key(a:repo, 'uri')
       return a:repo.uri
     else
       let url = 'https://github.com/' . (has_key(a:repo, 'orig_name') ? a:repo.orig_name : a:repo.orig_path)
       return url
     endif
+  elseif g:spacevim_plugin_manager ==# 'vim-plug'
+    return get(a:repo, 'uri', '')
   endif
 endfunction
 
@@ -687,7 +695,7 @@ function! s:resume_window() abort
   setf SpaceVimPlugManager
   nnoremap <silent> <buffer> q :bd<CR>
   call setline(1, s:plugin_manager_buffer_lines)
-  setlocal nomodifiable 
+  setlocal nomodifiable
 endfunction
 
 " change modifiable before setline

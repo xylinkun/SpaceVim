@@ -9,14 +9,16 @@ description: "The companies or individuals contributing a monthly amount to help
 
 <!-- vim-markdown-toc -->
 
-SpaceVim is an open source project.
-Currently, this project is maintained by [Eric Wong](https://wsdjeg.net),
+SpaceVim is an open source project, originally created by [Eric Wong](https://github.com/wsdjeg) and currently maintained by [@xylinkun](https://github.com/xylinkun).
 If you use SpaceVim in your daily work and feel that it has made your life easier,
-please consider supporting SpaceVim by:
+please consider supporting us:
 
-- [opencollective](https://opencollective.com/spacevim)
-- PayPal：[paypal.me/SpaceVim](https://paypal.me/SpaceVim)
-- WeChat or Alipay: 
+**Original author (Eric Wong):**
 
-<img src="https://spacevim.org/img/weixin.png" height="300" width="300">
-<img src="https://spacevim.org/img/zhifubao.png" height="300" width="300">
+<img src="https://raw.githubusercontent.com/xylinkun/SpaceVim/master/docs/img/wsdjeg_weixin.png" height="300" width="300">
+<img src="https://raw.githubusercontent.com/xylinkun/SpaceVim/master/docs/img/wsdjeg_zhifubao.png" height="300" width="300">
+
+**Current maintainer (@xylinkun):**
+
+<img src="https://raw.githubusercontent.com/xylinkun/SpaceVim/master/docs/img/xylinkun_weixin.jpg" height="300" width="300">
+<img src="https://raw.githubusercontent.com/xylinkun/SpaceVim/master/docs/img/xylinkun_zhifubao.jpg" height="300" width="300">

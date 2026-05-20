@@ -1,6 +1,6 @@
 "=============================================================================
 " init.vim --- Entry file for neovim
-" Copyright (c) 2016-2023 Wang Shidong & Contributors
+" Copyright (c) 2016-2025 Wang Shidong & Contributors
 " Author: Wang Shidong < wsdjeg@outlook.com >
 " URL: https://spacevim.org
 " License: GPLv3
@@ -47,7 +47,7 @@ if has('vim_starting')
   if !empty($PYTHON3_HOST_PROG)
     let g:python3_host_prog = $PYTHON3_HOST_PROG
     call SpaceVim#logger#info('$PYTHON3_HOST_PROG is not empty, setting g:python3_host_prog:' . g:python3_host_prog)
-    if !has('nvim') 
+    if !has('nvim')
           \ && (has('win16') || has('win32') || has('win64'))
           \ && exists('&pythonthreedll')
           \ && exists('&pythonthreehome')
@@ -64,7 +64,7 @@ call SpaceVim#begin()
 call SpaceVim#custom#load()
 
 if has('timers')
-  call timer_start(g:spacevim_lazy_conf_timeout, 'SpaceVim#default#keyBindings') 
+  call timer_start(g:spacevim_lazy_conf_timeout, 'SpaceVim#default#keyBindings')
 else
   call SpaceVim#default#keyBindings()
 endif

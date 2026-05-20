@@ -1,6 +1,6 @@
 "=============================================================================
 " commands.vim --- commands in SpaceVim
-" Copyright (c) 2016-2023 Wang Shidong & Contributors
+" Copyright (c) 2016-2025 Wang Shidong & Contributors
 " Author: Wang Shidong < wsdjeg@outlook.com >
 " URL: https://spacevim.org
 " License: GPLv3
@@ -49,7 +49,7 @@ function! SpaceVim#commands#load() abort
         \ SPUpdate call SpaceVim#commands#update_plugin(<f-args>)
 
   ""
-  " Command for reinstall plugin, support completion of plugin name. 
+  " Command for reinstall plugin, support completion of plugin name.
   command! -nargs=+
         \ -complete=custom,SpaceVim#commands#complete_plugin
         \ SPReinstall call SpaceVim#commands#reinstall_plugin(<f-args>)
@@ -85,6 +85,8 @@ function! SpaceVim#commands#complete_plugin(ArgLead, CmdLine, CursorPos) abort
     return join(keys(dein#get()) + ['SpaceVim'], "\n")
   elseif g:spacevim_plugin_manager ==# 'neobundle'
     return join(map(neobundle#config#get_neobundles(), 'v:val.name'), "\n")
+  elseif g:spacevim_plugin_manager ==# 'vim-plug'
+    return join(keys(get(g:, 'plugs', {})), "\n")
   endif
 endfunction
 " @vimlint(EVL103, 0, a:ArgLead)
@@ -133,6 +135,11 @@ function! SpaceVim#commands#update_plugin(...) abort
       call SpaceVim#plugins#manager#update(a:000)
     endif
   elseif g:spacevim_plugin_manager ==# 'vim-plug'
+    if a:0 == 0
+      PlugUpdate
+    else
+      exec 'PlugUpdate' join(a:000)
+    endif
   endif
 endfunction
 
@@ -140,7 +147,14 @@ function! SpaceVim#commands#reinstall_plugin(...) abort
   if g:spacevim_plugin_manager ==# 'dein'
     call SpaceVim#plugins#manager#reinstall(a:000)
   elseif g:spacevim_plugin_manager ==# 'neobundle'
+    echohl WarningMsg | echom 'SPReinstall is not supported for neobundle (deprecated). Use dein or vim-plug.' | echohl None
   elseif g:spacevim_plugin_manager ==# 'vim-plug'
+    " vim-plug does not have a direct reinstall; use update instead
+    if a:0 == 0
+      PlugUpdate
+    else
+      exec 'PlugUpdate' join(a:000)
+    endif
   endif
 endfunction
 
@@ -151,7 +165,7 @@ function! SpaceVim#commands#clean_plugin() abort
   elseif g:spacevim_plugin_manager ==# 'neobundle'
     " @todo add SPClean support for neobundle
   elseif g:spacevim_plugin_manager ==# 'vim-plug'
-    " @todo add SPClean support for vim-plug
+    PlugClean!
   endif
 endfunction
 
@@ -169,6 +183,11 @@ function! SpaceVim#commands#install_plugin(...) abort
       call SpaceVim#plugins#manager#install(a:000)
     endif
   elseif g:spacevim_plugin_manager ==# 'vim-plug'
+    if a:0 == 0
+      PlugInstall
+    else
+      exec 'PlugInstall' join(a:000)
+    endif
   endif
 endfunction
 

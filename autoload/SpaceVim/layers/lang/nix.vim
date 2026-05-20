@@ -1,6 +1,6 @@
 "=============================================================================
 " nix.vim --- nix language support for SpaceVim
-" Copyright (c) 2016-2023 Wang Shidong & Contributors
+" Copyright (c) 2016-2025 Wang Shidong & Contributors
 " Author: Ben Gamari <ben@smart-cactus.org>
 " URL: https://spacevim.org
 " License: GPLv3

@@ -1,6 +1,6 @@
 "=============================================================================
 " plugins.vim --- plugin wrapper
-" Copyright (c) 2016-2023 Wang Shidong & Contributors
+" Copyright (c) 2016-2025 Wang Shidong & Contributors
 " Author: Wang Shidong < wsdjeg@outlook.com >
 " URL: https://spacevim.org
 " License: GPLv3
@@ -101,6 +101,12 @@ function! s:disable_plugins(plugin_list) abort
     for name in a:plugin_list
       call neobundle#config#disable(name)
     endfor
+  elseif g:spacevim_plugin_manager ==# 'vim-plug'
+    for name in a:plugin_list
+      if has_key(get(g:, 'plugs', {}), name)
+        call remove(g:plugs, name)
+      endif
+    endfor
   endif
 endfunction
 
@@ -119,6 +125,7 @@ function! s:install_manager() abort
   endif
   " auto install plugin manager
   if g:spacevim_plugin_manager ==# 'neobundle'
+    call SpaceVim#logger#warn('neobundle is deprecated by its author (Shougo). Consider switching to dein (default) or vim-plug.', 0)
     let g:_spacevim_neobundle_installed = 1
     let &rtp .= ',' . g:_spacevim_root_dir . 'bundle/neobundle.vim/'
   elseif g:spacevim_plugin_manager ==# 'dein'
@@ -194,6 +201,13 @@ function! SpaceVim#plugins#end() abort
     call dein#call_hook('source')
   elseif g:spacevim_plugin_manager ==# 'vim-plug'
     call plug#end()
+    " Load deferred plugin configs for vim-plug
+    if exists('s:vim_plug_loadconf_list')
+      for bundle_name in s:vim_plug_loadconf_list
+        call SpaceVim#util#loadConfig('plugins/' . s:get_config_name(bundle_name) . '.vim')
+      endfor
+      unlet s:vim_plug_loadconf_list
+    endif
   endif
 endfunction
 
@@ -208,6 +222,11 @@ function! SpaceVim#plugins#defind_hooks(bundle) abort
     call dein#config(g:dein#name, {
           \ 'hook_source' : "call SpaceVim#util#loadConfig('plugins/" . s:get_config_name(g:dein#name) . "')"
           \ })
+  elseif g:spacevim_plugin_manager ==# 'vim-plug'
+    if !exists('s:vim_plug_loadconf_list')
+      let s:vim_plug_loadconf_list = []
+    endif
+    call add(s:vim_plug_loadconf_list, a:bundle)
   endif
 endfunction
 
@@ -222,7 +241,7 @@ function! s:get_config_name(name) abort
   else
     return a:name . '.vim'
   endif
-  
+
 endfunction
 
 
@@ -285,6 +304,8 @@ function! SpaceVim#plugins#tap(plugin) abort
     return neobundle#tap(a:plugin)
   elseif g:spacevim_plugin_manager ==# 'dein'
     return dein#tap(a:plugin)
+  elseif g:spacevim_plugin_manager ==# 'vim-plug'
+    return has_key(get(g:, 'plugs', {}), a:plugin)
   endif
 endfunction
 

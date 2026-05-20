@@ -1,0 +1,306 @@
+{
+    "$help": "https://aka.ms/terminal-documentation",
+    "$schema": "https://aka.ms/terminal-profiles-schema",
+    "actions": 
+    [
+        {
+            "command": 
+            {
+                "action": "copy",
+                "singleLine": false
+            },
+            "id": "User.copy.644BA8F2"
+        },
+        {
+            "command": "paste",
+            "id": "User.paste"
+        },
+        {
+            "command": "find",
+            "id": "User.find"
+        },
+        {
+            "command": 
+            {
+                "action": "splitPane",
+                "split": "auto",
+                "splitMode": "duplicate"
+            },
+            "id": "User.splitPane.A6751878"
+        }
+    ],
+    "alwaysShowNotificationIcon": false,
+    "alwaysShowTabs": true,
+    "copyFormatting": "none",
+    "copyOnSelect": false,
+    "defaultProfile": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
+    "initialRows": 35,
+    "keybindings": 
+    [
+        {
+            "id": "User.paste",
+            "keys": "ctrl+v"
+        },
+        {
+            "id": "User.find",
+            "keys": "ctrl+shift+f"
+        },
+        {
+            "id": "Terminal.CloseOtherTabs",
+            "keys": "ctrl+alt+w"
+        },
+        {
+            "id": "User.copy.644BA8F2",
+            "keys": "ctrl+c"
+        },
+        {
+            "id": "User.splitPane.A6751878",
+            "keys": "alt+shift+d"
+        }
+    ],
+    "launchMode": "default",
+    "newTabMenu": 
+    [
+        {
+            "type": "remainingProfiles"
+        }
+    ],
+    "profiles": 
+    {
+        "defaults": 
+        {
+            "colorScheme": "Solarized Dark",
+            "experimental.retroTerminalEffect": false,
+            "font": 
+            {
+                "face": "Cascadia Code"
+            },
+            "startingDirectory": "%USERPROFILE%\\Downloads",
+            "useAcrylic": true
+        },
+        "list": 
+        [
+            {
+                "colorScheme": "Solarized Dark Higher Contrast",
+                "commandline": "pwsh",
+                "experimental.retroTerminalEffect": false,
+                "font": 
+                {
+                    "face": "Cascadia Code"
+                },
+                "guid": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
+                "hidden": false,
+                "icon": "ms-appx:///ProfileIcons/pwsh.png",
+                "name": "PWSH",
+                "opacity": 80,
+                "source": "Windows.Terminal.PowershellCore",
+                "suppressApplicationTitle": true,
+                "tabTitle": "PWSH"
+            },
+            {
+                "colorScheme": "Solarized Dark Higher Contrast",
+                "commandline": "powershell",
+                "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+                "hidden": false,
+                "name": "PowerShell",
+                "startingDirectory": "%USERPROFILE%",
+                "suppressApplicationTitle": true,
+                "tabTitle": "Powershell"
+            },
+            {
+                "colorScheme": "Campbell",
+                "commandline": "cmd",
+                "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
+                "hidden": false,
+                "icon": "ms-appx:///ProfileIcons/{0caa0dad-35be-5f56-a8ff-afceeeaa6101}.png",
+                "name": "CMD",
+                "opacity": 80,
+                "suppressApplicationTitle": true,
+                "tabTitle": "CMD"
+            },
+            {
+                "colorScheme": "Solarized Dark",
+                "commandline": "bash",
+                "guid": "{c9e8fed1-223c-4cba-a382-bae63727a5cd}",
+                "hidden": false,
+                "icon": "%USERPROFILE%\\scoop\\apps\\git\\current\\usr\\share\\git\\git-for-windows.ico",
+                "name": "Git Bash",
+                "startingDirectory": "%userprofile%\\GitHub",
+                "suppressApplicationTitle": true,
+                "tabTitle": "Git Bash"
+            },
+            {
+                "altGrAliasing": true,
+                "antialiasingMode": "grayscale",
+                "closeOnExit": "automatic",
+                "colorScheme": "Solarized Dark",
+                "commandline": "IPython",
+                "cursorShape": "bar",
+                "font": 
+                {
+                    "size": 12
+                },
+                "guid": "{7c8d4647-f337-446a-8754-8a020dbcd381}",
+                "hidden": false,
+                "historySize": 9001,
+                "icon": "%LocalAppData%\\TotalCMD64\\User\\Icons\\ipython.ico",
+                "name": "IPython",
+                "padding": "8, 8, 8, 8",
+                "snapOnInput": true,
+                "startingDirectory": "%USERPROFILE%\\Downloads",
+                "suppressApplicationTitle": true,
+                "tabTitle": "IPython"
+            },
+            {
+                "commandline": "%ProgramFiles%\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\Roslyn\\csi.exe",
+                "guid": "{50080500-5e06-4c88-bf2b-60bcf6ff4b47}",
+                "hidden": false,
+                "icon": "%LocalAppData%\\TotalCMD64\\User\\Icons\\CSharp_Interactive.png",
+                "name": "C# Interactive",
+                "tabTitle": "C#"
+            },
+            {
+                "altGrAliasing": true,
+                "antialiasingMode": "grayscale",
+                "closeOnExit": "automatic",
+                "commandline": "node",
+                "cursorShape": "bar",
+                "font": 
+                {
+                    "size": 12
+                },
+                "guid": "{3a348d4e-3dcb-47f9-972f-40cee8a37f63}",
+                "hidden": false,
+                "historySize": 9001,
+                "icon": "%LocalAppData%\\TotalCMD64\\User\\Icons\\nodejs.ico",
+                "name": "Node.js",
+                "padding": "8, 8, 8, 8",
+                "snapOnInput": true,
+                "startingDirectory": "%USERPROFILE%\\Downloads",
+                "suppressApplicationTitle": true,
+                "tabTitle": "Node.js"
+            },
+            {
+                "commandline": "lua",
+                "guid": "{ce34cc8f-43d9-4f4b-acdb-e60c16a0298e}",
+                "hidden": false,
+                "icon": "%LocalAppData%\\TotalCMD64\\User\\Icons\\lua.ico",
+                "name": "Lua",
+                "startingDirectory": "%USERPROFILE%\\Downloads",
+                "suppressApplicationTitle": true,
+                "tabTitle": "Lua"
+            },
+            {
+                "colorScheme": "Solarized Dark Higher Contrast",
+                "commandline": "vim",
+                "experimental.retroTerminalEffect": false,
+                "font": 
+                {
+                    "face": "Cascadia Code"
+                },
+                "guid": "{b8ba2679-20ab-4764-9e46-071d59268ba9}",
+                "hidden": false,
+                "icon": "%LocalAppData%\\TotalCMD64\\User\\Icons\\vim.ico",
+                "name": "Vim",
+                "opacity": 80,
+                "startingDirectory": "%USERPROFILE%\\Downloads",
+                "suppressApplicationTitle": true,
+                "tabTitle": "Vim"
+            },
+            {
+                "colorScheme": "Solarized Dark Higher Contrast",
+                "commandline": "pwsh -NoExit -File \"%USERPROFILE%\\GitHub\\CompilePatentAssistant\\PatentAssistantVenv\\Scripts\\Activate.ps1\"",
+                "experimental.retroTerminalEffect": false,
+                "font": 
+                {
+                    "face": "Cascadia Code"
+                },
+                "guid": "{02318e24-3ed0-49a1-b652-5057499b6555}",
+                "hidden": false,
+                "icon": "ms-appx:///ProfileIcons/pwsh.png",
+                "name": "PWSH PatentAssistantVenv",
+                "opacity": 80,
+                "suppressApplicationTitle": true,
+                "tabTitle": "PWSH"
+            }
+        ]
+    },
+    "schemes": 
+    [
+        {
+            "background": "#1E1E1E",
+            "black": "#1E1E1E",
+            "blue": "#377375",
+            "brightBlack": "#7F7061",
+            "brightBlue": "#719586",
+            "brightCyan": "#7DB669",
+            "brightGreen": "#AAB01E",
+            "brightPurple": "#C77089",
+            "brightRed": "#F73028",
+            "brightWhite": "#E6D4A3",
+            "brightYellow": "#F7B125",
+            "cursorColor": "#FFFFFF",
+            "cyan": "#578E57",
+            "foreground": "#E6D4A3",
+            "green": "#868715",
+            "name": "Gruvbox Dark",
+            "purple": "#A04B73",
+            "red": "#BE0F17",
+            "selectionBackground": "#FFFFFF",
+            "white": "#978771",
+            "yellow": "#CC881A"
+        },
+        {
+            "background": "#121212",
+            "black": "#121212",
+            "blue": "#1080D0",
+            "brightBlack": "#555555",
+            "brightBlue": "#00AFFF",
+            "brightCyan": "#51CEFF",
+            "brightGreen": "#B1E05F",
+            "brightPurple": "#AF87FF",
+            "brightRed": "#F6669D",
+            "brightWhite": "#FFFFFF",
+            "brightYellow": "#FFF26D",
+            "cursorColor": "#FFFFFF",
+            "cyan": "#43A8D0",
+            "foreground": "#BBBBBB",
+            "green": "#98E123",
+            "name": "Molokai",
+            "purple": "#8700FF",
+            "red": "#FA2573",
+            "selectionBackground": "#FFFFFF",
+            "white": "#BBBBBB",
+            "yellow": "#DFD460"
+        },
+        {
+            "background": "#001E27",
+            "black": "#002831",
+            "blue": "#2176C7",
+            "brightBlack": "#006488",
+            "brightBlue": "#178EC8",
+            "brightCyan": "#00B39E",
+            "brightGreen": "#51EF84",
+            "brightPurple": "#E24D8E",
+            "brightRed": "#F5163B",
+            "brightWhite": "#FCF4DC",
+            "brightYellow": "#B27E28",
+            "cursorColor": "#FFFFFF",
+            "cyan": "#259286",
+            "foreground": "#9CC2C3",
+            "green": "#6CBE6C",
+            "name": "Solarized Dark Higher Contrast",
+            "purple": "#C61C6F",
+            "red": "#D11C24",
+            "selectionBackground": "#FFFFFF",
+            "white": "#EAE3CB",
+            "yellow": "#A57706"
+        }
+    ],
+    "showTabsInTitlebar": true,
+    "showTerminalTitleInTitlebar": true,
+    "theme": "dark",
+    "themes": [],
+    "useAcrylicInTabRow": true,
+    "windowingBehavior": "useExisting"
+}

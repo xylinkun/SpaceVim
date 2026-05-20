@@ -9,10 +9,10 @@
 [Documentation](https://spacevim.org/documentation/) \|
 [Layers](https://spacevim.org/layers/)
 
-[![build](https://img.shields.io/github/actions/workflow/status/SpaceVim/SpaceVim/check.yml?branch=master)](https://github.com/SpaceVim/SpaceVim/actions/workflows/check.yml?query=branch%3Amaster)
+[![build](https://img.shields.io/github/actions/workflow/status/xylinkun/SpaceVim/check.yml?branch=master)](https://github.com/xylinkun/SpaceVim/actions/workflows/check.yml?query=branch%3Amaster)
 [![Codecov coverage](https://img.shields.io/codecov/c/github/SpaceVim/SpaceVim.svg)](https://codecov.io/gh/SpaceVim/SpaceVim)
-[![Release](https://img.shields.io/badge/Release-2.4.0-8700FF.svg)](https://spacevim.org/SpaceVim-release-v2.4.0/)
-[![GPLv3 License](https://img.shields.io/badge/license-GPLv3-blue.svg)](https://github.com/SpaceVim/SpaceVim/blob/master/LICENSE)
+[![Release](https://img.shields.io/badge/Release-2.5.0--dev-8700FF.svg)](https://github.com/xylinkun/SpaceVim)
+[![GPLv3 License](https://img.shields.io/badge/license-GPLv3-blue.svg)](https://github.com/xylinkun/SpaceVim/blob/master/LICENSE)
 
 ![work-flow](https://img.spacevim.org/workflow.png)
 

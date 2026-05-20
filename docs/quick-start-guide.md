@@ -36,7 +36,7 @@ If you are using a terminal emulator, you will need to set the font in the termi
 ### Linux and macOS
 
 ```bash
-curl -sLf https://spacevim.org/install.sh | bash
+curl -sLf https://raw.githubusercontent.com/xylinkun/SpaceVim/master/docs/install.sh | bash
 ```
 
 After SpaceVim is installed, launch `nvim` or `vim`,
@@ -45,7 +45,7 @@ all plugins will be downloaded **automatically**.
 For more info about the install script, please check:
 
 ```bash
-curl -sLf https://spacevim.org/install.sh | bash -s -- -h
+curl -sLf https://raw.githubusercontent.com/xylinkun/SpaceVim/master/docs/install.sh | bash -s -- -h
 ```
 
 By default the latest version of SpaceVim will be installed.

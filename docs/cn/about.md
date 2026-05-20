@@ -16,7 +16,7 @@ lang: zh
 
 ## 起源
 
-起源于 2016 年 12 月份，目前主要由 [Eric Wong](https://wsdjeg.net) 在维护。
+起源于 2016 年 12 月份，由 Wang Shidong (Eric Wong) 创建，目前主要由 [@xylinkun](https://github.com/xylinkun) 在维护。
 
 ```diff
 commit 0c95bd8987c124837afef9a271e1b3c4c19a449b

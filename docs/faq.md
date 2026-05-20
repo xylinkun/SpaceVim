@@ -39,10 +39,10 @@ and the directory `~/.vim` also will be renamed to `~/.vim_back`.
 ### How to uninstall SpaceVim?
 
 The installation script does not remove your vimrc, it just changes the name from `~/.vim` to `~/.vim_back`.
-and if you uninstalll SpaceVim, your vimrc will come back. you can run:
+and if you uninstall SpaceVim, your vimrc will come back. you can run:
 
 ```
-curl -sLf https://spacevim.org/install.sh | bash -s -- --uninstall
+curl -sLf https://raw.githubusercontent.com/xylinkun/SpaceVim/master/docs/install.sh | bash -s -- --uninstall
 ```
 
 ### How to install SpaceVim manually?
@@ -51,7 +51,7 @@ The following section will document how to install SpaceVim manually on Linux.
 First, you need to clone the repository to `~/.SpaceVim`.
 
 ```
-git clone https://spacevim.org/git/repos/SpaceVim/ ~/.SpaceVim
+git clone https://github.com/xylinkun/SpaceVim.git ~/.SpaceVim
 ```
 
 Then, backup your old Neovim/Vim configuration file:
@@ -81,7 +81,7 @@ overwriting your own Vim configuration you can:
 Clone SpaceVim manually.
 
 ```sh
-git clone https://spacevim.org/git/repos/SpaceVim/ ~/.SpaceVim
+git clone https://github.com/xylinkun/SpaceVim.git ~/.SpaceVim
 ```
 
 Then, start Vim via `vim -u ~/.SpaceVim/vimrc`. You can also put this alias into your bashrc.

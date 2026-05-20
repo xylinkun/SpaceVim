@@ -6,11 +6,14 @@ lang: zh
 
 # 赞助
 
-SpaceVim 是一个开源项目，目前主要由 [Eric Wong](https://wsdjeg.net) 在维护。如果你认为 SpaceVim 对你有所帮助，想赞助支持 SpaceVim，或者想给作者买杯咖啡，可以通过如下方式：
+SpaceVim 是一个开源项目，由 [Eric Wong](https://github.com/wsdjeg) 创建，目前主要由 [@xylinkun](https://github.com/xylinkun) 在维护。如果你认为 SpaceVim 对你有所帮助，想赞助支持 SpaceVim，可以通过如下方式：
 
-- PayPal：[paypal.me/SpaceVim](https://paypal.me/SpaceVim)
-- [opencollective](https://opencollective.com/spacevim)
-- 通过微信或者支付宝
+**原作者 (Eric Wong)：**
 
-<img src="https://spacevim.org/img/weixin.png" height="300" width="300">
-<img src="https://spacevim.org/img/zhifubao.png" height="300" width="300">
+<img src="https://raw.githubusercontent.com/xylinkun/SpaceVim/master/docs/img/wsdjeg_weixin.png" height="300" width="300">
+<img src="https://raw.githubusercontent.com/xylinkun/SpaceVim/master/docs/img/wsdjeg_zhifubao.png" height="300" width="300">
+
+**当前维护者 (@xylinkun)：**
+
+<img src="https://raw.githubusercontent.com/xylinkun/SpaceVim/master/docs/img/xylinkun_weixin.jpg" height="300" width="300">
+<img src="https://raw.githubusercontent.com/xylinkun/SpaceVim/master/docs/img/xylinkun_zhifubao.jpg" height="300" width="300">

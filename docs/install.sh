@@ -144,7 +144,7 @@ fetch_repo () {
         success "Successfully update SpaceVim"
     else
         info "Trying to clone SpaceVim"
-        git clone --depth 1 https://github.com/wsdjeg/SpaceVim.git "${XDGSpaceDir:-}"
+        git clone --depth 1 https://github.com/xylinkun/SpaceVim.git "${XDGSpaceDir:-}"
         info "fetch spacevim tags"
         (
             cd "${XDGSpaceDir:?}"
@@ -284,7 +284,7 @@ check_requirements () {
 usage () {
     echo "SpaceVim install script : V ${Version}"
     echo ""
-    echo "Usage : curl -sLf https://spacevim.org/install.sh | bash -s -- [option] [target]"
+    echo "Usage : curl -sLf https://raw.githubusercontent.com/xylinkun/SpaceVim/master/docs/install.sh | bash -s -- [option] [target]"
     echo ""
     echo "  This is bootstrap script for SpaceVim."
     echo ""
@@ -300,16 +300,16 @@ usage () {
     echo ""
     echo "    Install SpaceVim for vim and neovim"
     echo ""
-    echo "        curl -sLf https://spacevim.org/install.sh | bash"
+    echo "        curl -sLf https://raw.githubusercontent.com/xylinkun/SpaceVim/master/docs/install.sh | bash"
     echo ""
     echo "    Install SpaceVim for vim only or neovim only"
     echo ""
-    echo "        curl -sLf https://spacevim.org/install.sh | bash -s -- --install vim"
-    echo "        curl -sLf https://spacevim.org/install.sh | bash -s -- --install neovim"
+    echo "        curl -sLf https://raw.githubusercontent.com/xylinkun/SpaceVim/master/docs/install.sh | bash -s -- --install vim"
+    echo "        curl -sLf https://raw.githubusercontent.com/xylinkun/SpaceVim/master/docs/install.sh | bash -s -- --install neovim"
     echo ""
     echo "    Uninstall SpaceVim"
     echo ""
-    echo "        curl -sLf https://spacevim.org/install.sh | bash -s -- --uninstall"
+    echo "        curl -sLf https://raw.githubusercontent.com/xylinkun/SpaceVim/master/docs/install.sh | bash -s -- --uninstall"
 }
 # }}}
 

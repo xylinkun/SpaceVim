@@ -136,7 +136,7 @@ The file header for Vim script should look like the following template:
 ```vim
 "=============================================================================
 " FILENAME --- NAME layer file for SpaceVim
-" Copyright (c) 2016-2023 Wang Shidong & Contributors
+" Copyright (c) 2016-2025 Wang Shidong & Contributors
 " Author: Wang Shidong < wsdjeg@outlook.com >
 " URL: https://spacevim.org
 " License: GPLv3
@@ -158,7 +158,7 @@ The following example shows how to create a new layer named `foo`:
 ```vim
 "=============================================================================
 " foo.vim --- foo Layer file for SpaceVim
-" Copyright (c) 2012-2022 Shidong Wang & Contributors
+" Copyright (c) 2016-2025 Shidong Wang & Contributors
 " Author: Shidong Wang < wsdjeg@outlook.com >
 " URL: https://spacevim.org
 " License: GPLv3

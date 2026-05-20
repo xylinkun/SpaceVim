@@ -15,7 +15,7 @@ description: "The goals, credits and contact information about SpaceVim."
 
 ## History
 
-This project started in December 2016, and currently maintained by [Eric Wong](https://wsdjeg.net).
+This project started in December 2016, originally created by Wang Shidong (Eric Wong), and currently maintained by [@xylinkun](https://github.com/xylinkun).
 
 ```diff
 commit 0c95bd8987c124837afef9a271e1b3c4c19a449b
