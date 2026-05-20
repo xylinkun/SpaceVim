@@ -2604,6 +2604,8 @@ endfunction
 "    SPC x a ¦       | align region at ¦
 "    SPC x a <Bar>   | align region at \|
 "    SPC x a SPC     | align region at [SPC]
+"    SPC x a a       | align region using default rules
+"    SPC x a c       | align current indentation region using default rules
 "    SPC x a r       | align region at user-specified regexp
 "    SPC x a o       | align region at operators  +-*/  etc
 "    SPC x c         | count the number of chars/words/lines in the region
@@ -2631,6 +2633,8 @@ endfunction
 "    SPC x l S       | sort lines (case-senstive)
 "    SPC x l u       | uniquify lines (ignorecase)
 "    SPC x l U       | uniquify lines (case-senstive)
+"    SPC x o         | open URL under cursor
+"    SPC x O         | select and open URL in buffer
 "    SPC x t c       | swap (transpose) the current character with previous one
 "    SPC x t C       | swap (transpose) the current character with next one
 "    SPC x t w       | swap (transpose) the current word with previous one

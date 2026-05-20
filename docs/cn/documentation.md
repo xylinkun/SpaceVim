@@ -1068,8 +1068,8 @@ call SpaceVim#custom#SPC('nnoremap', ['f', 't'], 'echom "hello world"', 'test cu
 | `SPC x a ¦`      | 基于分隔符 ¦ 进行文本对齐                                          |
 | `SPC x a <bar> ` | 基于分隔符 \| 进行文本对齐                                         |
 | `SPC x a SPC`    | 基于分隔符 <Space> 进行文本对齐                                    |
-| `SPC x a a`      | align region (or guessed section) using default rules (TODO)       |
-| `SPC x a c`      | align current indentation region using default rules (TODO)        |
+| `SPC x a a`      | 使用默认规则对齐区域                                     |
+| `SPC x a c`      | 使用默认规则对齐当前缩进区域                             |
 | `SPC x a l`      | left-align with evil-lion (TODO)                                   |
 | `SPC x a L`      | right-align with evil-lion (TODO)                                  |
 | `SPC x a r`      | 基于用户自定义正则表达式进行文本对齐                               |
@@ -1101,8 +1101,8 @@ call SpaceVim#custom#SPC('nnoremap', ['f', 't'], 'echom "hello world"', 'test cu
 | `SPC x l S`      | 排序多行文档 (大小写敏感)                                          |
 | `SPC x l u`      | 去除重复的行 (忽略大小写)                                          |
 | `SPC x l U`      | 去除重复的行 (大小写敏感)                                          |
-| `SPC x o`        | use avy to select a link in the frame and open it (TODO)           |
-| `SPC x O`        | use avy to select multiple links in the frame and open them (TODO) |
+| `SPC x o`        | 打开光标下的链接                                         |
+| `SPC x O`        | 选择并打开当前缓冲区中的链接                             |
 | `SPC x t c`      | 交换当前字符和前一个字符的位置                                     |
 | `SPC x t C`      | 交换当前字符和后一个字符的位置                                     |
 | `SPC x t w`      | 交换当前单词和前一个单词的位置                                     |

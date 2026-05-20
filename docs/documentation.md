@@ -1149,8 +1149,8 @@ Text related commands (start with `x`):
 | `SPC x a ¦`      | align region at ¦                                                  |
 | `SPC x a <Bar> ` | align region at \|                                                 |
 | `SPC x a SPC`    | align region at [SPC]                                              |
-| `SPC x a a`      | align region (or guessed section) using default rules (TODO)       |
-| `SPC x a c`      | align current indentation region using default rules (TODO)        |
+| `SPC x a a`      | align region (or guessed section) using default rules       |
+| `SPC x a c`      | align current indentation region using default rules        |
 | `SPC x a l`      | left-align with evil-lion (TODO)                                   |
 | `SPC x a L`      | right-align with evil-lion (TODO)                                  |
 | `SPC x a r`      | align region at user-specified regexp                              |
@@ -1182,8 +1182,8 @@ Text related commands (start with `x`):
 | `SPC x l S`      | sort lines (case-senstive)                                         |
 | `SPC x l u`      | uniquify lines (ignorecase)                                        |
 | `SPC x l U`      | uniquify lines (case-senstive)                                     |
-| `SPC x o`        | use avy to select a link in the frame and open it (TODO)           |
-| `SPC x O`        | use avy to select multiple links in the frame and open them (TODO) |
+| `SPC x o`        | open URL under cursor                                       |
+| `SPC x O`        | select and open URL in buffer                               |
 | `SPC x t c`      | swap (transpose) the current character with the previous one       |
 | `SPC x t C`      | swap (transpose) the current character with the next one           |
 | `SPC x t w`      | swap (transpose) the current word with the previous one            |

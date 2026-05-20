@@ -211,10 +211,15 @@ function! SpaceVim#layers#edit#config() abort
   call SpaceVim#mapping#space#def('nnoremap', ['x', 'a', ':'], 'Tabularize /:', 'align region at :', 1, 1)
   call SpaceVim#mapping#space#def('nnoremap', ['x', 'a', ';'], 'Tabularize /;', 'align region at ;', 1, 1)
   call SpaceVim#mapping#space#def('nnoremap', ['x', 'a', '='], 'Tabularize /===\|<=>\|\(&&\|||\|<<\|>>\|\/\/\)=\|=\~[#?]\?\|=>\|[:+/*!%^=><&|.?-]\?=[#?]\?/l1r1', 'align region at =', 1, 1)
-  call SpaceVim#mapping#space#def('nnoremap', ['x', 'a', 'o'], 'Tabularize /&&\|||\|\.\.\|\*\*\|<<\|>>\|\/\/\|[-+*/.%^><&|?]/l1r1', 'align-region-at-operator, such as +,-,*,/,%,^,etc', 1, 1)
+  call SpaceVim#mapping#space#def('nnoremap', ['x', 'a', 'o'], 'Tabularize /&&\|||\|\.\.\|\*\*\|<<\|>>\|\/\/\|[-+*/.%^><&|?]/l1r1', 'align region at operator, such as +,-,*,/,%,^,etc', 1, 1)
   call SpaceVim#mapping#space#def('nnoremap', ['x', 'a', '¦'], 'Tabularize /¦', 'align region at ¦', 1, 1)
   call SpaceVim#mapping#space#def('nnoremap', ['x', 'a', '<Bar>'], 'Tabularize /[|｜]', 'align region at |', 1, 1)
   call SpaceVim#mapping#space#def('nmap', ['x', 'a', '[SPC]'], 'Tabularize /\s\ze\S/l0', 'align region at space', 1, 1)
+  call SpaceVim#mapping#space#def('nnoremap', ['x', 'a', 'a'],
+        \ "Tabularize /\S\+/l0r0", 'align region using default rules', 1, 1)
+  call SpaceVim#mapping#space#def('nnoremap', ['x', 'a', 'c'],
+        \ 'call feedkeys("vii") | Tabularize /\S\+/l0r0',
+        \ 'align current indentation region', 1, 1)
   nmap <Space>xa<Space> [SPC]xa[SPC]
   call SpaceVim#mapping#space#def('nnoremap', ['x', 'a', 'r'], 'call call('
         \ . string(s:_function('s:align_at_regular_expression')) . ', [])',
@@ -269,6 +274,14 @@ function! SpaceVim#layers#edit#config() abort
         \ . string(s:_function('s:rigid_indent')) . ', [])',
         \ 'rigid indent region (enter transient state)', 1)
   vmap <Space>x<Tab> >gv
+
+  " open URL
+  call SpaceVim#mapping#space#def('nnoremap', ['x', 'o'], 'call call('
+        \ . string(s:_function('s:open_url')) . ', [0])',
+        \ 'open URL under cursor', 1)
+  call SpaceVim#mapping#space#def('nnoremap', ['x', 'O'], 'call call('
+        \ . string(s:_function('s:open_url')) . ', [1])',
+        \ 'select and open URL in buffer', 1)
 
   nnoremap <silent> <Plug>Lowercase  :call <SID>toggle_case(0, -1)<Cr>
   vnoremap <silent> <Plug>Lowercase  :call <SID>toggle_case(1, -1)<Cr>
@@ -567,6 +580,43 @@ function! s:rigid_indent() abort
         \ }
         \ )
   call state.open()
+endfunction
+
+function! s:open_url(multiple) abort
+  if a:multiple
+    let l:urls = []
+    for l:line in getline(1, '$')
+      let l:matches = matchlist(l:line, '\v(https?://|www\.)[^][(){} \t"'"'']*')
+      if !empty(l:matches)
+        call add(l:urls, l:matches[0])
+      endif
+    endfor
+    if empty(l:urls)
+      echohl WarningMsg | echo 'No URLs found in buffer' | echohl None
+      return
+    endif
+    let l:choice = inputlist(['Select URL:'] + map(copy(l:urls), {i, v -> (i+1) . '. ' . v}))
+    if l:choice > 0 && l:choice <= len(l:urls)
+      call s:do_open_url(l:urls[l:choice - 1])
+    endif
+  else
+    let l:url = expand('<cWORD>')
+    if l:url =~# '^https\?://\|^www\.'
+      call s:do_open_url(l:url)
+    else
+      echohl WarningMsg | echo 'No URL under cursor' | echohl None
+    endif
+  endif
+endfunction
+
+function! s:do_open_url(url) abort
+  if has('win32')
+    silent execute '!start ' . shellescape(a:url)
+  elseif has('mac')
+    silent execute '!open ' . shellescape(a:url)
+  else
+    silent execute '!xdg-open ' . shellescape(a:url)
+  endif
 endfunction
 
 function! s:text_transient_state() abort
