@@ -264,6 +264,12 @@ function! SpaceVim#layers#edit#config() abort
         \ . string(s:_function('s:set_justification_to')) . ', ["none"])',
         \ 'set the justification to none', 1)
 
+  " rigid indent
+  call SpaceVim#mapping#space#def('nnoremap', ['x', '<Tab>'], 'call call('
+        \ . string(s:_function('s:rigid_indent')) . ', [])',
+        \ 'rigid indent region (enter transient state)', 1)
+  vmap <Space>x<Tab> >gv
+
   nnoremap <silent> <Plug>Lowercase  :call <SID>toggle_case(0, -1)<Cr>
   vnoremap <silent> <Plug>Lowercase  :call <SID>toggle_case(1, -1)<Cr>
   nnoremap <silent> <Plug>Uppercase  :call <SID>toggle_case(0, 1)<Cr>
@@ -535,6 +541,32 @@ function! s:move_text_up_transient_state() abort
     let @" = l:save_register
   endif
   call s:text_transient_state()
+endfunction
+
+function! s:rigid_indent() abort
+  normal! >>
+  let state = SpaceVim#api#import('transient_state')
+  call state.set_title('Rigid Indent Transient State')
+  call state.defind_keys(
+        \ {
+        \ 'layout' : 'vertical split',
+        \ 'left' : [
+        \ {
+        \ 'key' : '>',
+        \ 'desc' : 'indent',
+        \ 'func' : '',
+        \ 'cmd' : ">>",
+        \ },
+        \ {
+        \ 'key' : '<',
+        \ 'desc' : 'dedent',
+        \ 'func' : '',
+        \ 'cmd' : "<<",
+        \ },
+        \ ],
+        \ }
+        \ )
+  call state.open()
 endfunction
 
 function! s:text_transient_state() abort

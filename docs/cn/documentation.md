@@ -1114,7 +1114,7 @@ call SpaceVim#custom#SPC('nnoremap', ['f', 't'], 'echom "hello world"', 'test cu
 | `SPC x ~`        | 切换字符的大小写                                                   |
 | `SPC x w c`      | 统计选中区域的单词数                                               |
 | `SPC x w d`      | show dictionary entry of word from wordnik.com (TODO)              |
-| `SPC x <Tab>`    | indent or dedent a region rigidly (TODO)                           |
+| `SPC x <Tab>`    | 对选中区域进行刚性缩进                                   |
 
 #### 文本插入命令
 

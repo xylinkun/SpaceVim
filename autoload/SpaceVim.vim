@@ -2639,6 +2639,7 @@ endfunction
 "    SPC x u         | lowercase text
 "    SPC x U         | uppercase text
 "    SPC x ~         | toggle case text
+"    SPC x <Tab>     | indent or dedent a region rigidly
 "    SPC x w c       | count the words in the select region
 " <
 " @subsection Text insertion commands

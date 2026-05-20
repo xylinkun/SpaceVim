@@ -1195,7 +1195,7 @@ Text related commands (start with `x`):
 | `SPC x ~`        | toggle case text                                                   |
 | `SPC x w c`      | count the words in the select region                               |
 | `SPC x w d`      | show dictionary entry of word from wordnik.com (TODO)              |
-| `SPC x <Tab>`    | indent or dedent a region rigidly (TODO)                           |
+| `SPC x <Tab>`    | indent or dedent a region rigidly                           |
 
 #### Text insertion commands
 
