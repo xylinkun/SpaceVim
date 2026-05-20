@@ -42,7 +42,7 @@ endif
 " @parentsection usage
 " The default filetree is `nerdtree`, and the default key binding is `<F3>`.
 " SpaceVim also provides `SPC f t` and `SPC f T` to open the file tree.
-" 
+"
 " The option @section(options-filemanager) can be used to change file
 " manager plugin. For example:
 " >
@@ -54,7 +54,7 @@ endif
 "     # - neo-tree: require neovim 0.7.0
 "     filemanager = "nerdtree"
 " <
-" 
+"
 " VCS integration is also supported, there will be a column status,
 " this feature may make filetree slow, so it is not enabled by default.
 " To enable this feature, add the layer option `enable_filetree_gitstatus = true`
@@ -64,7 +64,7 @@ endif
 "     name = 'core'
 "     enable_filetree_gitstatus = true
 " <
-" 
+"
 " There is also an option to configure whether open filetree when startup.
 " This is enabled by defaul, To disable this feature, you can set the
 " @section(options-enable_vimfiler_welcome) to false:
@@ -72,7 +72,7 @@ endif
 "   [options]
 "     enable_vimfiler_welcome = false
 " <
-" 
+"
 " There is also an option to configure the side of the file tree,
 " by default it is right. To move the file tree to the left,
 " you can use the option: @section(options-filetree_direction).
@@ -80,9 +80,9 @@ endif
 "   [options]
 "     filetree_direction = "left"
 " <
-" 
+"
 " @subsection File tree navigation
-" 
+"
 " Navigation is centered on the `hjkl` keys with the hope of providing
 " a fast navigation experience like in vifm(https://github.com/vifm):
 " >
@@ -122,9 +122,9 @@ endif
 "    Ctrl-h               | Switch to project root directory
 "    Ctrl-r               | Redraw
 " <
-" 
+"
 " @subsection Open file with file tree.
-" 
+"
 " If only one file buffer is opened, a file is opened in the active window,
 " otherwise we need to use vim-choosewin to select a window to open the file.
 " >
@@ -135,7 +135,7 @@ endif
 "    s v            | open file in a horizontally split window
 " <
 " @subsection Override filetree key bindings
-" 
+"
 " If you want to override the default key bindings in filetree windows.
 " You can use User autocmd in bootstrap function. for examples:
 " >
@@ -145,9 +145,9 @@ endif
 "           \ g:NERDTreeKeyMap.Invoke('o')<CR>
 "   endfunction
 " <
-" 
+"
 " Here is all the autocmd for filetree:
-" 
+"
 " - nerdtree: `User NerdTreeInit`
 " - defx: `User DefxInit`
 " - vimfiler: `User VimfilerInit`
@@ -557,14 +557,12 @@ function! SpaceVim#layers#core#config() abort
   call SpaceVim#mapping#space#def('nnoremap', ['p', '/'], 'Grepper', 'fuzzy search for text in current project', 1)
   call SpaceVim#mapping#space#def('nnoremap', ['q', 'q'], 'qa', 'prompt kill vim', 1)
   call SpaceVim#mapping#space#def('nnoremap', ['q', 'Q'], 'qa!', 'kill vim', 1)
-  if has('nvim') && s:SYS.isWindows
-    call SpaceVim#mapping#space#def('nnoremap', ['q', 'R'], 'call call('
-          \ . string(s:_function('s:restart_neovim_qt')) . ', [])',
-          \ 'restrat neovim qt', 1)
-  else
-    call SpaceVim#mapping#space#def('nnoremap', ['q', 'R'], '', 'restart vim(TODO)', 1)
-  endif
-  call SpaceVim#mapping#space#def('nnoremap', ['q', 'r'], '', 'restart vim resume layouts(TODO)', 1)
+  call SpaceVim#mapping#space#def('nnoremap', ['q', 'R'], 'call call('
+        \ . string(s:_function('s:restart_vim')) . ', [])',
+        \ 'restart vim', 1)
+  call SpaceVim#mapping#space#def('nnoremap', ['q', 'r'], 'call call('
+        \ . string(s:_function('s:restart_vim')) . ', [])',
+        \ 'restart vim resume layouts', 1)
   let lnum = expand('<slnum>') + s:lnum - 1
   call SpaceVim#mapping#space#def('nnoremap', ['q', 't'], 'call call('
         \ . string(s:_function('s:close_current_tab')) . ', [])',
@@ -620,11 +618,11 @@ endfunction
 
 function! s:number_transient_state(n) abort
   if a:n ==# '+'
-    exe "normal! \<c-a>" 
+    exe "normal! \<c-a>"
   else
-    exe "normal! \<c-x>" 
+    exe "normal! \<c-x>"
   endif
-  let state = SpaceVim#api#import('transient_state') 
+  let state = SpaceVim#api#import('transient_state')
   call state.set_title('Number Transient State')
   call state.defind_keys(
         \ {'layout' : 'vertical split',
@@ -870,7 +868,7 @@ function! s:move_buffer_to_nth_win(nr) abort
 endfunction
 
 function! s:buffer_transient_state() abort
-  let state = SpaceVim#api#import('transient_state') 
+  let state = SpaceVim#api#import('transient_state')
   call state.set_title('Buffer Selection Transient State')
   call state.defind_keys(
         \ {
@@ -1035,9 +1033,26 @@ function! s:comment_paragraphs(invert) abort
   endif
 endfunction
 
-" this func only for neovim-qt in windows
-function! s:restart_neovim_qt() abort
-  call system('taskkill /f /t /im nvim.exe')
+function! s:restart_vim() abort
+  let l:session = g:spacevim_data_dir . 'Session.vim'
+  silent execute 'mksession!' fnameescape(l:session)
+  " Detect GUI: gvim, nvim-qt, or terminal
+  if has('gui_running')
+    let l:prog = 'gvim'
+  elseif has('nvim') && exists('g:GuiLoaded')
+    let l:prog = 'nvim-qt'
+  elseif has('nvim')
+    let l:prog = 'nvim'
+  else
+    let l:prog = 'vim'
+  endif
+  let l:args = '-S ' . shellescape(l:session)
+  if has('win32')
+    silent execute '!start ' . l:prog . ' ' . l:args
+  else
+    silent execute '!' . l:prog . ' ' . l:args . ' &'
+  endif
+  quitall
 endfunction
 
 function! s:jump_transient_state() abort
@@ -1184,7 +1199,7 @@ function! s:explore_current_dir(cur) abort
     endif
   elseif g:spacevim_filemanager ==# 'nerdtree'
     if !a:cur
-      exe 'e ' . getcwd() 
+      exe 'e ' . getcwd()
     else
       NERDTreeCWD
     endif
