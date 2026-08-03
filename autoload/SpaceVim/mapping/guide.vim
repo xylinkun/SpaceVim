@@ -690,7 +690,7 @@ else
 
     if exists('&winhighlight')
       call s:VIM.setbufvar(s:bufnr, {
-            \ '&winhighlight' : 'Normal:Pmenu,Search:',
+            \ '&winhighlight' : 'Normal:Pmenu',
             \ })
     endif
 
